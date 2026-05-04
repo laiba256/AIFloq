@@ -291,6 +291,10 @@
     animation: floatCard 4s ease-in-out infinite;
   }
 
+  .workflow-card.social::before {
+    background: linear-gradient(90deg, var(--accent2), #059669);
+  }
+
   @keyframes floatCard {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -2059,62 +2063,107 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-grid">
     <div class="hero-content">
-      <div class="hero-badge">AI Automation Agency</div>
-      <h1>We Build Systems<br/>That Work <em>For You</em></h1>
-      <p class="hero-desc">AiFloq designs and deploys intelligent automation workflows — so your business runs smarter, faster, and without the manual grind.</p>
+
+      <!-- Dual discipline pills -->
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(14,165,233,0.12); border:1px solid rgba(14,165,233,0.3); color:var(--accent); font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px;">
+          <span style="width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;display:inline-block;"></span>
+          ⚡ AI Automation
+        </div>
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(110,231,183,0.1); border:1px solid rgba(110,231,183,0.3); color:var(--accent2); font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px;">
+          <span style="width:6px;height:6px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite 0.5s;display:inline-block;"></span>
+          📱 Social Media Marketing
+        </div>
+      </div>
+
+      <h1>Automate Your Work.<br/><em>Grow Your Brand.</em></h1>
+      <p class="hero-desc">AiFloq builds intelligent automation systems and runs high-impact social media — so your business operates smarter and grows faster, on every front.</p>
+
+      <!-- Service highlight chips -->
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem;">
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">🤖 AI Chatbots</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">⚡ n8n Workflows</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📱 Instagram & TikTok</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📈 Meta Ads</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📧 Email Automation</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">✍️ Content Strategy</span>
+      </div>
+
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Book a Free Call
         </a>
-        <a href="#portfolio" class="btn-outline">
+        <a href="#services" class="btn-outline">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          View Our Work
+          See All Services
         </a>
       </div>
     </div>
+
     <div class="hero-visual">
       <div class="hero-float-badge float-1">
         <div class="float-dot" style="background:var(--accent)"></div>
         3 workflows running
       </div>
-      <div class="workflow-card">
-        <div class="wf-header">
-          <div class="wf-dot" style="background:#0EA5E9"></div>
-          <div class="wf-dot" style="background:#6EE7B7"></div>
-          <div class="wf-dot" style="background:#F59E0B"></div>
-          <span class="wf-title">Live Automation · Active</span>
+
+      <!-- Stacked cards: automation on top, social below -->
+      <div style="display:flex; flex-direction:column; gap:1rem; width:100%; max-width:420px;">
+
+        <!-- Automation card -->
+        <div class="workflow-card" style="animation-delay:0s;">
+          <div class="wf-header">
+            <div class="wf-dot" style="background:#0EA5E9"></div>
+            <div class="wf-dot" style="background:#6EE7B7"></div>
+            <div class="wf-dot" style="background:#F59E0B"></div>
+            <span class="wf-title">Live Automation · Active</span>
+          </div>
+          <div class="wf-nodes">
+            <div class="wf-node active">📧 Email Trigger</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active">🤖 AI Model</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">📤 Auto-Reply</div>
+          </div>
+          <div class="wf-nodes" style="margin-top:0.25rem">
+            <div class="wf-node active">🎯 New Lead</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node">🔍 Qualify</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">📅 Book Demo</div>
+          </div>
+          <div class="wf-status">3 workflows running · 0 errors · last run 2s ago</div>
         </div>
-        <div class="wf-nodes">
-          <div class="wf-node active">📧 Email Trigger</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node">✏️ Parse Fields</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node active">🤖 AI Model</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node active-green">📤 Auto-Reply</div>
+
+        <!-- Social media card -->
+        <div class="workflow-card social" style="animation: floatCard 5s ease-in-out infinite reverse;">
+          <div class="wf-header">
+            <div class="wf-dot" style="background:#6EE7B7"></div>
+            <div class="wf-dot" style="background:#EC4899"></div>
+            <div class="wf-dot" style="background:#F59E0B"></div>
+            <span class="wf-title" style="color:var(--accent2);">Social Media · This Month</span>
+          </div>
+          <div class="wf-nodes">
+            <div class="wf-node active-green">📱 Instagram</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">✍️ 12 Posts</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">📈 +34% reach</div>
+          </div>
+          <div class="wf-nodes" style="margin-top:0.25rem">
+            <div class="wf-node active-green">🎯 Meta Ads</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">💰 3.2× ROAS</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">🔥 Active</div>
+          </div>
+          <div class="wf-status" style="color:var(--accent2);">Content scheduled · Ads live · Reports ready</div>
         </div>
-        <div class="wf-nodes" style="margin-top:0.25rem">
-          <div class="wf-node active">💬 WhatsApp</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node active">🧠 AI Agent</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node">🗄️ Memory</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node active-green">📤 Respond</div>
-        </div>
-        <div class="wf-nodes" style="margin-top:0.25rem">
-          <div class="wf-node active">🎯 New Lead</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node">🔍 Qualify</div>
-          <span class="wf-arrow">→</span>
-          <div class="wf-node active-green">📅 Book Demo</div>
-        </div>
-        <div class="wf-status">3 workflows running · 0 errors · last run 2s ago</div>
       </div>
+
       <div class="hero-float-badge float-2">
         <div class="float-dot" style="background:var(--accent2)"></div>
-        0 errors · Fully automated
+        Automation + Social · All-in-one
       </div>
     </div>
   </div>
@@ -2132,12 +2181,12 @@
       <div class="stat-label">Hours Saved / Month</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num">n8n</div>
-      <div class="stat-label">Primary Platform</div>
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Services Offered</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num">AI</div>
-      <div class="stat-label">GPT-4o · Gemini · Claude</div>
+      <div class="stat-num">2-in-1</div>
+      <div class="stat-label">Automation + Social Media</div>
     </div>
   </div>
 </div>
