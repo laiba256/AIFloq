@@ -1356,6 +1356,265 @@
     .review-card { grid-template-columns: 1fr; }
   }
 
+  /* ── PRICING ── */
+  #pricing { background: var(--bg); }
+
+  .pricing-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+
+  /* Featured card */
+  .pricing-card.featured {
+    border-color: rgba(14,165,233,0.45);
+    background: var(--surface2);
+    box-shadow: 0 0 0 1px rgba(14,165,233,0.15), 0 20px 60px rgba(14,165,233,0.1);
+  }
+
+  .pricing-card.featured:hover {
+    box-shadow: 0 0 0 1px rgba(14,165,233,0.3), 0 30px 80px rgba(14,165,233,0.18);
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+
+  .pricing-card.featured::before {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(14,165,233,0.12);
+    border: 1px solid rgba(14,165,233,0.3);
+    color: var(--accent);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+
+  .pricing-badge.popular {
+    background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(110,231,183,0.15));
+    border-color: rgba(110,231,183,0.4);
+    color: var(--accent2);
+  }
+
+  .pricing-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s infinite;
+  }
+
+  .pricing-tier {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-currency {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .price-amount {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .price-per {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    font-weight: 300;
+  }
+
+  .pricing-tagline {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .pricing-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1.75rem;
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.45;
+  }
+
+  .pricing-features li .feat-icon {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+    width: 16px;
+    text-align: center;
+  }
+
+  .pricing-features li.included { color: var(--text); }
+  .pricing-features li.included .feat-icon { color: var(--accent2); }
+  .pricing-features li.excluded { opacity: 0.45; }
+  .pricing-features li.excluded .feat-icon { color: var(--muted); }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-cta.outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .pricing-cta.outline:hover {
+    border-color: rgba(14,165,233,0.4);
+    background: rgba(14,165,233,0.06);
+    color: var(--accent);
+  }
+
+  .pricing-cta.solid {
+    background: linear-gradient(135deg, var(--accent), #0284c7);
+    color: white;
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .pricing-cta.solid:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(14,165,233,0.4);
+  }
+
+  /* Delivery badge */
+  .pricing-delivery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+
+  .pricing-delivery::before {
+    content: '⚡';
+    font-size: 0.7rem;
+  }
+
+  /* Note below grid */
+  .pricing-note {
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .pricing-note a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+  }
+
   /* ── TOOLS BELT (new) ── */
   #tools {
     background: var(--surface);
@@ -1887,10 +2146,104 @@
 <section id="services">
   <div class="section-header">
     <div class="section-label">What We Do</div>
-    <h2>End-to-End<br/>Automation Services</h2>
-    <p class="section-sub">From CRM pipelines to AI chatbots — we handle the full build so your team focuses on what matters.</p>
+    <h2>Two Disciplines,<br/>One Agency</h2>
+    <p class="section-sub">We combine intelligent automation with creative social media marketing — so your business grows on every front.</p>
   </div>
+
+  <!-- Category label: AI Automation -->
+  <div style="max-width:1200px; margin: 0 auto 1.5rem;">
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.25); color:var(--accent); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:100px;">⚡ AI Automation</div>
+      <div style="flex:1; height:1px; background:linear-gradient(90deg, rgba(14,165,233,0.3), transparent);"></div>
+    </div>
+  </div>
+
   <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">⚡</div>
+      <div class="service-title">Workflow Automation</div>
+      <div class="service-desc">Custom n8n and Make.com workflows that connect your tools and eliminate repetitive tasks across your entire operation. Triggers, conditions, loops — all configured for you.</div>
+      <div class="service-tags"><span class="tag">n8n</span><span class="tag">Make.com</span><span class="tag">Zapier</span><span class="tag">REST API</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🤖</div>
+      <div class="service-title">AI Chatbots & Agents</div>
+      <div class="service-desc">Intelligent WhatsApp, website, and CRM bots powered by GPT-4o and Gemini that qualify leads, answer queries, and book appointments — 24/7, zero human input.</div>
+      <div class="service-tags"><span class="tag">WhatsApp</span><span class="tag">OpenAI</span><span class="tag">Gemini</span><span class="tag">Memory</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📬</div>
+      <div class="service-title">Email Automation</div>
+      <div class="service-desc">AI-powered inbox management that reads, classifies, and replies to emails — keeping your communication fast, personal, and always on-brand.</div>
+      <div class="service-tags"><span class="tag">Gmail</span><span class="tag">IMAP</span><span class="tag">AI Reply</span><span class="tag">Inbox Zero</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🎯</div>
+      <div class="service-title">Lead Generation Systems</div>
+      <div class="service-desc">Cold-to-hot funnels that nurture, qualify, and convert leads through smart conversational flows — fully integrated with your CRM and calendar.</div>
+      <div class="service-tags"><span class="tag">CRM</span><span class="tag">Lead Scoring</span><span class="tag">Funnels</span><span class="tag">Cal.com</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🔗</div>
+      <div class="service-title">CRM Integration</div>
+      <div class="service-desc">Seamless two-way sync between your CRM, communication tools, and data sources — no manual data entry, no silos, no missed follow-ups.</div>
+      <div class="service-tags"><span class="tag">HubSpot</span><span class="tag">GoHighLevel</span><span class="tag">Salesforce</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📊</div>
+      <div class="service-title">Reporting & Dashboards</div>
+      <div class="service-desc">Automated data collection and reporting pipelines that give you real-time insight — no more manual spreadsheet work or copy-pasting between tools.</div>
+      <div class="service-tags"><span class="tag">Airtable</span><span class="tag">Google Sheets</span><span class="tag">Notion</span></div>
+    </div>
+  </div>
+
+  <!-- Category label: Social Media Marketing -->
+  <div style="max-width:1200px; margin: 3.5rem auto 1.5rem;">
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(110,231,183,0.1); border:1px solid rgba(110,231,183,0.25); color:var(--accent2); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:100px;">📱 Social Media Marketing</div>
+      <div style="flex:1; height:1px; background:linear-gradient(90deg, rgba(110,231,183,0.3), transparent);"></div>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(110,231,183,0.1); border-color:rgba(110,231,183,0.2);">📱</div>
+      <div class="service-title">Social Media Management</div>
+      <div class="service-desc">Full-service management of your Instagram, LinkedIn, Facebook, and TikTok — consistent posting, branded content, community engagement, and monthly performance reporting.</div>
+      <div class="service-tags"><span class="tag">Instagram</span><span class="tag">LinkedIn</span><span class="tag">TikTok</span><span class="tag">Facebook</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(110,231,183,0.1); border-color:rgba(110,231,183,0.2);">✍️</div>
+      <div class="service-title">Content Creation & Strategy</div>
+      <div class="service-desc">AI-assisted content calendars, caption writing, graphic design direction, and short-form video scripts — all aligned to your brand voice and growth goals.</div>
+      <div class="service-tags"><span class="tag">Reels</span><span class="tag">Copywriting</span><span class="tag">Content Calendar</span><span class="tag">Canva</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(110,231,183,0.1); border-color:rgba(110,231,183,0.2);">📈</div>
+      <div class="service-title">Paid Ads & Growth</div>
+      <div class="service-desc">Meta and Google ad campaigns designed to convert — from audience targeting and creative to A/B testing and ROAS tracking. Growth that's measurable, not just visible.</div>
+      <div class="service-tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">A/B Testing</span><span class="tag">ROAS</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(110,231,183,0.1); border-color:rgba(110,231,183,0.2);">🎨</div>
+      <div class="service-title">Brand Identity & Design</div>
+      <div class="service-desc">Logo design, brand guidelines, visual identity kits, and social media templates — everything you need to look consistent, professional, and memorable across every platform.</div>
+      <div class="service-tags"><span class="tag">Logo Design</span><span class="tag">Brand Kit</span><span class="tag">Templates</span><span class="tag">Figma</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(110,231,183,0.1); border-color:rgba(110,231,183,0.2);">🔍</div>
+      <div class="service-title">SEO & Organic Growth</div>
+      <div class="service-desc">Keyword research, on-page optimization, link building, and content strategies that drive sustainable organic traffic — without relying on ad spend alone.</div>
+      <div class="service-tags"><span class="tag">SEO</span><span class="tag">Keyword Research</span><span class="tag">Backlinks</span><span class="tag">Blogging</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(110,231,183,0.1); border-color:rgba(110,231,183,0.2);">📊</div>
+      <div class="service-title">Analytics & Performance</div>
+      <div class="service-desc">Monthly reports covering reach, engagement, conversion rates, and ad performance — with clear insights and action plans so you always know what's working and why.</div>
+      <div class="service-tags"><span class="tag">Analytics</span><span class="tag">Meta Insights</span><span class="tag">Google Analytics</span><span class="tag">KPI Tracking</span></div>
+    </div>
+  </div>
+</section>
     <div class="service-card fade-in">
       <div class="service-icon">⚡</div>
       <div class="service-title">Workflow Automation</div>
@@ -2524,6 +2877,9 @@
           <option>Lead Generation System</option>
           <option>CRM Integration</option>
           <option>Reporting & Dashboards</option>
+          <option>Social Media Management</option>
+          <option>Content Creation & Strategy</option>
+          <option>Paid Ads & Growth</option>
           <option>Other</option>
         </select>
       </div>
