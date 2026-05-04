@@ -66,9 +66,18 @@
     letter-spacing: -0.03em;
     color: var(--white);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .logo span { color: var(--accent); }
+
+  .logo-mark {
+    width: 28px;
+    height: 32px;
+    flex-shrink: 0;
+  }
 
   .nav-links {
     display: flex;
@@ -2042,7 +2051,24 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="logo"><span style="color:var(--white)">Ai</span><span>Floq</span></a>
+  <a href="#" class="logo">
+    <svg class="logo-mark" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Branching arrow mark: 3 paths converging, 3 teal endpoint dots -->
+      <!-- Left branch -->
+      <line x1="4" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Right branch -->
+      <line x1="24" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Down stem -->
+      <line x1="14" y1="10" x2="14" y2="30" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Three teal endpoint dots -->
+      <circle cx="4"  cy="22" r="3" fill="#6EE7B7"/>
+      <circle cx="24" cy="22" r="3" fill="#6EE7B7"/>
+      <circle cx="14" cy="30" r="3" fill="#6EE7B7"/>
+      <!-- Top arrow head -->
+      <polyline points="10,14 14,9 18,14" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span style="color:var(--white)">Ai</span><span>Floq</span>
+  </a>
   <ul class="nav-links" id="navLinks">
     <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
     <li><a href="#services">Services</a></li>
@@ -2943,7 +2969,18 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo">Ai<span>Floq</span></a>
+  <a href="#" class="footer-logo" style="display:inline-flex; align-items:center; gap:0.45rem; text-decoration:none;">
+    <svg width="22" height="27" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="4" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="24" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="14" y1="10" x2="14" y2="30" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="4"  cy="22" r="3" fill="#6EE7B7"/>
+      <circle cx="24" cy="22" r="3" fill="#6EE7B7"/>
+      <circle cx="14" cy="30" r="3" fill="#6EE7B7"/>
+      <polyline points="10,14 14,9 18,14" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.2rem; color:var(--white);">Ai<span style="color:var(--accent);">Floq</span></span>
+  </a>
   <div class="footer-copy">© 2026 AiFloq. All rights reserved.</div>
   <div class="footer-tagline">Built with AI. Powered by automation.</div>
 </footer>
