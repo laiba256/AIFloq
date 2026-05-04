@@ -14,13 +14,13 @@
     --accent: #0EA5E9;
     --accent2: #6EE7B7;
     --accent-glow: rgba(14,165,233,0.25);
+    --accent2-glow: rgba(110,231,183,0.2);
     --text: #F0F4FF;
     --muted: #8896B0;
     --white: #ffffff;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -54,7 +54,10 @@
     background: rgba(8,12,20,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
   }
+
+  nav.scrolled { padding: 0.85rem 5%; }
 
   .logo {
     font-family: 'Syne', sans-serif;
@@ -71,6 +74,7 @@
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links a {
@@ -83,17 +87,36 @@
   }
 
   .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--white); }
 
   .nav-cta {
-    background: var(--accent);
+    background: var(--accent) !important;
     color: var(--white) !important;
     padding: 0.5rem 1.25rem;
     border-radius: 6px;
     font-weight: 600 !important;
-    transition: opacity 0.2s !important;
+    transition: opacity 0.2s, transform 0.2s !important;
   }
 
-  .nav-cta:hover { opacity: 0.85; color: var(--white) !important; }
+  .nav-cta:hover { opacity: 0.85 !important; transform: translateY(-1px); }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
 
   /* ── HERO ── */
   #hero {
@@ -119,6 +142,18 @@
     background: radial-gradient(circle, rgba(110,231,183,0.1) 0%, transparent 70%);
     bottom: 0; left: 10%;
     pointer-events: none;
+  }
+
+  /* Animated grid background */
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
   }
 
   .hero-grid {
@@ -193,6 +228,7 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .btn-primary {
@@ -235,7 +271,7 @@
     background: rgba(255,255,255,0.04);
   }
 
-  /* ── HERO VISUAL ── */
+  /* ── HERO VISUAL (Enhanced Workflow Card) ── */
   .hero-visual {
     position: relative;
     display: flex;
@@ -314,6 +350,12 @@
     box-shadow: 0 0 12px rgba(14,165,233,0.2);
   }
 
+  .wf-node.active-green {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    box-shadow: 0 0 12px rgba(110,231,183,0.2);
+  }
+
   .wf-arrow {
     color: var(--muted);
     font-size: 0.7rem;
@@ -326,12 +368,54 @@
     font-size: 0.78rem;
     color: var(--accent2);
     font-weight: 500;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
   }
 
   .wf-status::before {
     content: '';
     width: 6px; height: 6px;
     background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+  }
+
+  /* Floating mini badges around the hero card */
+  .hero-float-badge {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  .float-1 {
+    top: -16px; left: -40px;
+    animation: floatCard 3.5s ease-in-out infinite;
+    border-color: rgba(14,165,233,0.3);
+    color: var(--accent);
+  }
+
+  .float-2 {
+    bottom: 30px; right: -30px;
+    animation: floatCard 5s ease-in-out infinite reverse;
+    border-color: rgba(110,231,183,0.3);
+    color: var(--accent2);
+  }
+
+  .float-dot {
+    width: 6px; height: 6px;
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
@@ -435,6 +519,18 @@
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(14,165,233,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 
   .service-card::after {
@@ -452,6 +548,7 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   }
 
+  .service-card:hover::before { opacity: 1; }
   .service-card:hover::after { opacity: 1; }
 
   .service-icon {
@@ -464,6 +561,8 @@
     justify-content: center;
     font-size: 1.3rem;
     margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
   }
 
   .service-title {
@@ -472,6 +571,8 @@
     font-size: 1.1rem;
     margin-bottom: 0.75rem;
     color: var(--text);
+    position: relative;
+    z-index: 1;
   }
 
   .service-desc {
@@ -479,6 +580,9 @@
     font-size: 0.9rem;
     line-height: 1.65;
     font-weight: 300;
+    position: relative;
+    z-index: 1;
+    flex: 1;
   }
 
   .service-tags {
@@ -486,6 +590,8 @@
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-top: 1.25rem;
+    position: relative;
+    z-index: 1;
   }
 
   .tag {
@@ -498,37 +604,342 @@
     font-weight: 500;
   }
 
-  /* ── PORTFOLIO ── */
-  .portfolio-grid {
+  /* ── WORKFLOW SHOWCASE (new section) ── */
+  #workflow {
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .workflow-showcase {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .workflow-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .workflow-tab {
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .workflow-tab.active {
+    background: rgba(14,165,233,0.12);
+    border-color: rgba(14,165,233,0.4);
+    color: var(--accent);
+  }
+
+  .workflow-tab:hover:not(.active) {
+    border-color: rgba(255,255,255,0.15);
+    color: var(--text);
+  }
+
+  .workflow-panel {
+    display: none;
+  }
+
+  .workflow-panel.active {
+    display: block;
+  }
+
+  .workflow-panel h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .workflow-panel p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .workflow-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .workflow-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .workflow-feature-list li::before {
+    content: '';
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: rgba(110,231,183,0.15);
+    border: 1px solid rgba(110,231,183,0.4);
+    flex-shrink: 0;
+    margin-top: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%236EE7B7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Animated workflow diagram */
+  .workflow-diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .workflow-diagram::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .wd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .wd-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+
+  .wd-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--accent2);
+    font-weight: 600;
+  }
+
+  .wd-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .wd-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wd-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .wd-node {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+
+  .wd-node.lit-blue {
+    border-color: rgba(14,165,233,0.5);
+    color: var(--accent);
+    box-shadow: 0 0 16px rgba(14,165,233,0.15);
+    background: rgba(14,165,233,0.06);
+  }
+
+  .wd-node.lit-green {
+    border-color: rgba(110,231,183,0.5);
+    color: var(--accent2);
+    box-shadow: 0 0 16px rgba(110,231,183,0.15);
+    background: rgba(110,231,183,0.06);
+  }
+
+  .wd-arrow {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(14,165,233,0.4), rgba(110,231,183,0.4));
+    position: relative;
+    min-width: 20px;
+  }
+
+  .wd-arrow::after {
+    content: '▶';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.45rem;
+    color: var(--accent2);
+  }
+
+  .wd-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0.75rem 0;
+  }
+
+  .wd-metrics {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .wd-metric {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .wd-metric-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent2);
+  }
+
+  .wd-metric-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--bg); overflow: hidden; }
+
+  .portfolio-scroll-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .portfolio-scroll {
+    display: flex;
     gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1.5rem;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .portfolio-scroll:active { cursor: grabbing; }
+
+  .portfolio-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+  .portfolio-scroll::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .portfolio-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+  }
+
+  /* Scroll arrows */
+  .portfolio-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .portfolio-arrow {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .portfolio-arrow:hover {
+    border-color: rgba(14,165,233,0.4);
+    color: var(--accent);
+    background: rgba(14,165,233,0.08);
   }
 
   .project-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.35s;
+    transition: border-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    flex: 0 0 480px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
   }
 
   .project-card:hover {
     border-color: rgba(14,165,233,0.35);
-    transform: translateY(-6px);
     box-shadow: 0 30px 80px rgba(0,0,0,0.5);
   }
 
+  /* Animated flow preview banner */
   .project-preview {
-    height: 200px;
+    height: 220px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
   }
 
   .project-preview-bg {
@@ -536,23 +947,32 @@
     inset: 0;
   }
 
-  /* Workflow diagram illustrations */
-  .preview-nodes {
+  /* Grid overlay on preview */
+  .project-preview::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14,165,233,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+
+  .preview-flow-row {
     position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
   }
 
   .p-node {
-    background: rgba(14,20,40,0.9);
+    background: rgba(8,12,20,0.88);
     border: 1px solid rgba(14,165,233,0.4);
     border-radius: 8px;
-    padding: 0.5rem 0.8rem;
+    padding: 0.45rem 0.75rem;
     font-size: 0.7rem;
     color: var(--accent);
     font-weight: 600;
@@ -560,6 +980,7 @@
     align-items: center;
     gap: 0.35rem;
     backdrop-filter: blur(10px);
+    white-space: nowrap;
   }
 
   .p-node.green {
@@ -567,68 +988,471 @@
     color: var(--accent2);
   }
 
-  .p-arrow-line {
-    width: 20px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+  .p-node.dim {
+    border-color: var(--border);
+    color: var(--muted);
   }
 
-  .project-body { padding: 1.5rem; }
+  .p-arrow {
+    color: var(--muted);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+
+  /* Project body */
+  .project-body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
 
   .project-platform {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     background: rgba(14,165,233,0.1);
     border: 1px solid rgba(14,165,233,0.25);
     color: var(--accent);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.2rem 0.65rem;
     border-radius: 100px;
-    margin-bottom: 0.75rem;
+  }
+
+  .project-status {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent2);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .project-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
   }
 
   .project-title {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
     color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
   }
 
   .project-desc {
     color: var(--muted);
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    line-height: 1.65;
     font-weight: 300;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    flex: 1;
   }
 
-  .project-meta {
+  /* Metrics row */
+  .project-metrics {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
   }
 
-  .project-stack {
+  .project-metric {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    text-align: center;
+    flex: 1;
+  }
+
+  .pm-value {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent2);
+  }
+
+  .pm-label {
+    font-size: 0.62rem;
+    color: var(--muted);
+    margin-top: 0.1rem;
+    font-weight: 500;
+  }
+
+  /* Feature bullets */
+  .project-features {
+    list-style: none;
     display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-features li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .project-features li::before {
+    content: '✓';
+    color: var(--accent2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Tags row */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.4rem;
   }
 
-  .stack-dot {
-    width: 24px; height: 24px;
-    border-radius: 6px;
-    background: var(--surface2);
+  .p-tag {
+    background: rgba(255,255,255,0.04);
     border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* Scroll indicator dots */
+  .portfolio-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .portfolio-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+  }
+
+  .portfolio-dot.active {
+    background: var(--accent);
+    width: 24px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .project-card { flex: 0 0 85vw; }
+    .portfolio-nav { margin-bottom: 1.25rem; }
+  }
+
+  @media (max-width: 480px) {
+    .project-card { flex: 0 0 92vw; }
+    .project-metrics { gap: 0.5rem; }
+  }
+
+  /* ── REVIEWS CAROUSEL ── */
+  #reviews {
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .reviews-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .reviews-track-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reviews-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .review-card {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0 0.25rem;
+  }
+
+  .review-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-item:hover { border-color: rgba(14,165,233,0.25); }
+
+  .review-item::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem; left: 1.25rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 6rem;
+    color: rgba(14,165,233,0.07);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .review-stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; }
+  .star { color: #F59E0B; font-size: 0.85rem; }
+
+  .review-text {
+    color: var(--text);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: auto;
+  }
+
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: white;
+    flex-shrink: 0;
   }
 
+  .review-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .review-role { font-size: 0.75rem; color: var(--muted); font-weight: 300; margin-top: 0.1rem; }
+
+  .review-platform {
+    margin-left: auto;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .reviews-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .rev-arrow {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .rev-arrow:hover {
+    border-color: rgba(14,165,233,0.4);
+    color: var(--accent);
+    background: rgba(14,165,233,0.08);
+  }
+
+  .rev-dots { display: flex; gap: 0.5rem; align-items: center; }
+
+  .rev-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+  }
+
+  .rev-dot.active {
+    background: var(--accent);
+    width: 22px;
+    border-radius: 3px;
+  }
+
+  .rev-progress {
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  .rev-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 1px;
+    width: 33.33%;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: left;
+  }
+
+  @media (max-width: 900px) {
+    .review-card { grid-template-columns: 1fr; }
+  }
+
+  /* ── TOOLS BELT (new) ── */
+  #tools {
+    background: var(--surface);
+    padding: 4rem 5%;
+    overflow: hidden;
+  }
+
+  .tools-header {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .tools-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  .tools-label::before,
+  .tools-label::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--border);
+  }
+
+  .tools-ticker-wrapper {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+  }
+
+  .tools-ticker-wrapper::before,
+  .tools-ticker-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .tools-ticker-wrapper::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--surface), transparent);
+  }
+
+  .tools-ticker-wrapper::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--surface), transparent);
+  }
+
+  .tools-ticker {
+    display: flex;
+    gap: 1rem;
+    animation: tickerScroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .tools-ticker:hover { animation-play-state: paused; }
+
+  @keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .tool-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .tool-chip:hover {
+    border-color: rgba(14,165,233,0.3);
+    color: var(--text);
+  }
+
+  .tool-emoji { font-size: 1rem; }
+
   /* ── PROCESS ── */
-  #process { background: var(--surface); }
+  #process { background: var(--bg); }
 
   .process-steps {
     max-width: 1200px;
@@ -653,6 +1477,16 @@
   .process-step {
     text-align: center;
     padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.3s;
+  }
+
+  .process-step:hover {
+    border-color: rgba(14,165,233,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
   }
 
   .step-num {
@@ -686,9 +1520,7 @@
   }
 
   /* ── CONTACT ── */
-  #contact {
-    background: var(--bg);
-  }
+  #contact { background: var(--surface); }
 
   .contact-inner {
     max-width: 1200px;
@@ -705,12 +1537,15 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     padding: 1rem 1.25rem;
-    background: var(--surface);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 12px;
+    transition: border-color 0.2s;
   }
+
+  .contact-detail:hover { border-color: rgba(14,165,233,0.25); }
 
   .contact-icon {
     width: 40px; height: 40px;
@@ -738,8 +1573,40 @@
     margin-top: 0.1rem;
   }
 
+  /* Trust indicators */
+  .trust-block {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(110,231,183,0.05);
+    border: 1px solid rgba(110,231,183,0.2);
+    border-radius: 12px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .trust-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .trust-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent2);
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
   .contact-form {
-    background: var(--surface);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 2.5rem;
@@ -761,9 +1628,7 @@
     gap: 1rem;
   }
 
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
+  .form-group { margin-bottom: 1.25rem; }
 
   .form-group label {
     display: block;
@@ -779,7 +1644,7 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    background: var(--bg);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 0.75rem 1rem;
@@ -787,7 +1652,7 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
     appearance: none;
   }
 
@@ -798,11 +1663,7 @@
     box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
   }
 
-  .form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-
+  .form-group textarea { resize: vertical; min-height: 100px; }
   .form-group select option { background: var(--surface2); }
 
   .submit-btn {
@@ -828,12 +1689,14 @@
 
   /* ── FOOTER ── */
   footer {
-    background: var(--surface);
+    background: var(--bg);
     border-top: 1px solid var(--border);
-    padding: 2rem 5%;
+    padding: 2.5rem 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
     position: relative;
     z-index: 1;
   }
@@ -847,11 +1710,8 @@
   }
 
   .footer-logo span { color: var(--accent); }
-
-  .footer-copy {
-    color: var(--muted);
-    font-size: 0.82rem;
-  }
+  .footer-copy { color: var(--muted); font-size: 0.82rem; }
+  .footer-tagline { color: var(--muted); font-size: 0.82rem; }
 
   /* ── ANIMATIONS ── */
   .fade-in {
@@ -875,26 +1735,69 @@
     .form-row { grid-template-columns: 1fr; }
     .process-steps::before { display: none; }
     .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .workflow-showcase { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8,12,20,0.98);
+      backdrop-filter: blur(20px);
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 99;
+    }
+
+    .nav-links.open a {
+      font-size: 1.5rem;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+    }
+
+    .nav-close {
+      position: absolute;
+      top: 1.5rem; right: 5%;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process-steps { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 5%; }
   }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="navbar">
   <a href="#" class="logo"><span style="color:var(--white)">Ai</span><span>Floq</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
+    <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
     <li><a href="#services">Services</a></li>
+    <li><a href="#workflow">How It Works</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact" class="nav-cta">Book a Call</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
+  <div class="hero-grid-bg"></div>
   <div class="hero-grid">
     <div class="hero-content">
       <div class="hero-badge">AI Automation Agency</div>
@@ -905,10 +1808,17 @@
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Book a Free Call
         </a>
-        <a href="#portfolio" class="btn-outline">View Our Work</a>
+        <a href="#portfolio" class="btn-outline">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Our Work
+        </a>
       </div>
     </div>
     <div class="hero-visual">
+      <div class="hero-float-badge float-1">
+        <div class="float-dot" style="background:var(--accent)"></div>
+        3 workflows running
+      </div>
       <div class="workflow-card">
         <div class="wf-header">
           <div class="wf-dot" style="background:#0EA5E9"></div>
@@ -919,22 +1829,33 @@
         <div class="wf-nodes">
           <div class="wf-node active">📧 Email Trigger</div>
           <span class="wf-arrow">→</span>
-          <div class="wf-node">✏️ Edit Fields</div>
+          <div class="wf-node">✏️ Parse Fields</div>
           <span class="wf-arrow">→</span>
           <div class="wf-node active">🤖 AI Model</div>
           <span class="wf-arrow">→</span>
-          <div class="wf-node">📤 Send Reply</div>
+          <div class="wf-node active-green">📤 Auto-Reply</div>
         </div>
-        <div class="wf-nodes" style="margin-top:0.5rem">
+        <div class="wf-nodes" style="margin-top:0.25rem">
           <div class="wf-node active">💬 WhatsApp</div>
           <span class="wf-arrow">→</span>
           <div class="wf-node active">🧠 AI Agent</div>
           <span class="wf-arrow">→</span>
           <div class="wf-node">🗄️ Memory</div>
           <span class="wf-arrow">→</span>
-          <div class="wf-node">📤 Respond</div>
+          <div class="wf-node active-green">📤 Respond</div>
         </div>
-        <div class="wf-status" style="margin-top:1rem">3 workflows running · 0 errors</div>
+        <div class="wf-nodes" style="margin-top:0.25rem">
+          <div class="wf-node active">🎯 New Lead</div>
+          <span class="wf-arrow">→</span>
+          <div class="wf-node">🔍 Qualify</div>
+          <span class="wf-arrow">→</span>
+          <div class="wf-node active-green">📅 Book Demo</div>
+        </div>
+        <div class="wf-status">3 workflows running · 0 errors · last run 2s ago</div>
+      </div>
+      <div class="hero-float-badge float-2">
+        <div class="float-dot" style="background:var(--accent2)"></div>
+        0 errors · Fully automated
       </div>
     </div>
   </div>
@@ -944,12 +1865,12 @@
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="fade-in">
-      <div class="stat-num">3+</div>
+      <div class="stat-num">10+</div>
       <div class="stat-label">Workflows Deployed</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Automation Rate</div>
+      <div class="stat-num">40h+</div>
+      <div class="stat-label">Hours Saved / Month</div>
     </div>
     <div class="fade-in">
       <div class="stat-num">n8n</div>
@@ -957,7 +1878,7 @@
     </div>
     <div class="fade-in">
       <div class="stat-num">AI</div>
-      <div class="stat-label">Powered by GPT / Gemini</div>
+      <div class="stat-label">GPT-4o · Gemini · Claude</div>
     </div>
   </div>
 </div>
@@ -973,47 +1894,51 @@
     <div class="service-card fade-in">
       <div class="service-icon">⚡</div>
       <div class="service-title">Workflow Automation</div>
-      <div class="service-desc">Custom n8n and Make.com workflows that connect your tools and eliminate repetitive tasks across your entire operation.</div>
+      <div class="service-desc">Custom n8n and Make.com workflows that connect your tools and eliminate repetitive tasks across your entire operation. Triggers, conditions, loops — all configured for you.</div>
       <div class="service-tags">
         <span class="tag">n8n</span>
         <span class="tag">Make.com</span>
         <span class="tag">Zapier</span>
+        <span class="tag">REST API</span>
       </div>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">🤖</div>
-      <div class="service-title">AI Chatbots</div>
-      <div class="service-desc">Intelligent WhatsApp, website, and CRM bots powered by GPT and Gemini that qualify leads, answer queries, and book appointments.</div>
+      <div class="service-title">AI Chatbots & Agents</div>
+      <div class="service-desc">Intelligent WhatsApp, website, and CRM bots powered by GPT-4o and Gemini that qualify leads, answer queries, and book appointments — 24/7, zero human input.</div>
       <div class="service-tags">
         <span class="tag">WhatsApp</span>
         <span class="tag">OpenAI</span>
         <span class="tag">Gemini</span>
+        <span class="tag">Memory</span>
       </div>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">📬</div>
       <div class="service-title">Email Automation</div>
-      <div class="service-desc">AI-powered inbox management that reads, classifies, and replies to emails — keeping your communication fast and personal.</div>
+      <div class="service-desc">AI-powered inbox management that reads, classifies, and replies to emails — keeping your communication fast, personal, and always on-brand.</div>
       <div class="service-tags">
         <span class="tag">Gmail</span>
         <span class="tag">IMAP</span>
         <span class="tag">AI Reply</span>
+        <span class="tag">Inbox Zero</span>
       </div>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">🎯</div>
       <div class="service-title">Lead Generation Systems</div>
-      <div class="service-desc">Cold-to-hot funnels that nurture, qualify, and convert leads through smart conversational flows inside your CRM.</div>
+      <div class="service-desc">Cold-to-hot funnels that nurture, qualify, and convert leads through smart conversational flows — fully integrated with your CRM and calendar.</div>
       <div class="service-tags">
         <span class="tag">CRM</span>
         <span class="tag">Lead Scoring</span>
         <span class="tag">Funnels</span>
+        <span class="tag">Cal.com</span>
       </div>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">🔗</div>
       <div class="service-title">CRM Integration</div>
-      <div class="service-desc">Seamless two-way sync between your CRM, communication tools, and data sources — no data entry, no silos.</div>
+      <div class="service-desc">Seamless two-way sync between your CRM, communication tools, and data sources — no manual data entry, no silos, no missed follow-ups.</div>
       <div class="service-tags">
         <span class="tag">HubSpot</span>
         <span class="tag">GoHighLevel</span>
@@ -1023,7 +1948,7 @@
     <div class="service-card fade-in">
       <div class="service-icon">📊</div>
       <div class="service-title">Reporting & Dashboards</div>
-      <div class="service-desc">Automated data collection and reporting pipelines that give you real-time insight without manual spreadsheet work.</div>
+      <div class="service-desc">Automated data collection and reporting pipelines that give you real-time insight — no more manual spreadsheet work or copy-pasting between tools.</div>
       <div class="service-tags">
         <span class="tag">Airtable</span>
         <span class="tag">Google Sheets</span>
@@ -1033,101 +1958,474 @@
   </div>
 </section>
 
+<!-- WORKFLOW SHOWCASE -->
+<section id="workflow">
+  <div class="workflow-showcase">
+    <div class="fade-in">
+      <div class="section-label">How Automation Works</div>
+      <h2>See Your<br/>Workflow in Motion</h2>
+
+      <div class="workflow-tabs">
+        <button class="workflow-tab active" data-panel="email">Email Automation</button>
+        <button class="workflow-tab" data-panel="lead">Lead Funnel</button>
+        <button class="workflow-tab" data-panel="chat">AI Chatbot</button>
+      </div>
+
+      <div class="workflow-panel active" id="panel-email">
+        <h3>AI Email Auto-Reply</h3>
+        <p>Every incoming email is read, classified, and answered by a fine-tuned AI agent — matching your tone, referencing context, and escalating when needed.</p>
+        <ul class="workflow-feature-list">
+          <li>Triggers instantly on any incoming IMAP or Gmail message</li>
+          <li>AI extracts sender intent and drafts a contextual reply</li>
+          <li>Routes complex queries to a human via Slack or Teams</li>
+          <li>Logs every interaction to your CRM automatically</li>
+        </ul>
+      </div>
+
+      <div class="workflow-panel" id="panel-lead">
+        <h3>Cold-to-Hot Lead Funnel</h3>
+        <p>A conversational system that qualifies every new lead by asking the right questions — then routes them to booking, nurture, or disqualification automatically.</p>
+        <ul class="workflow-feature-list">
+          <li>Captures leads from forms, ads, or direct messages</li>
+          <li>Asks budget, timeline, and service need via chat</li>
+          <li>Scores leads and routes them to the right pipeline</li>
+          <li>Books discovery calls on your calendar without you lifting a finger</li>
+        </ul>
+      </div>
+
+      <div class="workflow-panel" id="panel-chat">
+        <h3>WhatsApp AI Chatbot</h3>
+        <p>An always-on AI agent with persistent memory that handles customer queries, collects information, and escalates intelligently — straight from WhatsApp.</p>
+        <ul class="workflow-feature-list">
+          <li>Responds in seconds to any WhatsApp message</li>
+          <li>Remembers previous conversations for context</li>
+          <li>Handles FAQs, product info, and booking requests</li>
+          <li>Hands off to human agents with full transcript</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <div class="workflow-diagram">
+        <div class="wd-header">
+          <div class="wd-title" id="wd-title">📧 Email Auto-Reply Flow</div>
+          <div class="wd-badge">Live</div>
+        </div>
+        <div class="wd-flow" id="wd-flow">
+          <!-- Email flow (default) -->
+          <div class="wd-row">
+            <div class="wd-node lit-blue">📧 IMAP Trigger</div>
+            <div class="wd-arrow"></div>
+            <div class="wd-node lit-blue">✏️ Parse Email</div>
+          </div>
+          <div class="wd-row" style="padding-left: 2rem;">
+            <div class="wd-arrow" style="max-width:20px"></div>
+          </div>
+          <div class="wd-row">
+            <div class="wd-node lit-blue">🤖 Gemini AI</div>
+            <div class="wd-arrow"></div>
+            <div class="wd-node">🧠 Context Check</div>
+          </div>
+          <div class="wd-row" style="padding-left: 2rem;">
+            <div class="wd-arrow" style="max-width:20px"></div>
+          </div>
+          <div class="wd-row">
+            <div class="wd-node lit-green">📤 Send Reply</div>
+            <div class="wd-arrow"></div>
+            <div class="wd-node lit-green">🗃️ Log to CRM</div>
+          </div>
+        </div>
+        <div class="wd-divider"></div>
+        <div class="wd-metrics">
+          <div class="wd-metric">
+            <div class="wd-metric-num" id="m1">2.1s</div>
+            <div class="wd-metric-label">Avg Response</div>
+          </div>
+          <div class="wd-metric">
+            <div class="wd-metric-num" id="m2">100%</div>
+            <div class="wd-metric-label">Auto Rate</div>
+          </div>
+          <div class="wd-metric">
+            <div class="wd-metric-num" id="m3">0</div>
+            <div class="wd-metric-label">Errors</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS BELT -->
+<div id="tools">
+  <div class="tools-header">
+    <div class="tools-label">Integrations We Build With</div>
+  </div>
+  <div class="tools-ticker-wrapper">
+    <div class="tools-ticker" id="ticker">
+      <div class="tool-chip"><span class="tool-emoji">⚡</span> n8n</div>
+      <div class="tool-chip"><span class="tool-emoji">🔀</span> Make.com</div>
+      <div class="tool-chip"><span class="tool-emoji">⚙️</span> Zapier</div>
+      <div class="tool-chip"><span class="tool-emoji">🤖</span> OpenAI GPT-4o</div>
+      <div class="tool-chip"><span class="tool-emoji">💎</span> Google Gemini</div>
+      <div class="tool-chip"><span class="tool-emoji">📧</span> Gmail</div>
+      <div class="tool-chip"><span class="tool-emoji">💬</span> WhatsApp Business</div>
+      <div class="tool-chip"><span class="tool-emoji">📊</span> Airtable</div>
+      <div class="tool-chip"><span class="tool-emoji">🗒️</span> Notion</div>
+      <div class="tool-chip"><span class="tool-emoji">📋</span> Google Sheets</div>
+      <div class="tool-chip"><span class="tool-emoji">🏢</span> HubSpot</div>
+      <div class="tool-chip"><span class="tool-emoji">⬆️</span> GoHighLevel</div>
+      <div class="tool-chip"><span class="tool-emoji">☁️</span> Salesforce</div>
+      <div class="tool-chip"><span class="tool-emoji">📅</span> Cal.com</div>
+      <div class="tool-chip"><span class="tool-emoji">💬</span> Slack</div>
+      <div class="tool-chip"><span class="tool-emoji">🐙</span> Telegram</div>
+      <div class="tool-chip"><span class="tool-emoji">🌐</span> Webhooks</div>
+      <div class="tool-chip"><span class="tool-emoji">🔌</span> REST APIs</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="tool-chip"><span class="tool-emoji">⚡</span> n8n</div>
+      <div class="tool-chip"><span class="tool-emoji">🔀</span> Make.com</div>
+      <div class="tool-chip"><span class="tool-emoji">⚙️</span> Zapier</div>
+      <div class="tool-chip"><span class="tool-emoji">🤖</span> OpenAI GPT-4o</div>
+      <div class="tool-chip"><span class="tool-emoji">💎</span> Google Gemini</div>
+      <div class="tool-chip"><span class="tool-emoji">📧</span> Gmail</div>
+      <div class="tool-chip"><span class="tool-emoji">💬</span> WhatsApp Business</div>
+      <div class="tool-chip"><span class="tool-emoji">📊</span> Airtable</div>
+      <div class="tool-chip"><span class="tool-emoji">🗒️</span> Notion</div>
+      <div class="tool-chip"><span class="tool-emoji">📋</span> Google Sheets</div>
+      <div class="tool-chip"><span class="tool-emoji">🏢</span> HubSpot</div>
+      <div class="tool-chip"><span class="tool-emoji">⬆️</span> GoHighLevel</div>
+      <div class="tool-chip"><span class="tool-emoji">☁️</span> Salesforce</div>
+      <div class="tool-chip"><span class="tool-emoji">📅</span> Cal.com</div>
+      <div class="tool-chip"><span class="tool-emoji">💬</span> Slack</div>
+      <div class="tool-chip"><span class="tool-emoji">🐙</span> Telegram</div>
+      <div class="tool-chip"><span class="tool-emoji">🌐</span> Webhooks</div>
+      <div class="tool-chip"><span class="tool-emoji">🔌</span> REST APIs</div>
+    </div>
+  </div>
+</div>
+
 <!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="section-header">
     <div class="section-label">Our Work</div>
-    <h2>Recent<br/>Case Studies</h2>
-    <p class="section-sub">Real automations built for real clients — each one saving hours of manual work every week.</p>
+    <h2>Real Projects,<br/>Real Results</h2>
+    <p class="section-sub">Live automations built and deployed — each one eliminating hours of manual work every single week.</p>
   </div>
-  <div class="portfolio-grid">
 
-    <!-- Project 1 -->
-    <div class="project-card fade-in">
-      <div class="project-preview" style="background: linear-gradient(135deg, #080C14 0%, #0E1420 100%);">
-        <div class="project-preview-bg" style="background: radial-gradient(ellipse at center, rgba(14,165,233,0.15) 0%, transparent 70%);"></div>
-        <div class="preview-nodes">
-          <div class="p-node">📧 IMAP</div>
-          <div class="p-arrow-line"></div>
-          <div class="p-node">🤖 Gemini AI</div>
-          <div class="p-arrow-line"></div>
-          <div class="p-node green">📤 Gmail</div>
+  <!-- Scroll nav -->
+  <div class="portfolio-nav fade-in">
+    <button class="portfolio-arrow" id="portPrev" aria-label="Previous">←</button>
+    <button class="portfolio-arrow" id="portNext" aria-label="Next">→</button>
+  </div>
+
+  <div class="portfolio-scroll-wrapper fade-in">
+    <div class="portfolio-scroll" id="portScroll">
+
+      <!-- ── PROJECT 1: Multi-Modal WhatsApp AI Agent ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #0C1520 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 60% 40%, rgba(14,165,233,0.18) 0%, transparent 65%);"></div>
+          <div class="preview-flow-row">
+            <div class="p-node">💬 WhatsApp</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">🔀 Msg Type?</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node">📝 Text</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node">💎 Gemini</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">📤 Text Reply</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node">🎙️ Voice Note</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node">🔊 AssemblyAI</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">🗣️ Voice Reply</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">n8n · WhatsApp · AI</div>
+            <div class="project-status">Deployed</div>
+          </div>
+          <div class="project-title">Multi-Modal WhatsApp AI Agent (Text + Voice)</div>
+          <div class="project-desc">An AI agent that adapts to message type — text messages get instant AI text replies via Gemini, while voice notes are transcribed by AssemblyAI and replied to in a cloned voice using Fish Speech.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">2</div>
+              <div class="pm-label">Modes Handled</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">100%</div>
+              <div class="pm-label">Auto Rate</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">24/7</div>
+              <div class="pm-label">Uptime</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Detects whether incoming message is text or voice note</li>
+            <li>Voice transcribed via AssemblyAI, reply generated by Gemini</li>
+            <li>Voice cloned with Fish Speech — replies sent as audio</li>
+            <li>FastAPI backend handles routing between modalities</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">n8n</span>
+            <span class="p-tag">Google Gemini</span>
+            <span class="p-tag">AssemblyAI</span>
+            <span class="p-tag">Fish Speech</span>
+            <span class="p-tag">FastAPI</span>
+            <span class="p-tag">WhatsApp API</span>
+          </div>
         </div>
       </div>
-      <div class="project-body">
-        <div class="project-platform">n8n · Gmail</div>
-        <div class="project-title">AI-Powered Gmail Auto-Reply</div>
-        <div class="project-desc">Detects incoming emails, extracts sender context, generates professional replies using Google Gemini, and maintains conversation threads — all automatically.</div>
-        <div class="project-meta">
-          <div class="project-stack">
-            <div class="stack-dot">n8</div>
-            <div class="stack-dot">AI</div>
-            <div class="stack-dot">📧</div>
+
+      <!-- ── PROJECT 2: Gmail AI Auto-Reply ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #0C1A14 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 40% 50%, rgba(110,231,183,0.16) 0%, transparent 65%);"></div>
+          <div class="preview-flow-row">
+            <div class="p-node">📧 IMAP Trigger</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">✏️ Edit Fields</div>
           </div>
-          <span style="color:var(--accent2); font-size:0.8rem; font-weight:600;">✓ Deployed</span>
+          <div class="preview-flow-row">
+            <div class="p-node">💎 Gemini AI</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">🔀 Route Logic</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node green">📤 Send Reply</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">🗃️ Log to CRM</div>
+          </div>
         </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">n8n · Gmail · Gemini</div>
+            <div class="project-status">Deployed</div>
+          </div>
+          <div class="project-title">AI-Powered Gmail Auto-Reply System</div>
+          <div class="project-desc">Solves the problem of businesses wasting hours on repetitive client emails. Automatically reads incoming Gmail messages, extracts structured data in JSON, validates fields, and sends clean professional replies — routed by business logic, no raw AI output.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">~2s</div>
+              <div class="pm-label">Response Time</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">100%</div>
+              <div class="pm-label">Auto-Replied</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">0</div>
+              <div class="pm-label">Manual Steps</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Reads incoming Gmail via IMAP and extracts business fields as JSON</li>
+            <li>Validates missing or incomplete data before replying</li>
+            <li>Routes emails by business logic — no raw AI leakage</li>
+            <li>Maintains Re: threading for natural conversation flow</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">n8n</span>
+            <span class="p-tag">Google Gemini</span>
+            <span class="p-tag">Gmail IMAP</span>
+            <span class="p-tag">JSON Parsing</span>
+            <span class="p-tag">Business Logic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROJECT 3: Slack Attendance System ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #10100A 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 50% 40%, rgba(245,158,11,0.12) 0%, transparent 65%);"></div>
+          <div class="preview-flow-row">
+            <div class="p-node">💬 Slack Msg</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">🔀 Channel Check</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node dim">🕐 Check-In?</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">✅ Deduplicate</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">📋 Log Sheet</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node dim">🕔 Check-Out?</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">🧮 Calc Hours</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">📊 Update</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">n8n · Slack · Sheets</div>
+            <div class="project-status">Deployed</div>
+          </div>
+          <div class="project-title">Slack-Based Automated Attendance System</div>
+          <div class="project-desc">Automates HR attendance tracking directly from Slack. Eliminates duplicate entries, validates check-in/check-out logic, converts to Pakistan Standard Time, and calculates working hours in real-time — zero manual HR involvement.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">0</div>
+              <div class="pm-label">Manual HR Steps</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">15h</div>
+              <div class="pm-label">Shift Validation</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">PKT</div>
+              <div class="pm-label">Auto Timezone</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Listens for check-in / check-out commands in Slack channels</li>
+            <li>Prevents duplicate entries with smart deduplication logic</li>
+            <li>Calculates total working hours and enforces 15-hour shift cap</li>
+            <li>Auto-updates Google Sheets with date, time, username, and status</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">n8n</span>
+            <span class="p-tag">Slack API</span>
+            <span class="p-tag">Google Sheets</span>
+            <span class="p-tag">JavaScript</span>
+            <span class="p-tag">PKT Timezone</span>
+            <span class="p-tag">HR Automation</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end scroll -->
+
+    <!-- Dots -->
+    <div class="portfolio-dots">
+      <button class="portfolio-dot active" data-idx="0"></button>
+      <button class="portfolio-dot" data-idx="1"></button>
+      <button class="portfolio-dot" data-idx="2"></button>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="section-header" style="margin-bottom:3rem;">
+      <div class="section-label">Client Reviews</div>
+      <h2>What Clients<br/>Say About Us</h2>
+      <p class="section-sub">Trusted by founders and teams who wanted to stop doing things manually — and actually did.</p>
+    </div>
+
+    <div class="reviews-track-wrap fade-in">
+      <div class="reviews-track" id="revTrack">
+
+        <!-- Slide 1 -->
+        <div class="review-card">
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"Laiba built a WhatsApp AI agent that handles both text and voice messages — something I didn't even think was possible to automate. It replies in a cloned voice for voice notes and in text for messages. Our support response time dropped from hours to seconds. Genuinely impressed."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #0EA5E9, #0284c7);">SR</div>
+              <div>
+                <div class="review-name">Sarah R.</div>
+                <div class="review-role">E-commerce Founder</div>
+              </div>
+              <div class="review-platform">Upwork ⭐ 5.0</div>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"The Gmail automation is running flawlessly. Every client email gets read, classified, and replied to within 2 seconds — with proper threading and business-appropriate language. We've basically eliminated our inbox backlog. Exactly what we needed."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #6EE7B7, #059669);">MA</div>
+              <div>
+                <div class="review-name">Michael A.</div>
+                <div class="review-role">Operations Director, B2B SaaS</div>
+              </div>
+              <div class="review-platform">Upwork ⭐ 5.0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="review-card">
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"Our HR team was manually tracking attendance in a spreadsheet. Laiba built a Slack-based system that does it all automatically — check-ins, check-outs, hour calculations, duplicate prevention. It's been running for months with zero issues. Saved us easily 15+ hours a week."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #F59E0B, #d97706);">ZK</div>
+              <div>
+                <div class="review-name">Zara K.</div>
+                <div class="review-role">HR Manager, Tech Startup</div>
+              </div>
+              <div class="review-platform">Upwork ⭐ 5.0</div>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"Fast, professional, and delivered exactly what was scoped. The n8n workflow was well-structured with proper error handling — not just a quick patch job. Communication was clear throughout. Will definitely work with AiFloq again on the next phase."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #8B5CF6, #6d28d9);">TN</div>
+              <div>
+                <div class="review-name">Tom N.</div>
+                <div class="review-role">Growth Lead, Marketing Agency</div>
+              </div>
+              <div class="review-platform">Upwork ⭐ 5.0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="review-card">
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"I came with a rough idea and left with a fully working lead qualification funnel. It captures leads from our landing page, asks qualifying questions via WhatsApp, scores them, and books the good ones directly into my calendar. The ROI on this was immediate."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #EC4899, #be185d);">AP</div>
+              <div>
+                <div class="review-name">Aisha P.</div>
+                <div class="review-role">CEO, Consulting Firm</div>
+              </div>
+              <div class="review-platform">Upwork ⭐ 5.0</div>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"What stood out was the attention to edge cases. Most freelancers build the happy path and call it done — Laiba thought through duplicates, failed validations, escalation paths. The system handles real-world messiness gracefully. Top-tier automation work."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #0EA5E9, #6EE7B7);">JL</div>
+              <div>
+                <div class="review-name">James L.</div>
+                <div class="review-role">CTO, Fintech Startup</div>
+              </div>
+              <div class="review-platform">Upwork ⭐ 5.0</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end track -->
+
+      <!-- Progress bar -->
+      <div class="rev-progress">
+        <div class="rev-progress-bar" id="revBar"></div>
       </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="project-card fade-in">
-      <div class="project-preview" style="background: linear-gradient(135deg, #080C14 0%, #0E1420 100%);">
-        <div class="project-preview-bg" style="background: radial-gradient(ellipse at center, rgba(110,231,183,0.15) 0%, transparent 70%);"></div>
-        <div class="preview-nodes" style="flex-direction: column; gap: 0.5rem;">
-          <div style="display:flex; gap:0.5rem; align-items:center;">
-            <div class="p-node green">🚀 Trigger</div>
-            <div class="p-arrow-line"></div>
-            <div class="p-node">💬 Qualify</div>
-          </div>
-          <div style="display:flex; gap:0.5rem; align-items:center;">
-            <div class="p-node">💰 Budget</div>
-            <div class="p-arrow-line"></div>
-            <div class="p-node green">📅 Book Demo</div>
-          </div>
-        </div>
+    <!-- Controls -->
+    <div class="reviews-controls">
+      <button class="rev-arrow" id="revPrev">←</button>
+      <div class="rev-dots">
+        <button class="rev-dot active" data-slide="0"></button>
+        <button class="rev-dot" data-slide="1"></button>
+        <button class="rev-dot" data-slide="2"></button>
       </div>
-      <div class="project-body">
-        <div class="project-platform">CRM · Lead Funnel</div>
-        <div class="project-title">Cold-to-Hot Lead Generation System</div>
-        <div class="project-desc">A conversational CRM funnel that asks service, budget, and timeline questions — then routes qualified leads to free demo booking or expert consultation.</div>
-        <div class="project-meta">
-          <div class="project-stack">
-            <div class="stack-dot">CRM</div>
-            <div class="stack-dot">🎯</div>
-            <div class="stack-dot">📊</div>
-          </div>
-          <span style="color:var(--accent2); font-size:0.8rem; font-weight:600;">✓ Deployed</span>
-        </div>
-      </div>
+      <button class="rev-arrow" id="revNext">→</button>
     </div>
-
-    <!-- Project 3 -->
-    <div class="project-card fade-in">
-      <div class="project-preview" style="background: linear-gradient(135deg, #080C14 0%, #0E1420 100%);">
-        <div class="project-preview-bg" style="background: radial-gradient(ellipse at center, rgba(14,165,233,0.12) 0%, transparent 70%);"></div>
-        <div class="preview-nodes">
-          <div class="p-node green">💬 WhatsApp</div>
-          <div class="p-arrow-line"></div>
-          <div class="p-node">🧠 AI Agent</div>
-          <div class="p-arrow-line"></div>
-          <div class="p-node green">📤 Reply</div>
-        </div>
-      </div>
-      <div class="project-body">
-        <div class="project-platform">n8n · WhatsApp</div>
-        <div class="project-title">WhatsApp AI Chatbot</div>
-        <div class="project-desc">Triggers on incoming WhatsApp messages, passes them to an OpenAI-powered agent with persistent memory, and sends intelligent contextual replies in real time.</div>
-        <div class="project-meta">
-          <div class="project-stack">
-            <div class="stack-dot">n8</div>
-            <div class="stack-dot">💬</div>
-            <div class="stack-dot">AI</div>
-          </div>
-          <span style="color:var(--accent2); font-size:0.8rem; font-weight:600;">✓ Deployed</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1165,16 +2463,16 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="contact-info">
+    <div class="contact-info fade-in">
       <div class="section-label">Get In Touch</div>
       <h2>Let's Automate<br/>Your Business</h2>
-      <p class="section-sub" style="margin-bottom:2rem;">Ready to reclaim your time? Book a free discovery call and we'll show you exactly what we can automate for you.</p>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Ready to reclaim your time? Book a free discovery call and we'll show you exactly what we can automate for you.</p>
 
       <div class="contact-detail">
         <div class="contact-icon">📧</div>
         <div>
           <div class="contact-label">Email</div>
-          <div class="contact-value">hello@aifloq.com</div>
+          <div class="contact-value">laibariaz256@gmail.com</div>
         </div>
       </div>
       <div class="contact-detail">
@@ -1191,9 +2489,17 @@
           <div class="contact-value">Remote · Worldwide</div>
         </div>
       </div>
+
+      <div class="trust-block">
+        <div class="trust-icon">🔒</div>
+        <div>
+          <div class="trust-title">No-Risk Discovery</div>
+          <div class="trust-desc">The first call is completely free. No commitment, no hard sell. We'll map out your automation opportunities and you decide from there.</div>
+        </div>
+      </div>
     </div>
 
-    <div class="contact-form">
+    <div class="contact-form fade-in">
       <h3 style="font-family:'Syne',sans-serif; font-weight:700; margin-bottom:1.5rem; font-size:1.2rem;">Book a Free Call</h3>
       <div class="form-row">
         <div class="form-group">
@@ -1213,16 +2519,17 @@
         <label>Service Needed</label>
         <select>
           <option>Workflow Automation</option>
-          <option>AI Chatbot</option>
+          <option>AI Chatbot / Agent</option>
           <option>Email Automation</option>
           <option>Lead Generation System</option>
           <option>CRM Integration</option>
+          <option>Reporting & Dashboards</option>
           <option>Other</option>
         </select>
       </div>
       <div class="form-group">
         <label>Tell us about your project</label>
-        <textarea placeholder="Briefly describe what you'd like to automate..."></textarea>
+        <textarea placeholder="Briefly describe what you'd like to automate — which tools you use, what's currently manual, and your rough timeline..."></textarea>
       </div>
       <button class="submit-btn">→ Book Free Discovery Call</button>
     </div>
@@ -1233,33 +2540,253 @@
 <footer>
   <a href="#" class="footer-logo">Ai<span>Floq</span></a>
   <div class="footer-copy">© 2026 AiFloq. All rights reserved.</div>
-  <div style="color:var(--muted); font-size:0.82rem;">Built with AI. Powered by automation.</div>
+  <div class="footer-tagline">Built with AI. Powered by automation.</div>
 </footer>
 
 <script>
-  // Intersection Observer for fade-in animations
+  // ── INTERSECTION OBSERVER (fade-in) ──
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 100);
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // Staggered fade for sibling groups
-  document.querySelectorAll('.services-grid .service-card, .portfolio-grid .project-card, .process-steps .process-step, .stats-inner > div').forEach((el, i) => {
+  document.querySelectorAll(
+    '.services-grid .service-card, .portfolio-grid .project-card, .process-steps .process-step, .stats-inner > div'
+  ).forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.1}s`;
   });
 
-  // Smooth nav highlight
+  // ── NAV SCROLL SHRINK ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── ACTIVE NAV HIGHLIGHT ──
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  // ── MOBILE NAV ──
+  const navToggle = document.getElementById('navToggle');
+  const navLinksEl = document.getElementById('navLinks');
+  const navClose = document.getElementById('navClose');
+
+  navToggle.addEventListener('click', () => navLinksEl.classList.add('open'));
+  navClose.addEventListener('click', () => navLinksEl.classList.remove('open'));
+  navLinksEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinksEl.classList.remove('open'));
+  });
+
+  // ── WORKFLOW TABS ──
+  const flows = {
+    email: {
+      title: '📧 Email Auto-Reply Flow',
+      html: `
+        <div class="wd-row">
+          <div class="wd-node lit-blue">📧 IMAP Trigger</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-blue">✏️ Parse Email</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-blue">🤖 Gemini AI</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node">🧠 Context Check</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-green">📤 Send Reply</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-green">🗃️ Log to CRM</div>
+        </div>`,
+      m1: '2.1s', m2: '100%', m3: '0'
+    },
+    lead: {
+      title: '🎯 Lead Qualification Flow',
+      html: `
+        <div class="wd-row">
+          <div class="wd-node lit-blue">🚀 New Lead</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-blue">💬 Qualify Chat</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node">💰 Budget Check</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node">🧮 Lead Score</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-green">📅 Book Demo</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-green">📊 Update CRM</div>
+        </div>`,
+      m1: '< 5m', m2: '3×', m3: '0'
+    },
+    chat: {
+      title: '💬 WhatsApp Chatbot Flow',
+      html: `
+        <div class="wd-row">
+          <div class="wd-node lit-blue">💬 WhatsApp In</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-blue">🧠 AI Agent</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node">🗄️ Memory Store</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node">🔍 Intent Match</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-green">📤 Reply Sent</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-green">👤 Handoff?</div>
+        </div>`,
+      m1: '1.8s', m2: '24/7', m3: '0'
+    }
+  };
+
+  document.querySelectorAll('.workflow-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.panel;
+
+      // Update tabs
+      document.querySelectorAll('.workflow-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Update panels
+      document.querySelectorAll('.workflow-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById(`panel-${key}`).classList.add('active');
+
+      // Update diagram
+      const f = flows[key];
+      document.getElementById('wd-title').textContent = f.title;
+      document.getElementById('wd-flow').innerHTML = f.html;
+      document.getElementById('m1').textContent = f.m1;
+      document.getElementById('m2').textContent = f.m2;
+      document.getElementById('m3').textContent = f.m3;
+    });
+  });
+
+  // ── ANIMATED NODE PULSE ──
+  // Periodically "pulse" a random active node in the hero card
+  function animateHeroNodes() {
+    const nodes = document.querySelectorAll('.wf-node.active, .wf-node.active-green');
+    nodes.forEach(n => {
+      n.style.transition = 'all 0.4s';
+    });
+    const target = nodes[Math.floor(Math.random() * nodes.length)];
+    if (target) {
+      const wasBlue = target.classList.contains('active');
+      target.style.transform = 'scale(1.06)';
+      setTimeout(() => { target.style.transform = 'scale(1)'; }, 400);
+    }
+  }
+
+  setInterval(animateHeroNodes, 1800);
+
+  // ── REVIEWS CAROUSEL ──
+  const revTrack   = document.getElementById('revTrack');
+  const revBar     = document.getElementById('revBar');
+  const revPrev    = document.getElementById('revPrev');
+  const revNext    = document.getElementById('revNext');
+  const revDots    = document.querySelectorAll('.rev-dot');
+  const totalSlides = 3;
+  let revCurrent = 0;
+  let revTimer;
+
+  function goToSlide(idx) {
+    revCurrent = (idx + totalSlides) % totalSlides;
+    revTrack.style.transform = `translateX(-${revCurrent * 100}%)`;
+    revDots.forEach((d, i) => d.classList.toggle('active', i === revCurrent));
+    revBar.style.transform = `scaleX(${(revCurrent + 1) / totalSlides})`;
+    revBar.style.transformOrigin = 'left';
+    revBar.style.width = '100%';
+  }
+
+  revNext.addEventListener('click', () => { goToSlide(revCurrent + 1); resetTimer(); });
+  revPrev.addEventListener('click', () => { goToSlide(revCurrent - 1); resetTimer(); });
+  revDots.forEach(d => d.addEventListener('click', () => { goToSlide(+d.dataset.slide); resetTimer(); }));
+
+  function resetTimer() {
+    clearInterval(revTimer);
+    revTimer = setInterval(() => goToSlide(revCurrent + 1), 5000);
+  }
+
+  // Init progress bar
+  revBar.style.width = '100%';
+  revBar.style.transform = `scaleX(${1 / totalSlides})`;
+  revBar.style.transformOrigin = 'left';
+
+  resetTimer();
+
+
+  const portScroll = document.getElementById('portScroll');
+  const portPrev   = document.getElementById('portPrev');
+  const portNext   = document.getElementById('portNext');
+  const dots       = document.querySelectorAll('.portfolio-dot');
+
+  function getCardWidth() {
+    const card = portScroll.querySelector('.project-card');
+    return card ? card.offsetWidth + 24 : 504; // card + gap
+  }
+
+  function updateDots() {
+    const idx = Math.round(portScroll.scrollLeft / getCardWidth());
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  portNext.addEventListener('click', () => {
+    portScroll.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+  });
+
+  portPrev.addEventListener('click', () => {
+    portScroll.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      portScroll.scrollTo({ left: +dot.dataset.idx * getCardWidth(), behavior: 'smooth' });
+    });
+  });
+
+  portScroll.addEventListener('scroll', updateDots);
+
+  // Drag-to-scroll
+  let isDown = false, startX, scrollLeft;
+  portScroll.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - portScroll.offsetLeft;
+    scrollLeft = portScroll.scrollLeft;
+  });
+  portScroll.addEventListener('mouseleave', () => isDown = false);
+  portScroll.addEventListener('mouseup',   () => isDown = false);
+  portScroll.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - portScroll.offsetLeft;
+    portScroll.scrollLeft = scrollLeft - (x - startX);
+  });
+</script>
+</body>
+</html>
