@@ -1954,6 +1954,487 @@
     box-shadow: 0 0 50px rgba(14,165,233,0.4);
   }
 
+  /* ── BLOG ── */
+  #blog { background: var(--bg); }
+
+  .blog-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  /* First card is featured — spans 2 cols */
+  .blog-card-featured {
+    grid-column: 1 / 3;
+  }
+
+  .blog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .blog-card:hover {
+    border-color: rgba(14,165,233,0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 24px 72px rgba(0,0,0,0.5);
+  }
+
+  /* Gradient illustration header */
+  .blog-thumb {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 1.5rem;
+  }
+
+  .blog-card-featured .blog-thumb { height: 240px; }
+  .blog-card:not(.blog-card-featured) .blog-thumb { height: 160px; }
+
+  .blog-thumb-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Animated grid overlay on thumb */
+  .blog-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .blog-category {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+  }
+
+  .cat-automation {
+    background: rgba(14,165,233,0.2);
+    border: 1px solid rgba(14,165,233,0.4);
+    color: var(--accent);
+  }
+
+  .cat-social {
+    background: rgba(110,231,183,0.15);
+    border: 1px solid rgba(110,231,183,0.4);
+    color: var(--accent2);
+  }
+
+  .cat-web {
+    background: rgba(139,92,246,0.15);
+    border: 1px solid rgba(139,92,246,0.4);
+    color: #A78BFA;
+  }
+
+  .blog-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .blog-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    transition: color 0.2s;
+  }
+
+  .blog-card-featured .blog-title { font-size: 1.3rem; }
+  .blog-card:not(.blog-card-featured) .blog-title { font-size: 1rem; }
+
+  .blog-card:hover .blog-title { color: var(--accent); }
+
+  .blog-excerpt {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.65;
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-card:not(.blog-card-featured) .blog-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .blog-meta-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .blog-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: white;
+    font-family: 'Syne', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .blog-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .blog-read-more:hover { gap: 0.6rem; }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .blog-tag {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.65rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* Floating read time badge on thumb */
+  .blog-read-time {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    z-index: 2;
+    background: rgba(8,12,20,0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0.2rem 0.65rem;
+  }
+
+  @media (max-width: 900px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    .blog-card-featured {
+      grid-column: 1;
+    }
+    .blog-card-featured .blog-thumb { height: 200px; }
+  }
+
+  /* ── BLOG MODAL ── */
+  .blog-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 7, 14, 0.92);
+    backdrop-filter: blur(12px);
+    z-index: 999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .blog-modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .blog-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    max-width: 760px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    margin: auto;
+  }
+
+  .blog-modal-overlay.open .blog-modal {
+    transform: translateY(0);
+  }
+
+  .blog-modal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .blog-modal-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 2;
+    line-height: 1;
+  }
+
+  .blog-modal-close:hover {
+    border-color: rgba(14,165,233,0.4);
+    color: var(--accent);
+  }
+
+  .blog-modal-header {
+    padding: 2.5rem 2.5rem 0;
+  }
+
+  .blog-modal-cat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-modal-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .blog-modal-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .blog-modal-body {
+    padding: 2rem 2.5rem;
+  }
+
+  .blog-modal-body h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin: 1.75rem 0 0.65rem;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-modal-body h3:first-child { margin-top: 0; }
+
+  .blog-modal-body p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .blog-modal-body ul {
+    list-style: none;
+    margin: 0.5rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .blog-modal-body ul li {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .blog-modal-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 3px;
+  }
+
+  .blog-modal-body .highlight-box {
+    background: rgba(14,165,233,0.06);
+    border: 1px solid rgba(14,165,233,0.2);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+  }
+
+  .blog-modal-body .highlight-box p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.88rem;
+  }
+
+  /* Contact CTA at bottom of each blog */
+  .blog-contact-cta {
+    margin: 2rem 2.5rem 2.5rem;
+    padding: 2rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-contact-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .blog-contact-cta h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-contact-cta p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .blog-contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-contact-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .blog-contact-chip span { color: var(--muted); font-weight: 300; }
+
+  .blog-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 0 24px var(--accent-glow);
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .blog-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(14,165,233,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .blog-modal-header { padding: 2rem 1.25rem 0; }
+    .blog-modal-body { padding: 1.5rem 1.25rem; }
+    .blog-contact-cta { margin: 1.5rem 1.25rem 1.5rem; }
+  }
+
   /* ── FOOTER ── */
   footer {
     background: var(--bg);
@@ -2069,6 +2550,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#workflow">How It Works</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact" class="nav-cta">Book a Call</a></li>
   </ul>
@@ -2736,7 +3218,7 @@
         <div class="review-card">
           <div class="review-item">
             <div class="review-stars">★★★★★</div>
-            <div class="review-text">"Laiba built a WhatsApp AI agent that handles both text and voice messages — it replies in a cloned voice for voice notes and in text for messages. Our customer support response time dropped from hours to seconds. Genuinely one of the most impressive builds I've seen."</div>
+            <div class="review-text">"The AiFloq technical team built a WhatsApp AI agent that handles both text and voice messages — it replies in a cloned voice for voice notes and in text for messages. Our customer support response time dropped from hours to seconds. Genuinely one of the most impressive builds I've seen."</div>
             <div class="review-author">
               <div class="review-avatar" style="background: linear-gradient(135deg, #0EA5E9, #0284c7);">SR</div>
               <div>
@@ -2764,7 +3246,7 @@
         <div class="review-card">
           <div class="review-item">
             <div class="review-stars">★★★★★</div>
-            <div class="review-text">"Our HR team was manually tracking attendance in a spreadsheet. Laiba built a Slack-based system that does it all automatically — check-ins, check-outs, hour calculations, duplicate prevention. It's been running for months with zero issues. Saved us 15+ hours a week."</div>
+            <div class="review-text">"Our HR team was manually tracking attendance in a spreadsheet. The AiFloq technical team built a Slack-based system that does it all automatically — check-ins, check-outs, hour calculations, duplicate prevention. It's been running for months with zero issues. Saved us 15+ hours a week."</div>
             <div class="review-author">
               <div class="review-avatar" style="background: linear-gradient(135deg, #F59E0B, #d97706);">ZK</div>
               <div>
@@ -2967,7 +3449,7 @@
         <div class="contact-icon">📧</div>
         <div>
           <div class="contact-label">Email</div>
-          <div class="contact-value">laibariaz256@gmail.com</div>
+          <div class="contact-value">aifloqofficial@gmail.com</div>
         </div>
       </div>
       <div class="contact-detail">
@@ -3050,6 +3532,220 @@
   </div>
 </section>
 
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header">
+    <div class="section-label">Insights</div>
+    <h2>From Our Blog</h2>
+    <p class="section-sub">Practical guides and insights on AI automation, social media growth, and web design — written to help you work smarter.</p>
+  </div>
+
+  <div class="blog-grid">
+
+    <!-- FEATURED: Blog 1 — AI Automation -->
+    <div class="blog-card blog-card-featured fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #060A14 0%, #0c1830 50%, #091420 100%);">
+          <!-- Decorative nodes -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.35" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice">
+            <circle cx="80" cy="80" r="40" fill="none" stroke="#0EA5E9" stroke-width="1"/>
+            <circle cx="80" cy="80" r="6" fill="#0EA5E9"/>
+            <line x1="120" y1="80" x2="200" y2="80" stroke="#0EA5E9" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="200" cy="80" r="30" fill="none" stroke="#6EE7B7" stroke-width="1"/>
+            <circle cx="200" cy="80" r="5" fill="#6EE7B7"/>
+            <line x1="230" y1="80" x2="310" y2="80" stroke="#6EE7B7" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="310" cy="80" r="35" fill="none" stroke="#0EA5E9" stroke-width="1"/>
+            <circle cx="310" cy="80" r="6" fill="#0EA5E9"/>
+            <line x1="345" y1="80" x2="420" y2="80" stroke="#0EA5E9" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="420" cy="80" r="28" fill="none" stroke="#6EE7B7" stroke-width="1"/>
+            <circle cx="420" cy="80" r="5" fill="#6EE7B7"/>
+            <text x="80" y="84" text-anchor="middle" fill="#0EA5E9" font-size="9" font-family="monospace">EMAIL</text>
+            <text x="200" y="84" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">AI</text>
+            <text x="310" y="84" text-anchor="middle" fill="#0EA5E9" font-size="9" font-family="monospace">PARSE</text>
+            <text x="420" y="84" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">REPLY</text>
+            <text x="80" y="160" fill="#8896B0" font-size="10" font-family="monospace">→ trigger fired</text>
+            <text x="80" y="178" fill="#0EA5E9" font-size="10" font-family="monospace">→ AI response: 200ms</text>
+            <text x="80" y="196" fill="#6EE7B7" font-size="10" font-family="monospace">→ sent: success ✓</text>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 6 min read</div>
+        <div class="blog-category cat-automation">⚡ AI Automation</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">n8n</span>
+          <span class="blog-tag">Gmail</span>
+          <span class="blog-tag">Google Gemini</span>
+          <span class="blog-tag">Workflow</span>
+        </div>
+        <div class="blog-title">Still Replying to Emails Manually? Here's How AI Can Do It in 2 Seconds</div>
+        <div class="blog-excerpt">Every hour your team spends on repetitive email replies is an hour not spent growing your business. In this guide, we break down exactly how to build an AI-powered Gmail auto-reply system using n8n and Google Gemini — step by step, no code required. You'll see how to extract intent, draft context-aware replies, and route complex queries to humans automatically.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; May 1, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog1">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 2 — Social Media -->
+    <div class="blog-card fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #060e10 0%, #0a1f18 60%, #061210 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <rect x="20" y="100" width="30" height="45" rx="3" fill="#6EE7B7" opacity="0.5"/>
+            <rect x="65" y="75" width="30" height="70" rx="3" fill="#6EE7B7" opacity="0.65"/>
+            <rect x="110" y="50" width="30" height="95" rx="3" fill="#6EE7B7" opacity="0.8"/>
+            <rect x="155" y="30" width="30" height="115" rx="3" fill="#6EE7B7"/>
+            <rect x="200" y="20" width="30" height="125" rx="3" fill="#0EA5E9"/>
+            <text x="20" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+34%</text>
+            <text x="65" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+67%</text>
+            <text x="110" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+89%</text>
+            <text x="155" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+120%</text>
+            <text x="195" y="18" fill="#0EA5E9" font-size="9" font-family="monospace">+180%</text>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 5 min read</div>
+        <div class="blog-category cat-social">📱 Social Media</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">Instagram</span>
+          <span class="blog-tag">TikTok</span>
+          <span class="blog-tag">Content Strategy</span>
+        </div>
+        <div class="blog-title">Why Your Instagram Isn't Growing — And the 3 Things That Actually Fix It</div>
+        <div class="blog-excerpt">Posting consistently but seeing zero growth? The problem isn't your content — it's your strategy. We cover the three mistakes most brands make and what top-performing accounts do differently.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; Apr 22, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog2">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 3 — Web Design -->
+    <div class="blog-card fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #0a0614 0%, #150a2a 60%, #0a0618 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <rect x="20" y="15" width="260" height="130" rx="8" fill="none" stroke="#A78BFA" stroke-width="1"/>
+            <rect x="20" y="15" width="260" height="26" rx="8" fill="#A78BFA" opacity="0.15"/>
+            <circle cx="35" cy="28" r="5" fill="#EF4444" opacity="0.7"/>
+            <circle cx="52" cy="28" r="5" fill="#F59E0B" opacity="0.7"/>
+            <circle cx="69" cy="28" r="5" fill="#6EE7B7" opacity="0.7"/>
+            <rect x="30" y="55" width="100" height="8" rx="4" fill="#A78BFA" opacity="0.5"/>
+            <rect x="30" y="72" width="160" height="5" rx="2" fill="#8896B0" opacity="0.4"/>
+            <rect x="30" y="84" width="130" height="5" rx="2" fill="#8896B0" opacity="0.4"/>
+            <rect x="30" y="104" width="60" height="20" rx="6" fill="#A78BFA" opacity="0.6"/>
+            <rect x="175" y="50" width="90" height="75" rx="8" fill="#A78BFA" opacity="0.1" stroke="#A78BFA" stroke-width="0.5"/>
+            <rect x="183" y="60" width="74" height="40" rx="4" fill="#A78BFA" opacity="0.15"/>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 7 min read</div>
+        <div class="blog-category cat-web">🌐 Web Design</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">Landing Page</span>
+          <span class="blog-tag">CRO</span>
+          <span class="blog-tag">UI/UX</span>
+        </div>
+        <div class="blog-title">5 Landing Page Mistakes That Are Costing You Leads Every Day</div>
+        <div class="blog-excerpt">A beautiful website means nothing if visitors leave without converting. We analyse the 5 most common landing page errors — and show you exactly how to fix each one to turn traffic into clients.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; Apr 15, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog3">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 4 — AI Automation -->
+    <div class="blog-card fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #060a14 0%, #091825 60%, #060e1a 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <circle cx="60" cy="80" r="28" fill="none" stroke="#0EA5E9" stroke-width="1.5"/>
+            <text x="60" y="85" text-anchor="middle" fill="#0EA5E9" font-size="10" font-family="monospace">Slack</text>
+            <line x1="88" y1="80" x2="130" y2="80" stroke="#0EA5E9" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="160" cy="80" r="28" fill="none" stroke="#6EE7B7" stroke-width="1.5"/>
+            <text x="160" y="85" text-anchor="middle" fill="#6EE7B7" font-size="10" font-family="monospace">n8n</text>
+            <line x1="188" y1="80" x2="228" y2="80" stroke="#6EE7B7" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="255" cy="80" r="28" fill="none" stroke="#0EA5E9" stroke-width="1.5"/>
+            <text x="255" y="75" text-anchor="middle" fill="#0EA5E9" font-size="8" font-family="monospace">Google</text>
+            <text x="255" y="88" text-anchor="middle" fill="#0EA5E9" font-size="8" font-family="monospace">Sheets</text>
+            <text x="60" y="125" fill="#8896B0" font-size="8" font-family="monospace">✓ Check-in</text>
+            <text x="130" y="125" fill="#6EE7B7" font-size="8" font-family="monospace">✓ Logged</text>
+            <text x="210" y="125" fill="#0EA5E9" font-size="8" font-family="monospace">✓ 8.5h tracked</text>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 5 min read</div>
+        <div class="blog-category cat-automation">⚡ AI Automation</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">Slack</span>
+          <span class="blog-tag">n8n</span>
+          <span class="blog-tag">HR Automation</span>
+        </div>
+        <div class="blog-title">How We Eliminated Manual HR Attendance Tracking Using Slack + n8n</div>
+        <div class="blog-excerpt">A step-by-step look at how we built a fully automated attendance system for a growing tech team — zero spreadsheets, zero manual entry, total accuracy.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; Apr 8, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog4">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 5 — Meta Ads -->
+    <div class="blog-card fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #0e0a06 0%, #1f1408 60%, #120e06 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.45" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <text x="20" y="45" fill="#F59E0B" font-size="28" font-family="monospace" font-weight="bold">3.4×</text>
+            <text x="20" y="65" fill="#8896B0" font-size="10" font-family="monospace">ROAS achieved</text>
+            <line x1="20" y1="80" x2="280" y2="80" stroke="#8896B0" stroke-width="0.5" opacity="0.4"/>
+            <polyline points="20,145 60,130 100,110 140,90 180,60 220,40 260,20" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="260" cy="20" r="5" fill="#F59E0B"/>
+            <text x="20" y="158" fill="#8896B0" font-size="8" font-family="monospace">Week 1</text>
+            <text x="105" y="158" fill="#8896B0" font-size="8" font-family="monospace">Week 3</text>
+            <text x="200" y="158" fill="#F59E0B" font-size="8" font-family="monospace">Week 5 ↑</text>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 6 min read</div>
+        <div class="blog-category cat-social">📱 Paid Ads</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">Meta Ads</span>
+          <span class="blog-tag">ROAS</span>
+          <span class="blog-tag">A/B Testing</span>
+        </div>
+        <div class="blog-title">From 0.9× to 3.4× ROAS in 5 Weeks: Our Meta Ads Turnaround Playbook</div>
+        <div class="blog-excerpt">Most failing Meta ad campaigns share the same 4 problems. We walk through the exact targeting, creative, and testing changes that flipped a losing campaign into a profit machine.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; Apr 1, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog5">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo" style="display:inline-flex; align-items:center; gap:0.45rem; text-decoration:none;">
@@ -3083,16 +3779,18 @@
 
   // Staggered fade for sibling groups
   document.querySelectorAll(
-    '.services-grid .service-card, .portfolio-grid .project-card, .process-steps .process-step, .stats-inner > div'
+    '.services-grid .service-card, .process-steps .process-step, .stats-inner > div'
   ).forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.1}s`;
   });
 
   // ── NAV SCROLL SHRINK ──
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  }
 
   // ── ACTIVE NAV HIGHLIGHT ──
   const sections = document.querySelectorAll('section[id]');
@@ -3111,15 +3809,17 @@
   sections.forEach(s => navObserver.observe(s));
 
   // ── MOBILE NAV ──
-  const navToggle = document.getElementById('navToggle');
+  const navToggle  = document.getElementById('navToggle');
   const navLinksEl = document.getElementById('navLinks');
-  const navClose = document.getElementById('navClose');
+  const navCloseEl = document.getElementById('navClose');
 
-  navToggle.addEventListener('click', () => navLinksEl.classList.add('open'));
-  navClose.addEventListener('click', () => navLinksEl.classList.remove('open'));
-  navLinksEl.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinksEl.classList.remove('open'));
-  });
+  if (navToggle && navLinksEl) {
+    navToggle.addEventListener('click', () => navLinksEl.classList.add('open'));
+    if (navCloseEl) navCloseEl.addEventListener('click', () => navLinksEl.classList.remove('open'));
+    navLinksEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinksEl.classList.remove('open'));
+    });
+  }
 
   // ── WORKFLOW TABS ──
   const flows = {
@@ -3194,124 +3894,1000 @@
   document.querySelectorAll('.workflow-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const key = tab.dataset.panel;
-
-      // Update tabs
       document.querySelectorAll('.workflow-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
-      // Update panels
       document.querySelectorAll('.workflow-panel').forEach(p => p.classList.remove('active'));
-      document.getElementById(`panel-${key}`).classList.add('active');
-
-      // Update diagram
+      const panel = document.getElementById(`panel-${key}`);
+      if (panel) panel.classList.add('active');
       const f = flows[key];
-      document.getElementById('wd-title').textContent = f.title;
-      document.getElementById('wd-flow').innerHTML = f.html;
-      document.getElementById('m1').textContent = f.m1;
-      document.getElementById('m2').textContent = f.m2;
-      document.getElementById('m3').textContent = f.m3;
+      if (!f) return;
+      const wdTitle = document.getElementById('wd-title');
+      const wdFlow  = document.getElementById('wd-flow');
+      const m1 = document.getElementById('m1');
+      const m2 = document.getElementById('m2');
+      const m3 = document.getElementById('m3');
+      if (wdTitle) wdTitle.textContent = f.title;
+      if (wdFlow)  wdFlow.innerHTML   = f.html;
+      if (m1) m1.textContent = f.m1;
+      if (m2) m2.textContent = f.m2;
+      if (m3) m3.textContent = f.m3;
     });
   });
 
   // ── ANIMATED NODE PULSE ──
-  // Periodically "pulse" a random active node in the hero card
   function animateHeroNodes() {
     const nodes = document.querySelectorAll('.wf-node.active, .wf-node.active-green');
-    nodes.forEach(n => {
-      n.style.transition = 'all 0.4s';
-    });
+    if (!nodes.length) return;
+    nodes.forEach(n => { n.style.transition = 'all 0.4s'; });
     const target = nodes[Math.floor(Math.random() * nodes.length)];
     if (target) {
-      const wasBlue = target.classList.contains('active');
       target.style.transform = 'scale(1.06)';
       setTimeout(() => { target.style.transform = 'scale(1)'; }, 400);
     }
   }
-
   setInterval(animateHeroNodes, 1800);
 
   // ── REVIEWS CAROUSEL ──
-  const revTrack   = document.getElementById('revTrack');
-  const revBar     = document.getElementById('revBar');
-  const revPrev    = document.getElementById('revPrev');
-  const revNext    = document.getElementById('revNext');
-  const revDots    = document.querySelectorAll('.rev-dot');
+  const revTrack = document.getElementById('revTrack');
+  const revBar   = document.getElementById('revBar');
+  const revPrev  = document.getElementById('revPrev');
+  const revNext  = document.getElementById('revNext');
+  const revDots  = document.querySelectorAll('.rev-dot');
   const totalSlides = 6;
   let revCurrent = 0;
   let revTimer;
 
-  function goToSlide(idx) {
-    revCurrent = (idx + totalSlides) % totalSlides;
-    revTrack.style.transform = `translateX(-${revCurrent * 100}%)`;
-    revDots.forEach((d, i) => d.classList.toggle('active', i === revCurrent));
-    revBar.style.transform = `scaleX(${(revCurrent + 1) / totalSlides})`;
-    revBar.style.transformOrigin = 'left';
+  if (revTrack && revBar && revPrev && revNext) {
+    function goToSlide(idx) {
+      revCurrent = (idx + totalSlides) % totalSlides;
+      revTrack.style.transform = `translateX(-${revCurrent * 100}%)`;
+      revDots.forEach((d, i) => d.classList.toggle('active', i === revCurrent));
+      revBar.style.width = '100%';
+      revBar.style.transformOrigin = 'left';
+      revBar.style.transform = `scaleX(${(revCurrent + 1) / totalSlides})`;
+    }
+
+    function resetTimer() {
+      clearInterval(revTimer);
+      revTimer = setInterval(() => goToSlide(revCurrent + 1), 5000);
+    }
+
+    revNext.addEventListener('click', () => { goToSlide(revCurrent + 1); resetTimer(); });
+    revPrev.addEventListener('click', () => { goToSlide(revCurrent - 1); resetTimer(); });
+    revDots.forEach(d => d.addEventListener('click', () => { goToSlide(+d.dataset.slide); resetTimer(); }));
+
     revBar.style.width = '100%';
+    revBar.style.transformOrigin = 'left';
+    revBar.style.transform = `scaleX(${1 / totalSlides})`;
+    resetTimer();
   }
 
-  revNext.addEventListener('click', () => { goToSlide(revCurrent + 1); resetTimer(); });
-  revPrev.addEventListener('click', () => { goToSlide(revCurrent - 1); resetTimer(); });
-  revDots.forEach(d => d.addEventListener('click', () => { goToSlide(+d.dataset.slide); resetTimer(); }));
-
-  function resetTimer() {
-    clearInterval(revTimer);
-    revTimer = setInterval(() => goToSlide(revCurrent + 1), 5000);
-  }
-
-  // Init progress bar
-  revBar.style.width = '100%';
-  revBar.style.transform = `scaleX(${1 / totalSlides})`;
-  revBar.style.transformOrigin = 'left';
-
-  resetTimer();
-
-
+  // ── PORTFOLIO HORIZONTAL SCROLL ──
   const portScroll = document.getElementById('portScroll');
   const portPrev   = document.getElementById('portPrev');
   const portNext   = document.getElementById('portNext');
-  const dots       = document.querySelectorAll('.portfolio-dot');
+  const portDots   = document.querySelectorAll('.portfolio-dot');
 
-  function getCardWidth() {
-    const card = portScroll.querySelector('.project-card');
-    return card ? card.offsetWidth + 24 : 504; // card + gap
-  }
+  if (portScroll && portPrev && portNext) {
+    function getCardWidth() {
+      const card = portScroll.querySelector('.project-card');
+      return card ? card.offsetWidth + 24 : 504;
+    }
 
-  function updateDots() {
-    const idx = Math.round(portScroll.scrollLeft / getCardWidth());
-    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-  }
+    function updatePortDots() {
+      const idx = Math.round(portScroll.scrollLeft / getCardWidth());
+      portDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
 
-  portNext.addEventListener('click', () => {
-    portScroll.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
-  });
+    portNext.addEventListener('click', () => portScroll.scrollBy({ left: getCardWidth(), behavior: 'smooth' }));
+    portPrev.addEventListener('click', () => portScroll.scrollBy({ left: -getCardWidth(), behavior: 'smooth' }));
 
-  portPrev.addEventListener('click', () => {
-    portScroll.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      portScroll.scrollTo({ left: +dot.dataset.idx * getCardWidth(), behavior: 'smooth' });
+    portDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        portScroll.scrollTo({ left: +dot.dataset.idx * getCardWidth(), behavior: 'smooth' });
+      });
     });
+
+    portScroll.addEventListener('scroll', updatePortDots);
+
+    // Drag-to-scroll
+    let isDown = false, startX, scrollLeft;
+    portScroll.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.pageX - portScroll.offsetLeft;
+      scrollLeft = portScroll.scrollLeft;
+    });
+    portScroll.addEventListener('mouseleave', () => { isDown = false; });
+    portScroll.addEventListener('mouseup',    () => { isDown = false; });
+    portScroll.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      portScroll.scrollLeft = scrollLeft - (e.pageX - portScroll.offsetLeft - startX);
+    });
+  }
+</script>
+
+<!-- ── BLOG MODALS ── -->
+<div class="blog-modal-overlay" id="blogOverlay">
+  <div class="blog-modal" id="blogModal">
+    <button class="blog-modal-close" id="blogClose">✕</button>
+    <div id="blogModalContent"></div>
+  </div>
+</div>
+
+<script>
+// ── BLOG CONTENT DATA ──
+const blogs = {
+  blog1: {
+    cat: '⚡ AI Automation',
+    catClass: 'cat-automation',
+    date: 'May 1, 2026',
+    readTime: '6 min read',
+    title: 'Still Replying to Emails Manually? Here\'s How AI Can Do It in 2 Seconds',
+    content: `
+      <h3>The Problem: Your Inbox Is Eating Your Day</h3>
+      <p>For most businesses, email is the single biggest time sink that nobody talks about. Your team reads the same type of enquiry 30 times a day, types a slightly different version of the same reply, and moves on — only to do it again tomorrow. It's not a people problem. It's a systems problem.</p>
+      <p>The good news? With n8n and Google Gemini, you can build an AI system that reads every incoming email, understands the intent, drafts a professional reply in your tone, and sends it — all in under 2 seconds. No code. No manual effort.</p>
+
+      <h3>How the System Works</h3>
+      <p>Here's the exact flow we build for clients:</p>
+      <ul>
+        <li><strong>IMAP Trigger</strong> — n8n watches your Gmail inbox and fires the moment a new email lands</li>
+        <li><strong>Field Extraction</strong> — the workflow pulls sender name, subject, and message body into structured JSON</li>
+        <li><strong>AI Classification</strong> — Gemini reads the email and classifies intent (enquiry, complaint, booking, etc.)</li>
+        <li><strong>Reply Generation</strong> — the AI drafts a context-aware, on-brand response using your writing style</li>
+        <li><strong>Business Logic Routing</strong> — simple queries go out automatically; complex ones get flagged to a human via Slack</li>
+        <li><strong>CRM Logging</strong> — every interaction is recorded automatically in your CRM or Google Sheet</li>
+      </ul>
+
+      <div class="highlight-box"><p>💡 <strong>Real result:</strong> One of our clients went from spending 3 hours/day on email to less than 15 minutes — with zero drop in customer satisfaction scores.</p></div>
+
+      <h3>What Makes This Different From a Simple Auto-Reply?</h3>
+      <p>Basic auto-replies send the same generic message to everyone. This system actually reads and understands each email. It knows the difference between a new lead asking about pricing, an existing client chasing an invoice, and someone who just wants to unsubscribe. Each gets a different, appropriate response — instantly.</p>
+
+      <h3>Setting It Up: What You Need</h3>
+      <ul>
+        <li>A Gmail or IMAP email account</li>
+        <li>An n8n instance (self-hosted or cloud)</li>
+        <li>A Google Gemini or OpenAI API key</li>
+        <li>30–60 minutes of setup time (or let us do it for you)</li>
+      </ul>
+
+      <h3>Is This Right for Your Business?</h3>
+      <p>If your team handles more than 20 similar emails per day — enquiries, support, booking requests, follow-ups — this automation will pay for itself within the first week. It works for agencies, e-commerce stores, service businesses, clinics, law firms, and more.</p>
+    `
+  },
+  blog2: {
+    cat: '📱 Social Media',
+    catClass: 'cat-social',
+    date: 'Apr 22, 2026',
+    readTime: '5 min read',
+    title: 'Why Your Instagram Isn\'t Growing — And the 3 Things That Actually Fix It',
+    content: `
+      <h3>Consistency Alone Isn't a Strategy</h3>
+      <p>You're posting every day. You're using hashtags. You've tried Reels. And yet — your follower count barely moves, engagement is flat, and you're not sure if any of it is working. Sound familiar?</p>
+      <p>Here's the hard truth: posting consistently is the minimum requirement, not the strategy. The accounts that grow in 2026 are doing three specific things that most brands completely ignore.</p>
+
+      <h3>Mistake #1: You're Optimising for Likes, Not for Reach</h3>
+      <p>The Instagram algorithm in 2026 doesn't care how many likes your post gets. It cares about how long people watch your Reel, whether they send it to a friend, and whether they save it. Likes are a vanity metric. Shares and saves are growth metrics.</p>
+      <ul>
+        <li>Create content that people want to <strong>save for later</strong> (tips, checklists, how-tos)</li>
+        <li>Create content that people want to <strong>send to a friend</strong> (relatable, funny, specific)</li>
+        <li>Stop chasing likes — start studying your save rate and share rate</li>
+      </ul>
+
+      <h3>Mistake #2: Your Hook Is Killing Your Reach</h3>
+      <p>The first 1.5 seconds of your Reel determines whether 10,000 people see it or 400 people see it. Most brands open with their logo, their name, or a slow pan. That's a skip. Your hook needs to create immediate curiosity or make a bold, surprising statement.</p>
+      <div class="highlight-box"><p>💡 Test this formula: <strong>"Most [your audience] don't know that [surprising truth about your industry]."</strong> It works in almost every niche.</p></div>
+
+      <h3>Mistake #3: You're Not Talking to One Person</h3>
+      <p>Generic content gets ignored. Content that speaks directly to one specific person at one specific moment gets saved, shared, and followed. Before you write a caption or script a Reel, ask: who exactly is this for, and what are they feeling right now?</p>
+      <ul>
+        <li>Get specific about pain points ("If you're a freelancer losing clients to bigger agencies...")</li>
+        <li>Use language your audience actually uses — not industry jargon</li>
+        <li>Create content that makes your ideal follower think "this is made for me"</li>
+      </ul>
+
+      <h3>What We Do Differently at AiFloq</h3>
+      <p>We don't just schedule posts. We build a content system around your specific audience — their language, their triggers, their scroll habits. Every piece of content is mapped to a growth goal, and we track what actually works using real platform data, not guesswork.</p>
+    `
+  },
+  blog3: {
+    cat: '🌐 Web Design',
+    catClass: 'cat-web',
+    date: 'Apr 15, 2026',
+    readTime: '7 min read',
+    title: '5 Landing Page Mistakes That Are Costing You Leads Every Day',
+    content: `
+      <h3>Your Website Is Getting Traffic. So Why Aren't You Getting Clients?</h3>
+      <p>Traffic without conversion is just a popularity contest you're losing money on. If people are landing on your page and leaving without filling in your form, booking a call, or buying — the problem isn't your product. It's your page.</p>
+      <p>Here are the 5 most common landing page mistakes we fix for clients — and what to do instead.</p>
+
+      <h3>Mistake 1: Your Headline Talks About You, Not Your Visitor</h3>
+      <p>Most landing pages open with "Welcome to [Company Name]" or "We are a leading provider of..." Nobody cares. Your visitor arrived with a problem. Your headline needs to speak to that problem immediately.</p>
+      <ul>
+        <li><strong>Bad:</strong> "AiFloq — Digital Agency Since 2022"</li>
+        <li><strong>Good:</strong> "Stop Losing Leads to Manual Processes. We Automate It in Days."</li>
+      </ul>
+
+      <h3>Mistake 2: You Have Too Many Calls to Action</h3>
+      <p>When you give visitors 5 options — "Learn More", "Book a Call", "Download Guide", "Follow Us", "Contact Us" — they choose none of them. A landing page should have one primary action and one secondary action, maximum. Everything else is distraction.</p>
+
+      <h3>Mistake 3: Your Page Loads Too Slowly</h3>
+      <p>Every extra second your page takes to load costs you roughly 7% of conversions. If your page takes 4 seconds to load, you've already lost a significant chunk of visitors before they've read a single word. We build all pages with performance as a priority — not an afterthought.</p>
+      <div class="highlight-box"><p>💡 <strong>Quick test:</strong> Run your current page through Google PageSpeed Insights. If your mobile score is below 70, you have a conversion problem hiding as a design problem.</p></div>
+
+      <h3>Mistake 4: No Social Proof Above the Fold</h3>
+      <p>People don't trust businesses — they trust other people. If your reviews, client logos, or results aren't visible within the first scroll, you're asking visitors to trust you with nothing to back it up. Move your most compelling proof point to the top of the page.</p>
+
+      <h3>Mistake 5: Your Mobile Experience Is an Afterthought</h3>
+      <p>In 2026, over 70% of web traffic is mobile. If your landing page was designed for desktop first, chances are it looks broken, slow, or unreadable on a phone. Every page we build is mobile-first — designed at 390px wide before anything else.</p>
+
+      <h3>How We Fix This for You</h3>
+      <p>We audit your existing page, identify the specific conversion killers, and rebuild or redesign with conversion-rate optimisation baked in from day one — not bolted on at the end. Most clients see measurable improvement in lead volume within the first 2 weeks of going live.</p>
+    `
+  },
+  blog4: {
+    cat: '⚡ AI Automation',
+    catClass: 'cat-automation',
+    date: 'Apr 8, 2026',
+    readTime: '5 min read',
+    title: 'How We Eliminated Manual HR Attendance Tracking Using Slack + n8n',
+    content: `
+      <h3>The Problem: Spreadsheets, WhatsApp Messages, and Human Error</h3>
+      <p>A growing tech company came to us with a familiar problem: their HR team was manually tracking attendance across 40+ employees. People were sending check-in messages on WhatsApp, someone was copy-pasting them into a Google Sheet, and by the end of the week the data was always wrong. Late entries, missing check-outs, duplicate records — every week was a cleanup operation.</p>
+      <p>We built them a fully automated Slack-based attendance system in n8n. Here's exactly how it works.</p>
+
+      <h3>The Architecture</h3>
+      <ul>
+        <li><strong>Slack Trigger</strong> — employees type a simple command in a dedicated Slack channel to check in or out</li>
+        <li><strong>Channel Validation</strong> — a Switch node confirms the message came from an authorised attendance channel</li>
+        <li><strong>Message Edit Guard</strong> — an IF node prevents edited messages from being processed (closing a common exploit)</li>
+        <li><strong>Custom Code Node</strong> — converts timestamps to Pakistan Standard Time (PKT) and extracts Slack User ID, date, and message text</li>
+        <li><strong>Duplicate Prevention</strong> — checks Google Sheets before logging to ensure no employee can double-check-in for the same date</li>
+        <li><strong>Working Hours Calculation</strong> — automatically calculates total hours worked on check-out and enforces a 15-hour shift cap</li>
+        <li><strong>Google Sheets Update</strong> — writes date, check-in time, check-out time, username, working hours, and attendance status automatically</li>
+      </ul>
+
+      <div class="highlight-box"><p>💡 <strong>Result:</strong> The HR team went from spending 3–4 hours per week on attendance cleanup to zero. The data is 100% accurate, real-time, and requires no human intervention.</p></div>
+
+      <h3>Why This Matters Beyond HR</h3>
+      <p>This project is a perfect example of a principle we apply across all automation builds: find the manual process that's creating the most friction, map the logic completely, and replace it with a system that's smarter than any human doing the same task repeatedly.</p>
+
+      <h3>Can This Work for Your Business?</h3>
+      <p>This system can be adapted for any team using Slack — regardless of size, timezone, or industry. We can also build equivalent systems on Microsoft Teams, WhatsApp, or any messaging platform your team already uses.</p>
+    `
+  },
+  blog5: {
+    cat: '📱 Paid Ads',
+    catClass: 'cat-social',
+    date: 'Apr 1, 2026',
+    readTime: '6 min read',
+    title: 'From 0.9× to 3.4× ROAS in 5 Weeks: Our Meta Ads Turnaround Playbook',
+    content: `
+      <h3>When a Campaign Bleeds Money, Most People Do the Wrong Thing</h3>
+      <p>They increase the budget. They change the creative. They duplicate the ad set. None of it works — because they haven't diagnosed the actual problem. A low ROAS is always a symptom. The disease is usually one of four things.</p>
+
+      <h3>The 4 Root Causes of a Failing Meta Campaign</h3>
+      <ul>
+        <li><strong>Wrong audience targeting</strong> — you're showing ads to people who will never buy, no matter how good the creative is</li>
+        <li><strong>Weak creative hook</strong> — you have 1.5 seconds to stop the scroll; most ads waste it on a logo or a slow product shot</li>
+        <li><strong>Landing page mismatch</strong> — the ad promises one thing and the landing page delivers something different; trust evaporates instantly</li>
+        <li><strong>No testing structure</strong> — running 8 ads in one ad set means the algorithm picks favourites randomly, not based on real performance data</li>
+      </ul>
+
+      <h3>What We Did in Week 1: Diagnosis, Not Changes</h3>
+      <p>Before touching a single setting, we spent the first week auditing the existing account. We looked at frequency scores, CPM by audience segment, hook rate on each video creative, and the landing page experience on mobile. What we found: the targeting was too broad, the landing page had a 4.2-second load time on mobile, and 6 of the 8 ads had hook rates below 15%.</p>
+
+      <h3>Weeks 2–3: Rebuild the Structure</h3>
+      <ul>
+        <li>Rebuilt the campaign with a clean CBO structure — one campaign, three tightly defined audience ad sets</li>
+        <li>Produced 4 new video hooks (first 3 seconds only) to test against the existing creative</li>
+        <li>Fixed the landing page load time to under 1.8 seconds and rewrote the headline to match the ad promise</li>
+        <li>Set a strict testing protocol: one variable changed per test, minimum 3-day data window before decisions</li>
+      </ul>
+
+      <div class="highlight-box"><p>💡 The winning hook was the simplest one: a direct-to-camera 3-second statement of the customer's exact pain point. No logo. No music. No slow reveal. Just the problem, stated plainly.</p></div>
+
+      <h3>Weeks 4–5: Scale What Works</h3>
+      <p>Once we had a winning creative and a converting audience, we increased the budget incrementally — 20% every 3 days, never more. By week 5, the campaign was running at 3.4× ROAS on a budget 3× higher than the original. The creative that won had a 34% hook rate and a 4.1% CTR.</p>
+
+      <h3>The Lesson</h3>
+      <p>More budget never fixes a broken campaign. Diagnosis first, structure second, creative third, scale last. If your Meta ads aren't working, the answer is almost never "spend more." It's almost always "understand why first."</p>
+    `
+  }
+};
+
+// ── MODAL OPEN/CLOSE ──
+const overlay  = document.getElementById('blogOverlay');
+const modalEl  = document.getElementById('blogModal');
+const closeBtn = document.getElementById('blogClose');
+const contentEl= document.getElementById('blogModalContent');
+
+function openBlog(id) {
+  const b = blogs[id];
+  if (!b) return;
+  contentEl.innerHTML = `
+    <div class="blog-modal-header">
+      <div class="blog-modal-cat blog-category ${b.catClass}">${b.cat}</div>
+      <div class="blog-modal-title">${b.title}</div>
+      <div class="blog-modal-meta">
+        <div class="blog-avatar" style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0EA5E9,#6EE7B7);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:white;font-family:'Syne',sans-serif;flex-shrink:0;">AF</div>
+        <span>AiFloq Team</span>
+        <span style="color:var(--border);">·</span>
+        <span>${b.date}</span>
+        <span style="color:var(--border);">·</span>
+        <span>⏱ ${b.readTime}</span>
+      </div>
+    </div>
+    <div class="blog-modal-body">${b.content}</div>
+    <div class="blog-contact-cta">
+      <h4>Ready to Apply This to Your Business?</h4>
+      <p>Book a free 30-minute discovery call — we'll walk through your specific situation and show you exactly what's possible.</p>
+      <div class="blog-contact-details">
+        <div class="blog-contact-chip">📧 <span>aifloqofficial@gmail.com</span></div>
+        <div class="blog-contact-chip">🌍 <span>Remote · Worldwide</span></div>
+        <div class="blog-contact-chip">💬 <span>WhatsApp on request</span></div>
+      </div>
+      <button class="blog-cta-btn" onclick="closeBlog();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),300)">→ Book a Free Call</button>
+    </div>
+  `;
+  // Reset scroll position before opening
+  overlay.scrollTop = 0;
+  modalEl.scrollTop = 0;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBlog() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+closeBtn.addEventListener('click', closeBlog);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeBlog(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBlog(); });
+
+// Attach to all Read More buttons
+document.querySelectorAll('.blog-read-more').forEach(btn => {
+  const id = btn.dataset.blog;
+  if (id) {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      openBlog(id);
+    });
+  }
+});
+
+// Make entire blog card clickable
+document.querySelectorAll('.blog-card').forEach(card => {
+  const btn = card.querySelector('.blog-read-more');
+  if (btn) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e => {
+      if (e.target.closest('.blog-read-more')) return; // avoid double fire
+      const id = btn.dataset.blog;
+      if (id) openBlog(id);
+    });
+  }
+});
+</script>
+
+<!-- ── AI CHATBOT WIDGET ── -->
+<style>
+  /* ── CHAT BUBBLE ── */
+  #chatBubble {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0EA5E9, #6EE7B7);
+    box-shadow: 0 4px 24px rgba(14,165,233,0.45);
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+  }
+
+  #chatBubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 36px rgba(14,165,233,0.6);
+  }
+
+  #chatBubble svg { width: 26px; height: 26px; transition: opacity 0.2s; }
+
+  /* Unread dot */
+  #chatUnread {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 14px; height: 14px;
+    background: #EF4444;
+    border-radius: 50%;
+    border: 2px solid var(--bg, #080C14);
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* ── CHAT WINDOW ── */
+  #chatWindow {
+    position: fixed;
+    bottom: 6.5rem;
+    right: 2rem;
+    width: 370px;
+    max-height: 580px;
+    background: #0E1420;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+    z-index: 9997;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.92) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: bottom right;
+  }
+
+  #chatWindow.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Chat header */
+  .chat-header {
+    background: linear-gradient(135deg, #0c1825, #091420);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+
+  .chat-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0EA5E9, #6EE7B7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .chat-header-info { flex: 1; }
+
+  .chat-header-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #F0F4FF;
+  }
+
+  .chat-header-status {
+    font-size: 0.7rem;
+    color: #6EE7B7;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.1rem;
+  }
+
+  .chat-header-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: #6EE7B7;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .chat-close-btn {
+    background: none;
+    border: none;
+    color: #8896B0;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .chat-close-btn:hover { color: #F0F4FF; }
+
+  /* Messages area */
+  #chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    scroll-behavior: smooth;
+  }
+
+  #chatMessages::-webkit-scrollbar { width: 3px; }
+  #chatMessages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  /* Message bubbles */
+  .msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    animation: msgIn 0.25s ease;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.bot { align-self: flex-start; }
+  .msg.user { align-self: flex-end; }
+
+  .msg-bubble {
+    padding: 0.65rem 0.9rem;
+    border-radius: 14px;
+    font-size: 0.83rem;
+    line-height: 1.55;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  .msg.bot .msg-bubble {
+    background: #141B2D;
+    border: 1px solid rgba(255,255,255,0.07);
+    color: #F0F4FF;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.user .msg-bubble {
+    background: linear-gradient(135deg, #0EA5E9, #0284c7);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  /* Quick reply chips */
+  .quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+  }
+
+  .qr-chip {
+    background: rgba(14,165,233,0.1);
+    border: 1px solid rgba(14,165,233,0.3);
+    color: #0EA5E9;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .qr-chip:hover {
+    background: rgba(14,165,233,0.2);
+    border-color: rgba(14,165,233,0.5);
+  }
+
+  /* Typing indicator */
+  .typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.65rem 0.9rem;
+    background: #141B2D;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing-dot {
+    width: 6px; height: 6px;
+    background: #8896B0;
+    border-radius: 50%;
+    animation: typingBounce 1.2s infinite;
+  }
+
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  /* WhatsApp handoff button */
+  .wa-handoff-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.5rem;
+    transition: all 0.2s;
+    text-decoration: none;
+    justify-content: center;
+  }
+
+  .wa-handoff-btn:hover { background: #1da851; transform: translateY(-1px); }
+
+  /* Input area */
+  .chat-input-area {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+    background: #0c1220;
+  }
+
+  #chatInput {
+    flex: 1;
+    background: #141B2D;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    color: #F0F4FF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  #chatInput:focus { border-color: rgba(14,165,233,0.4); }
+  #chatInput::placeholder { color: #8896B0; }
+
+  #chatSend {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: #0EA5E9;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  #chatSend:hover { background: #0284c7; transform: scale(1.05); }
+
+  /* Powered by line */
+  .chat-powered {
+    text-align: center;
+    font-size: 0.6rem;
+    color: rgba(136,150,176,0.5);
+    padding: 0.35rem 0 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    #chatWindow { width: calc(100vw - 2rem); right: 1rem; bottom: 5.5rem; }
+    #chatBubble { right: 1rem; bottom: 1rem; }
+  }
+</style>
+
+<!-- Chat Bubble -->
+<button id="chatBubble" aria-label="Open chat">
+  <div id="chatUnread">1</div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- Chat Window -->
+<div id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">⚡</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">AiFloq Assistant</div>
+      <div class="chat-header-status">Online · Typically replies instantly</div>
+    </div>
+    <button class="chat-close-btn" id="chatCloseBtn">✕</button>
+  </div>
+
+  <div id="chatMessages"></div>
+
+  <div class="chat-input-area">
+    <input id="chatInput" type="text" placeholder="Type a message..." autocomplete="off"/>
+    <button id="chatSend" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+  <div class="chat-powered">Powered by Claude AI · AiFloq</div>
+</div>
+
+<script>
+(function() {
+  const WA_NUMBER = '923061111015';
+  const bubble    = document.getElementById('chatBubble');
+  const chatWin   = document.getElementById('chatWindow');
+  const closeBtn  = document.getElementById('chatCloseBtn');
+  const messagesEl= document.getElementById('chatMessages');
+  const inputEl   = document.getElementById('chatInput');
+  const sendBtn   = document.getElementById('chatSend');
+  const unreadDot = document.getElementById('chatUnread');
+
+  let isOpen = false;
+  let leadData = { name: '', service: '', budget: '', timeline: '' };
+  let qualificationStep = 0;
+  let awaitingQualification = false;
+
+  // ── OPEN / CLOSE ──
+  function toggleChat() {
+    isOpen = !isOpen;
+    chatWin.classList.toggle('open', isOpen);
+    if (isOpen) {
+      unreadDot.style.display = 'none';
+      if (messagesEl.children.length === 0) startConversation();
+      setTimeout(() => inputEl.focus(), 300);
+    }
+  }
+
+  bubble.addEventListener('click', toggleChat);
+  closeBtn.addEventListener('click', toggleChat);
+
+  // ── RENDER MESSAGE ──
+  function addMessage(text, role, quickReplies = [], waButton = null) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `msg ${role}`;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = text.replace(/\n/g, '<br/>');
+    msgDiv.appendChild(bubble);
+
+    if (quickReplies.length) {
+      const qrDiv = document.createElement('div');
+      qrDiv.className = 'quick-replies';
+      quickReplies.forEach(qr => {
+        const chip = document.createElement('button');
+        chip.className = 'qr-chip';
+        chip.textContent = qr;
+        chip.addEventListener('click', () => {
+          qrDiv.remove();
+          handleUserMessage(qr);
+        });
+        qrDiv.appendChild(chip);
+      });
+      msgDiv.appendChild(qrDiv);
+    }
+
+    if (waButton) {
+      const waBtn = document.createElement('a');
+      waBtn.className = 'wa-handoff-btn';
+      waBtn.href = waButton.url;
+      waBtn.target = '_blank';
+      waBtn.rel = 'noopener noreferrer';
+      waBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+      waBtn.innerHTML += ` ${waButton.label}`;
+      msgDiv.appendChild(waBtn);
+    }
+
+    messagesEl.appendChild(msgDiv);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return msgDiv;
+  }
+
+  // ── TYPING INDICATOR ──
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'msg bot';
+    div.id = 'typingIndicator';
+    div.innerHTML = `<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function hideTyping() {
+    const t = document.getElementById('typingIndicator');
+    if (t) t.remove();
+  }
+
+  // ── START CONVERSATION ──
+  function startConversation() {
+    setTimeout(() => {
+      addMessage(
+        "👋 Hi! I'm AiFloq's assistant. I can answer any questions about our services — AI automation, social media marketing, or website design.\n\nWhat brings you here today?",
+        'bot',
+        ['AI Automation', 'Social Media', 'Website Design', 'Get a Quote']
+      );
+    }, 400);
+  }
+
+  // ── QUALIFICATION FLOW ──
+  function askQualification(step) {
+    awaitingQualification = true;
+    qualificationStep = step;
+
+    const questions = {
+      1: { text: "Great! I'd love to help you get started. First, what's your name? 😊", replies: [] },
+      2: { text: `Nice to meet you, ${leadData.name}! Which service are you most interested in?`, replies: ['AI Automation', 'Social Media Marketing', 'Website Design', 'Multiple Services'] },
+      3: { text: "What's your approximate budget for this project?", replies: ['Under $200', '$200–$500', '$500–$1000', '$1000+'] },
+      4: { text: "And what's your timeline? When are you looking to get started?", replies: ['ASAP', 'Within 2 weeks', 'Within a month', 'Just exploring'] },
+    };
+
+    const q = questions[step];
+    if (q) addMessage(q.text, 'bot', q.replies);
+  }
+
+  function handleQualificationAnswer(text) {
+    switch (qualificationStep) {
+      case 1: leadData.name = text; askQualification(2); break;
+      case 2: leadData.service = text; askQualification(3); break;
+      case 3: leadData.budget = text; askQualification(4); break;
+      case 4:
+        leadData.timeline = text;
+        awaitingQualification = false;
+        qualificationStep = 5;
+        finishQualification();
+        break;
+    }
+  }
+
+  function finishQualification() {
+    const summary = `Hi AiFloq Team! 👋 I'm ${leadData.name || 'a potential client'} and I'm interested in your *${leadData.service || 'services'}*. Budget: ${leadData.budget || 'TBD'}. Timeline: ${leadData.timeline || 'TBD'}. I came via your website chatbot. Looking forward to chatting!`;
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(summary)}`;
+
+    addMessage(
+      `Perfect, ${leadData.name}! Here's a summary of what I've got:\n\n📋 <strong>Service:</strong> ${leadData.service}\n💰 <strong>Budget:</strong> ${leadData.budget}\n⏱ <strong>Timeline:</strong> ${leadData.timeline}\n\nOur team will get back to you shortly! 🚀`,
+      'bot',
+      [],
+      { url: waUrl, label: 'Continue on WhatsApp →' }
+    );
+  }
+
+  // ── SMART RULE-BASED AI RESPONSES ──
+  function getSmartReply(userMessage) {
+    const msg = userMessage.toLowerCase().trim();
+
+    // Greetings
+    if (/^(hi|hello|hey|hiya|good morning|good afternoon|salam|assalam)/.test(msg))
+      return { text: "Hey there! 👋 Great to have you here. I can tell you all about our AI automation, social media, or website design services. What are you looking for help with?", chips: ['AI Automation', 'Social Media', 'Website Design', 'Get a Quote'] };
+
+    // AI Automation
+    if (/\b(automat|n8n|workflow|chatbot|whatsapp bot|email automat|crm|lead|gemini|openai|gpt)\b/.test(msg))
+      return { text: "⚡ Our AI Automation service is one of our most popular! We build n8n workflows, WhatsApp AI agents, Gmail auto-reply systems, lead qualification funnels, and CRM integrations. Most projects go live in 3–10 days. Want to get a free quote?", chips: ['Get a Quote', 'See examples', 'How much does it cost?'] };
+
+    // Social Media
+    if (/\b(social|instagram|tiktok|facebook|linkedin|content|reel|post|ads|meta|seo|follower|grow)\b/.test(msg))
+      return { text: "📱 We handle everything social media — content creation, Instagram & TikTok management, Meta & Google ads, SEO, and monthly analytics reports. We've helped brands grow 40–180% in reach within 2 months. Interested in a free discovery call?", chips: ['Get a Quote', 'What platforms?', 'Tell me about ads'] };
+
+    // Website Design
+    if (/\b(website|web|landing page|design|shopify|ecommerce|e-commerce|figma|ui|ux|redesign|wordpress|webflow)\b/.test(msg))
+      return { text: "🌐 We design high-converting landing pages, full business websites, Shopify stores, and Figma UI/UX mockups. Every site is mobile-first and built for speed. Most websites are delivered in 7–14 days. Want to discuss your project?", chips: ['Get a Quote', 'See our work', 'How long does it take?'] };
+
+    // Pricing / Cost
+    if (/\b(price|pricing|cost|how much|budget|rate|charge|fee|package)\b/.test(msg))
+      return { text: "💰 Pricing depends on the scope of your project — a simple workflow starts around $149, while full AI systems or websites range from $399–$799+. The best way to get an accurate quote is a free 30-min discovery call. Want me to get you connected?", chips: ['Get a Quote', 'Book a free call', 'Tell me more'] };
+
+    // Timeline / How long
+    if (/\b(how long|timeline|deliver|when|days|weeks|fast|quick|turnaround)\b/.test(msg))
+      return { text: "⏱ Timelines vary by project: simple automations take 3–5 days, AI systems 5–10 days, websites 7–14 days, and social media is an ongoing monthly service. We always agree on a timeline before starting. Want to discuss yours?", chips: ['Get a Quote', 'Book a free call'] };
+
+    // Contact / Reach out
+    if (/\b(contact|email|whatsapp|call|reach|talk|speak|meet)\b/.test(msg))
+      return { text: "📧 You can reach us at **aifloqofficial@gmail.com** or on WhatsApp at **+92 306 111 1015**. The first discovery call is completely free — no commitment, no hard sell. Want me to connect you right now?", chips: ['Connect on WhatsApp', 'Get a Quote'] };
+
+    // Portfolio / Examples
+    if (/\b(portfolio|example|project|case study|work|built|show me|previous)\b/.test(msg))
+      return { text: "🎯 Some recent projects: a multi-modal WhatsApp AI agent (text + voice replies), a Gmail auto-reply system saving 3hrs/day, and a Slack attendance system for a 40-person tech team. You can see all case studies in the Portfolio section above!", chips: ['Get a Quote', 'I want something similar'] };
+
+    // Free / Trial
+    if (/\b(free|trial|demo|test|sample|no cost|no charge)\b/.test(msg))
+      return { text: "✅ Yes! The discovery call is 100% free — no credit card, no commitment. We map out your project, you decide if you want to proceed. There's genuinely no pressure. Want to book one?", chips: ['Book a free call', 'Get a Quote'] };
+
+    // About AiFloq
+    if (/\b(who are you|about you|about aifloq|what do you do|your services|aifloq)\b/.test(msg))
+      return { text: "👋 AiFloq is a full-service digital agency. We specialise in three areas: AI workflow automation, social media marketing, and website design. We work remotely with clients worldwide. What can we help you with?", chips: ['AI Automation', 'Social Media', 'Website Design', 'Get a Quote'] };
+
+    // Connect to WhatsApp
+    if (/\b(connect|whatsapp|wa|chat with|speak to|talk to team)\b/.test(msg))
+      return { text: "Perfect! I'll connect you with our team on WhatsApp right now. 🚀", chips: [], wa: true };
+
+    // Get quote trigger
+    if (/\b(quote|get started|start|hire|interested|work with|project|need help|help me)\b/.test(msg))
+      return { text: "Awesome! Let me grab a few quick details so our team can give you an accurate quote. It'll only take a moment 😊", chips: [], qualify: true };
+
+    // Default fallback
+    return { text: "That's a great question! 😊 I can help with info about AI automation, social media marketing, or website design. Or if you'd prefer to chat directly with our team, I can connect you to WhatsApp right now.", chips: ['AI Automation', 'Social Media', 'Website Design', 'Connect on WhatsApp'] };
+  }
+
+  // ── CALL AI (rule-based, no API needed) ──
+  async function callAI(userMessage) {
+    showTyping();
+
+    // Simulate thinking delay
+    await new Promise(r => setTimeout(r, 700 + Math.random() * 600));
+    hideTyping();
+
+    const reply = getSmartReply(userMessage);
+
+    if (reply.qualify) {
+      addMessage(reply.text, 'bot');
+      setTimeout(() => askQualification(1), 600);
+      return;
+    }
+
+    if (reply.wa) {
+      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hi! I came from your website and would like to learn more about your services.')}`;
+      addMessage(reply.text, 'bot', [], { url: waUrl, label: 'Open WhatsApp Chat →' });
+      return;
+    }
+
+    const showQuoteChip = !reply.chips.includes('Get a Quote') && qualificationStep === 0 && Math.random() > 0.6;
+    addMessage(reply.text, 'bot', showQuoteChip ? [...reply.chips, 'Get a Quote'] : reply.chips);
+  }
+
+  // ── HANDLE USER MESSAGE ──
+  function handleUserMessage(text) {
+    if (!text.trim()) return;
+    addMessage(text, 'user');
+    inputEl.value = '';
+
+    // Qualification flow
+    if (awaitingQualification) {
+      handleQualificationAnswer(text);
+      return;
+    }
+
+    // Quick reply shortcuts
+    if (text === 'Get a Quote' || text === 'Get a Free Quote') {
+      askQualification(1);
+      return;
+    }
+
+    callAI(text);
+  }
+
+  // ── INPUT EVENTS ──
+  sendBtn.addEventListener('click', () => handleUserMessage(inputEl.value));
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleUserMessage(inputEl.value); }
   });
 
-  portScroll.addEventListener('scroll', updateDots);
+  // ── AUTO OPEN after 8 seconds with greeting ──
+  setTimeout(() => {
+    if (!isOpen) {
+      unreadDot.style.display = 'flex';
+      unreadDot.textContent = '1';
+    }
+  }, 8000);
 
-  // Drag-to-scroll
-  let isDown = false, startX, scrollLeft;
-  portScroll.addEventListener('mousedown', e => {
-    isDown = true;
-    startX = e.pageX - portScroll.offsetLeft;
-    scrollLeft = portScroll.scrollLeft;
-  });
-  portScroll.addEventListener('mouseleave', () => isDown = false);
-  portScroll.addEventListener('mouseup',   () => isDown = false);
-  portScroll.addEventListener('mousemove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - portScroll.offsetLeft;
-    portScroll.scrollLeft = scrollLeft - (x - startX);
-  });
+})();
 </script>
 </body>
 </html>
