@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="p:domain_verify" content="5b118f364a536c49e3702fee5156874a"/>
-<title>AiFloq — Transom AI, Social Media & Web Design Agency</title>
+<title>AiFloq — Transom Voice AI & Social Media Marketing</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -2038,9 +2038,9 @@
   }
 
   .cat-automation {
-    background: rgba(14,165,233,0.2);
-    border: 1px solid rgba(14,165,233,0.4);
-    color: var(--accent);
+    background: rgba(242,163,64,0.18);
+    border: 1px solid rgba(242,163,64,0.4);
+    color: #F2A340;
   }
 
   .cat-social {
@@ -2523,11 +2523,210 @@
     .stats-inner { grid-template-columns: 1fr 1fr; }
     section { padding: 4rem 5%; }
   }
+
+  /* ══════════ TRANSOM DEEP-DIVE (merged from product page) ══════════ */
+  :root { --tr-orange: #F2A340; }
+
+  /* ── PROBLEM ── */
+  #tr-problem { background: var(--surface); }
+  .problem-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: center; margin-bottom: 3rem; }
+  .problem-num { font-family:'Playfair Display', serif; font-weight: 800; font-size: 4rem; color: var(--white); border-left: 3px solid var(--tr-orange); padding-left: 1.5rem; }
+  .problem-num span { font-size: 1.4rem; color: var(--muted); font-weight: 500; font-family: 'Inter', sans-serif; }
+  .problem-num p { color: var(--muted); font-size: 1rem; margin-top: 0.6rem; font-weight: 400; max-width: 260px; }
+
+  .day-bar { max-width: 1200px; margin: 0 auto; }
+  .day-bar-labels { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .day-bar-track { display: flex; height: 46px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .day-seg { display: flex; align-items: center; justify-content: center; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+  .day-seg.off { background: rgba(232,112,58,0.14); color: var(--tr-orange); flex: 3; }
+  .day-seg.on { background: rgba(110,231,183,0.14); color: var(--accent2); flex: 2.2; }
+  .day-bar-note { margin-top: 1.5rem; color: var(--muted); font-size: 0.98rem; }
+  .day-bar-note b { color: var(--text); }
+
+  /* ── GENERIC CARD GRID ── */
+  .card-grid { max-width: 1200px; margin: 0 auto; display: grid; gap: 1.5rem; }
+  .cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+  }
+  .info-card:hover { border-color: rgba(14,165,233,0.3); transform: translateY(-3px); }
+  .info-card .ic-num { font-family:'Playfair Display', serif; color: var(--accent); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .info-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .info-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+  .info-card.hi { background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(110,231,183,0.05)); border-color: rgba(14,165,233,0.35); }
+
+  #tr-whynow { background: var(--bg); }
+
+  /* ── SOLUTION ── */
+  .solution-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2rem; }
+  .step-list li { display: flex; gap: 1rem; align-items: flex-start; }
+  .step-badge {
+    width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+    background: rgba(14,165,233,0.12); border: 1px solid rgba(14,165,233,0.3); color: var(--accent);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem;
+  }
+  .step-list b { display: block; color: var(--text); font-size: 1rem; margin-bottom: 0.2rem; }
+  .step-list span { color: var(--muted); font-size: 0.92rem; }
+
+  /* ── HOW IT WORKS diagram ── */
+  #tr-howworks { background: var(--surface); }
+  .diagram-wrap { max-width: 1100px; margin: 0 auto; position: relative; }
+  .diagram-core {
+    max-width: 300px; margin: 0 auto 3rem; text-align: center;
+    background: #05070C; border: 1px solid var(--accent); border-radius: 14px; padding: 1.5rem;
+    box-shadow: 0 0 40px rgba(14,165,233,0.15);
+  }
+  .diagram-core .lab { color: var(--accent); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.4rem; }
+  .diagram-core h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .diagram-core p { color: var(--muted); font-size: 0.85rem; }
+  .diagram-nodes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .diagram-node {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem;
+    position: relative;
+  }
+  .diagram-node .tag { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.4rem; display: block; }
+  .diagram-node.person .tag { color: var(--accent2); }
+  .diagram-node.ext .tag { color: var(--muted); }
+  .diagram-node h5 { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .diagram-node p { color: var(--muted); font-size: 0.82rem; }
+  .diagram-node .rel { color: var(--accent); font-size: 0.72rem; margin-top: 0.5rem; display: block; }
+
+  /* ── LIFECYCLE TIMELINE ── */
+  #tr-lifecycle { background: var(--bg); }
+  .tr-timeline { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+  .tr-timeline-step { border-left: 2px solid var(--accent); padding-left: 0.9rem; }
+  .tr-timeline-step:nth-child(2) { border-color: var(--accent2); }
+  .tr-timeline-step:nth-child(3) { border-color: var(--accent); }
+  .tr-timeline-step:nth-child(4) { border-color: var(--accent2); }
+  .tr-timeline-step:nth-child(5) { border-color: var(--accent); }
+  .tr-timeline-step:nth-child(6) { border-color: var(--tr-orange); }
+  .tr-timeline-step .t { color: var(--muted); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .tr-timeline-step h5 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .tr-timeline-step p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+
+  /* ── PRODUCT DASHBOARD MOCKUP ── */
+  #tr-product { background: var(--surface); }
+  .tr-product-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; align-items: center; }
+  .tr-product-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+  .tr-product-list li { display: flex; gap: 0.65rem; align-items: center; color: var(--muted); font-size: 0.95rem; }
+  .tr-product-list li::before { content: '✓'; color: var(--accent2); font-weight: 700; }
+
+  /* ── REAL PRODUCT SCREENSHOTS ── */
+  .browser-frame {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+  .browser-bar { display:flex; align-items:center; gap:0.5rem; padding:0.65rem 1rem; background: var(--surface2); border-bottom: 1px solid var(--border); }
+  .browser-dot { width:9px; height:9px; border-radius:50%; }
+  .browser-url { margin-left:0.6rem; color: var(--muted); font-size: 0.72rem; font-family: monospace; }
+  .browser-frame img { display:block; width:100%; height:auto; }
+  .tr-shots-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; }
+  .shot-caption { color: var(--muted); font-size: 0.85rem; margin-top: 0.85rem; text-align:center; }
+  @media (max-width: 900px) { .tr-shots-grid { grid-template-columns: 1fr; } }
+
+  /* ── COMPETITIVE TABLE ── */
+  #tr-compare { background: var(--bg); }
+  .cmp-table { max-width: 1200px; margin: 0 auto; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .cmp-row { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); }
+  .cmp-row > div { padding: 0.95rem 1.1rem; font-size: 0.88rem; border-bottom: 1px solid var(--border); display:flex; align-items:center; }
+  .cmp-row:last-child > div { border-bottom: none; }
+  .cmp-row.head > div { background: var(--surface); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .cmp-row.head > div:nth-child(2) { color: var(--accent); }
+  .cmp-row > div:nth-child(2) { background: rgba(14,165,233,0.06); font-weight: 600; }
+  .cmp-row > div:first-child { color: var(--text); font-weight: 500; }
+  .cmp-yes { color: var(--accent2); font-weight: 700; }
+  .cmp-partial { color: var(--tr-orange); font-size: 0.8rem; }
+  .cmp-no { color: var(--muted); }
+
+  /* ── MARKET ── */
+  #tr-market { background: var(--surface); }
+  .market-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; }
+  .market-tier { display: flex; align-items: baseline; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+  .market-tier:first-child { padding-top: 0; }
+  .market-tier .tier-lab { width: 55px; color: var(--muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; }
+  .market-tier .tier-num { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.2rem; color: var(--white); min-width: 130px; }
+  .market-tier .tier-num.som { color: var(--accent2); }
+  .market-tier p { color: var(--muted); font-size: 0.92rem; }
+  .market-side { display: flex; flex-direction: column; gap: 1.6rem; justify-content: center; }
+  .market-side .m-num { font-family:'Playfair Display', serif; font-weight: 800; font-size: 2rem; color: var(--text); }
+  .market-side .m-lab { color: var(--muted); font-size: 0.88rem; }
+
+  /* ── PRICING ── */
+  #tr-pricing { background: var(--bg); }
+  .pricing-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .price-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;
+    display: flex; flex-direction: column; position: relative;
+  }
+  .price-card.featured { background: linear-gradient(160deg, #0C2A22, #081018); border-color: rgba(110,231,183,0.4); }
+  .price-badge {
+    position: absolute; top: -12px; left: 2rem;
+    background: var(--accent2); color: #06210F; font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 100px;
+  }
+  .price-tier { color: var(--accent); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .price-card.featured .price-tier { color: var(--accent2); }
+  .price-amt { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.2rem; margin-bottom: 0.2rem; }
+  .price-amt span { font-size: 1rem; color: var(--muted); font-weight: 500; font-family: 'Inter', sans-serif; }
+  .price-per { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; }
+  .price-feats { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+  .price-feats li { color: var(--muted); font-size: 0.9rem; display: flex; gap: 0.55rem; }
+  .price-feats li::before { content: '•'; color: var(--accent); }
+  .pricing-note { max-width: 1200px; margin: 2rem auto 0; background: rgba(232,112,58,0.08); border: 1px solid rgba(232,112,58,0.25); border-radius: 12px; padding: 1.1rem 1.4rem; color: var(--text); font-size: 0.95rem; }
+  .pricing-note b { color: var(--tr-orange); }
+
+  /* ── TRACTION / ROADMAP ── */
+  #tr-status { background: var(--surface); }
+  .status-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+  .status-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .status-item { display: flex; align-items: center; gap: 0.9rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+  .status-item .lab { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; padding: 0.22rem 0.55rem; border-radius: 100px; flex-shrink: 0; }
+  .status-item.done .lab { background: rgba(110,231,183,0.12); color: var(--accent2); }
+  .status-item.next { border-color: rgba(232,112,58,0.4); background: rgba(232,112,58,0.06); }
+  .status-item.next .lab { background: rgba(232,112,58,0.18); color: var(--tr-orange); }
+  .status-item span.txt { font-size: 0.92rem; color: var(--text); }
+
+  .tr-roadmap { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--border); padding-left: 1.5rem; }
+  .rm-step { padding-bottom: 1.6rem; position: relative; }
+  .rm-step:last-child { padding-bottom: 0; }
+  .rm-step::before { content:''; position:absolute; left:-1.62rem; top:4px; width:10px; height:10px; border-radius:50%; background: var(--accent); border: 2px solid var(--surface); }
+  .rm-step .when { color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .rm-step h5 { font-family:'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .rm-step p { color: var(--muted); font-size: 0.88rem; }
+
+  @media (max-width: 900px) {
+    .problem-grid, .solution-grid, .tr-product-grid, .market-grid, .status-grid { grid-template-columns: 1fr; }
+    .card-grid.cols-4, .card-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+    .diagram-nodes { grid-template-columns: 1fr; }
+    .tr-timeline { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .cmp-row { grid-template-columns: 1.2fr repeat(4, 1fr); font-size: 0.8rem; }
+    .cmp-row > div { padding: 0.7rem 0.5rem; }
+  }
+  @media (max-width: 560px) {
+    .card-grid.cols-4, .card-grid.cols-3, .tr-timeline { grid-template-columns: 1fr; }
+    .cmp-row { grid-template-columns: 1fr; }
+    .cmp-row.head { display: none; }
+    .cmp-row > div:first-child { font-weight: 700; border-bottom: none; padding-bottom: 0; }
+    .cmp-row > div:nth-child(2)::before { content: 'Transom: '; color: var(--muted); font-weight: 400; }
+    .cmp-row > div:nth-child(3)::before { content: 'In-house ISA: '; color: var(--muted); font-weight: 400; }
+    .cmp-row > div:nth-child(4)::before { content: 'Virtual ISA: '; color: var(--muted); font-weight: 400; }
+    .cmp-row > div:nth-child(5)::before { content: 'Chatbot/VM: '; color: var(--muted); font-weight: 400; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
+
 <nav id="navbar">
   <a href="#" class="logo">
     <svg class="logo-mark" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -2549,10 +2748,10 @@
   </a>
   <ul class="nav-links" id="navLinks">
     <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#transom" style="display:inline-flex; align-items:center; gap:0.4rem;"><svg width="16" height="16" viewBox="0 0 120 120" style="border-radius:3px; flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="112" height="112" rx="26" fill="#0F1B2D"/><g transform="translate(60 62) scale(1.15)"><path d="M-13 -26 A13 13 0 0 1 13 -26 Z" fill="#F2A340"/><path d="M0 -26 L-6.5 -37.3" fill="none" stroke="#0F1B2D" stroke-width="1.4"/><path d="M0 -26 L6.5 -37.3" fill="none" stroke="#0F1B2D" stroke-width="1.4"/><rect x="-24" y="-26" width="48" height="8" fill="#F6F1E8"/><rect x="-5" y="-18" width="10" height="40" fill="#F6F1E8"/><rect x="-13" y="18" width="26" height="5" fill="#F6F1E8"/></g></svg>Transom</a></li>
+    <li><a href="#services">Social Media</a></li>
     <li><a href="#workflow">How It Works</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="transom.html" style="display:inline-flex; align-items:center; gap:0.4rem;"><img src="assets/transom-appicon.svg" alt="" style="width:16px; height:16px; border-radius:4px;"/>Transom AI</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact" class="nav-cta">Book a Call</a></li>
@@ -2572,22 +2771,18 @@
 
       <!-- Dual discipline pills -->
       <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-        <a href="transom.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(242,163,64,0.12); border:1px solid rgba(242,163,64,0.35); color:#F2A340; font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px; text-decoration:none;">
-          <img src="assets/transom-appicon.svg" alt="" style="width:14px;height:14px;border-radius:3px;display:inline-block;"/>
+        <a href="#transom" style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(242,163,64,0.12); border:1px solid rgba(242,163,64,0.35); color:#F2A340; font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px; text-decoration:none;">
+          <svg width="14" height="14" viewBox="0 0 120 120" style="border-radius:3px; flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="112" height="112" rx="26" fill="#0F1B2D"/><g transform="translate(60 62) scale(1.15)"><path d="M-13 -26 A13 13 0 0 1 13 -26 Z" fill="#F2A340"/><path d="M0 -26 L-6.5 -37.3" fill="none" stroke="#0F1B2D" stroke-width="1.4"/><path d="M0 -26 L6.5 -37.3" fill="none" stroke="#0F1B2D" stroke-width="1.4"/><rect x="-24" y="-26" width="48" height="8" fill="#F6F1E8"/><rect x="-5" y="-18" width="10" height="40" fill="#F6F1E8"/><rect x="-13" y="18" width="26" height="5" fill="#F6F1E8"/></g></svg>
           Transom
         </a>
         <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(110,231,183,0.1); border:1px solid rgba(110,231,183,0.3); color:var(--accent2); font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px;">
           <span style="width:6px;height:6px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite 0.5s;display:inline-block;"></span>
           📱 Social Media
         </div>
-        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.3); color:#A78BFA; font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px;">
-          <span style="width:6px;height:6px;background:#A78BFA;border-radius:50%;animation:pulse 2s infinite 1s;display:inline-block;"></span>
-          🌐 Web Design
-        </div>
       </div>
 
-      <h1>Automate. Grow.<br/><em>Build Your Brand.</em></h1>
-      <p class="hero-desc">AiFloq builds Transom — our autonomous voice AI for real estate — runs your social media, and designs high-converting websites — everything your business needs to scale, in one agency.</p>
+      <h1>Answer Every Call.<br/><em>Grow Every Channel.</em></h1>
+      <p class="hero-desc">AiFloq builds Transom — our autonomous voice AI for real estate — and runs high-performing social media for your brand. Two done-for-you engines, one agency.</p>
 
       <!-- Service highlight chips -->
       <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem;">
@@ -2595,8 +2790,6 @@
         <span style="background:rgba(242,163,64,0.1); border:1px solid rgba(242,163,64,0.25); color:#F2A340; font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📅 Auto-Booked Showings</span>
         <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📱 Instagram & TikTok</span>
         <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📈 Meta Ads</span>
-        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">🌐 Landing Pages</span>
-        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">🛒 E-commerce</span>
       </div>
 
       <div class="hero-actions">
@@ -2613,36 +2806,36 @@
 
     <div class="hero-visual">
       <div class="hero-float-badge float-1">
-        <div class="float-dot" style="background:var(--accent)"></div>
-        3 workflows running
+        <div class="float-dot" style="background:#F2A340"></div>
+        3 calls handled today
       </div>
 
-      <!-- Stacked cards: automation on top, social below -->
+      <!-- Stacked cards: Transom on top, social below -->
       <div style="display:flex; flex-direction:column; gap:1rem; width:100%; max-width:420px;">
 
-        <!-- Automation card -->
+        <!-- Transom card -->
         <div class="workflow-card" style="animation-delay:0s;">
           <div class="wf-header">
-            <div class="wf-dot" style="background:#0EA5E9"></div>
+            <div class="wf-dot" style="background:#F2A340"></div>
             <div class="wf-dot" style="background:#6EE7B7"></div>
-            <div class="wf-dot" style="background:#F59E0B"></div>
-            <span class="wf-title">Live Automation · Active</span>
+            <div class="wf-dot" style="background:#0EA5E9"></div>
+            <span class="wf-title">Transom · Live Call</span>
           </div>
           <div class="wf-nodes">
-            <div class="wf-node active">📧 Email Trigger</div>
+            <div class="wf-node active">📞 Call In</div>
             <span class="wf-arrow">→</span>
-            <div class="wf-node active">🤖 AI Model</div>
+            <div class="wf-node active">🤖 Transom AI</div>
             <span class="wf-arrow">→</span>
-            <div class="wf-node active-green">📤 Auto-Reply</div>
+            <div class="wf-node active-green">📋 Qualified</div>
           </div>
           <div class="wf-nodes" style="margin-top:0.25rem">
-            <div class="wf-node active">🎯 New Lead</div>
+            <div class="wf-node active">🏠 Check Listing</div>
             <span class="wf-arrow">→</span>
-            <div class="wf-node">🔍 Qualify</div>
+            <div class="wf-node">📅 Book Showing</div>
             <span class="wf-arrow">→</span>
-            <div class="wf-node active-green">📅 Book Demo</div>
+            <div class="wf-node active-green">🗃️ Logged to CRM</div>
           </div>
-          <div class="wf-status">3 workflows running · 0 errors · last run 2s ago</div>
+          <div class="wf-status">3 calls active · 0 missed · booked in 46s</div>
         </div>
 
         <!-- Social media card -->
@@ -2673,7 +2866,7 @@
 
       <div class="hero-float-badge float-2">
         <div class="float-dot" style="background:var(--accent2)"></div>
-        Automation + Social · All-in-one
+        Transom + Social · All-in-one
       </div>
     </div>
   </div>
@@ -2683,16 +2876,16 @@
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="fade-in">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Workflows Deployed</div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Call Coverage</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num">18+</div>
-      <div class="stat-label">Services Offered</div>
+      <div class="stat-num">&lt;1min</div>
+      <div class="stat-label">Ring to Booked Showing</div>
     </div>
     <div class="fade-in">
-      <div class="stat-num">3-in-1</div>
-      <div class="stat-label">Automation · Social · Web</div>
+      <div class="stat-num">2-in-1</div>
+      <div class="stat-label">Transom · Social Media</div>
     </div>
     <div class="fade-in">
       <div class="stat-num">40h+</div>
@@ -2702,31 +2895,25 @@
 </div>
 
 <!-- SERVICES -->
-<section id="services">
-  <div class="section-header">
-    <div class="section-label">What We Do</div>
-    <h2>Three Disciplines,<br/>One Agency</h2>
-    <p class="section-sub">Transom (our AI voice platform), social media marketing, and website design — everything your business needs to operate smarter and grow faster, all under one roof.</p>
+<section id="transom">
+  <div class="section-header fade-in">
+    <div class="section-label" style="color:#F2A340;"><span style="width:20px;height:1px;background:#F2A340;display:inline-block;margin-right:0.5rem;"></span>Our Own AI Product</div>
+    <h2>Transom — the <em style="font-style:italic;color:#F2A340;">front desk</em><br/>that never clocks out.</h2>
+    <p class="section-sub">An autonomous voice AI agent — built and deployed by AiFloq — that answers every call, qualifies every lead, and books the showing 24/7. Private deployment, per real-estate agency.</p>
   </div>
 
-  <!-- Category label: Transom -->
-  <div style="max-width:1200px; margin: 0 auto 1.5rem;">
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <a href="transom.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(242,163,64,0.1); border:1px solid rgba(242,163,64,0.3); color:#F2A340; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:100px; text-decoration:none;"><img src="assets/transom-appicon.svg" alt="" style="width:14px;height:14px;border-radius:3px;"/>Transom</a>
-      <div style="flex:1; height:1px; background:linear-gradient(90deg, rgba(242,163,64,0.3), transparent);"></div>
-    </div>
-  </div>
-
-  <!-- Transom showcase panel -->
+  <!-- Solution demo -->
   <div class="fade-in" style="max-width:1200px; margin:0 auto; background:linear-gradient(135deg, rgba(242,163,64,0.08), rgba(15,27,45,0.4)); border:1px solid rgba(242,163,64,0.25); border-radius:20px; padding:2.5rem; display:grid; grid-template-columns:1.1fr 0.9fr; gap:2.5rem; align-items:center;">
     <div>
       <img src="assets/transom-logo-light.svg" alt="Transom" style="height:34px; width:auto; margin-bottom:1.25rem;"/>
-      <h3 style="font-family:'Playfair Display', serif; font-weight:700; font-size:1.6rem; margin-bottom:0.85rem; line-height:1.25;">Our own AI product: the front desk that never clocks out.</h3>
-      <p style="color:var(--muted); font-size:1rem; line-height:1.8; margin-bottom:1.5rem;">Transom is an autonomous voice AI agent — built and deployed by AiFloq — that answers every call, qualifies every lead, and books the showing 24/7. Private deployment, per agency.</p>
-      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.75rem;">
-        <span class="tag">Voice AI</span><span class="tag">Real Estate</span><span class="tag">24/7 Answering</span><span class="tag">CRM Sync</span>
-      </div>
-      <a href="transom.html" class="btn-primary" style="background:#F2A340; box-shadow:0 0 30px rgba(242,163,64,0.25);">Explore Transom AI →</a>
+      <p style="color:var(--muted); font-size:1rem; line-height:1.8; margin-bottom:1.25rem;">One agent owns your front line end-to-end — turning every inbound call into a qualified, booked, logged opportunity before a competitor even sees the lead.</p>
+      <ul class="step-list" style="margin-top:0;">
+        <li><div class="step-badge">01</div><div><b>Answers</b><span>on the first ring, every time</span></div></li>
+        <li><div class="step-badge">02</div><div><b>Qualifies</b><span>intent, budget, timeline</span></div></li>
+        <li><div class="step-badge">03</div><div><b>Books</b><span>the showing into the calendar</span></div></li>
+        <li><div class="step-badge">04</div><div><b>Escalates</b><span>to a human at the right moment</span></div></li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="background:#F2A340; box-shadow:0 0 30px rgba(242,163,64,0.25); margin-top:1.75rem;">Book a Demo →</a>
     </div>
     <div style="background:var(--bg); border:1px solid var(--border); border-radius:14px; padding:1.25rem;">
       <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.78rem; margin-bottom:0.9rem;">
@@ -2744,13 +2931,291 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Category label: Social Media Marketing -->
-  <div style="max-width:1200px; margin: 3.5rem auto 1.5rem;">
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(110,231,183,0.1); border:1px solid rgba(110,231,183,0.25); color:var(--accent2); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:100px;">📱 Social Media Marketing</div>
-      <div style="flex:1; height:1px; background:linear-gradient(90deg, rgba(110,231,183,0.3), transparent);"></div>
+<!-- TRANSOM: PROBLEM -->
+<section id="tr-problem">
+  <div class="section-header fade-in">
+    <div class="section-label">The Problem</div>
+    <h2>Every missed call is a client<br/>who <em style="font-style:italic; color:var(--accent2);">already hired someone else.</em></h2>
+  </div>
+  <div class="problem-grid fade-in">
+    <div class="day-bar">
+      <div class="day-bar-labels"><span>12 AM</span><span>9 AM</span><span>6 PM</span><span>12 AM</span></div>
+      <div class="day-bar-track">
+        <div class="day-seg off">Unmanned</div>
+        <div class="day-seg on">Office Hours — Covered</div>
+        <div class="day-seg off">Unmanned</div>
+      </div>
+      <p class="day-bar-note"><b>62% of buyer inquiries arrive outside business hours</b> — evenings and weekends, when buyers are house-hunting and ready to talk right now.</p>
     </div>
+    <div class="problem-num">14<span>hrs</span>
+      <p>a day your phone can ring with no one there to pick it up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSOM: COST OF SILENCE -->
+<section id="tr-cost" style="background:var(--bg);">
+  <div class="section-header fade-in">
+    <div class="section-label" style="color:var(--accent2);">The Cost of Silence</div>
+    <h2>In real estate, speed isn't a feature<br/>of good service — <em style="font-style:italic; color:var(--accent2);">it is the service.</em></h2>
+  </div>
+  <div class="stats-inner fade-in">
+    <div><div class="stat-num">78%</div><div class="stat-label">of buyers hire the <b style="color:var(--text)">first agent who responds</b> — not the best one.</div></div>
+    <div><div class="stat-num">21×</div><div class="stat-label">more likely to qualify a lead at 5 min vs. 30 min.</div></div>
+    <div><div class="stat-num">47min</div><div class="stat-label">the average agent response time to a new lead.</div></div>
+    <div><div class="stat-num">$7.5k</div><div class="stat-label">in lost commission for every lead that slips away.</div></div>
+  </div>
+</section>
+
+<!-- TRANSOM: WHY NOW -->
+<section id="tr-whynow">
+  <div class="section-header fade-in">
+    <div class="section-label">Why Now</div>
+    <h2>Four shifts just made the<br/><em style="font-style:italic; color:var(--accent2);">autonomous front desk</em> real.</h2>
+  </div>
+  <div class="card-grid cols-4 fade-in">
+    <div class="info-card"><div class="ic-num">01</div><h4>Voice crossed the realism line</h4><p>Real-time speech models now sound human enough that callers stay on and engage.</p></div>
+    <div class="info-card"><div class="ic-num">02</div><h4>Telephony is programmable</h4><p>Twilio & Telnyx make a real phone number an API call — no hardware, no call center.</p></div>
+    <div class="info-card"><div class="ic-num">03</div><h4>Multi-model is cheap & reliable</h4><p>Best-model-per-task orchestration is now affordable enough to run on every call.</p></div>
+    <div class="info-card hi"><div class="ic-num" style="color:var(--accent2)">04</div><h4>Buyers expect instant</h4><p>A 5-minute callback already feels slow. The bar is now answer-on-the-first-ring.</p></div>
+  </div>
+</section>
+
+<!-- TRANSOM: HOW IT WORKS -->
+<section id="tr-howworks">
+  <div class="section-header fade-in">
+    <div class="section-label">How It Works</div>
+    <h2>One platform, wired into<br/>the tools you <em style="font-style:italic; color:var(--accent2);">already run.</em></h2>
+  </div>
+  <div class="diagram-wrap fade-in">
+    <div class="diagram-core">
+      <div class="lab">Core Platform</div>
+      <h4>Transom AI</h4>
+      <p>Autonomous agent — handles calls, qualifies leads, books showings.</p>
+    </div>
+    <div class="diagram-nodes">
+      <div class="diagram-node person"><span class="tag">Person</span><h5>Homebuyer / Seller</h5><p>Looking to buy, sell, or inquire.</p><span class="rel">↳ makes / receives calls</span></div>
+      <div class="diagram-node ext"><span class="tag">External System</span><h5>Phone / Voice Network</h5><p>Twilio · Telnyx telephony.</p><span class="rel">↳ routes audio + metadata</span></div>
+      <div class="diagram-node ext"><span class="tag">External System</span><h5>CRM System</h5><p>Follow Up Boss or similar.</p><span class="rel">↳ logs leads + transcripts</span></div>
+      <div class="diagram-node person"><span class="tag">Person</span><h5>Real Estate Team</h5><p>Monitor & take escalations.</p><span class="rel">↳ live transfers + alerts</span></div>
+      <div class="diagram-node ext"><span class="tag">External System</span><h5>Knowledge Base</h5><p>Listings, MLS & agency policy.</p><span class="rel">↳ queries listings + policy</span></div>
+      <div class="diagram-node ext"><span class="tag">External System</span><h5>Scheduling System</h5><p>Google Calendar · Outlook.</p><span class="rel">↳ books showings</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSOM: LIFECYCLE -->
+<section id="tr-lifecycle">
+  <div class="section-header fade-in">
+    <div class="section-label" style="color:var(--accent2);">The Call Lifecycle</div>
+    <h2>Ring to booked showing —<br/>in under a minute, <em style="font-style:italic; color:var(--accent2);">with no human in the loop.</em></h2>
+  </div>
+  <div class="tr-timeline fade-in">
+    <div class="tr-timeline-step"><div class="t">0:00</div><h5>Answer</h5><p>Picks up on the first ring, day or night.</p></div>
+    <div class="tr-timeline-step"><div class="t">0:05</div><h5>Qualify</h5><p>Intent, budget, timeline — the LPMAMA framework.</p></div>
+    <div class="tr-timeline-step"><div class="t">0:18</div><h5>Look up</h5><p>Pulls live listing & policy from the knowledge base.</p></div>
+    <div class="tr-timeline-step"><div class="t">0:34</div><h5>Book</h5><p>Finds an open slot and books the showing.</p></div>
+    <div class="tr-timeline-step"><div class="t">0:46</div><h5>Log</h5><p>Writes the lead, transcript & outcome to the CRM.</p></div>
+    <div class="tr-timeline-step"><div class="t">as needed</div><h5>Escalate</h5><p>Transfers live to an agent at the right moment.</p></div>
+  </div>
+</section>
+
+<!-- TRANSOM: PRODUCT DASHBOARD -->
+<section id="tr-product">
+  <div class="tr-product-grid">
+    <div class="fade-in">
+      <div class="section-label">The Product</div>
+      <h2>The Front Desk.</h2>
+      <p style="color:var(--muted); font-size:1.05rem; line-height:1.8;">Your team watches; Transom works. Every live call, transcript and outcome in one place — with one-tap take-over whenever a human should step in.</p>
+      <ul class="tr-product-list">
+        <li>Live monitoring of concurrent calls</li>
+        <li>Real-time transcripts & qualification status</li>
+        <li>One-tap human takeover & escalation</li>
+      </ul>
+    </div>
+    <div class="browser-frame fade-in">
+      <div class="browser-bar">
+        <span class="browser-dot" style="background:#EF4444;"></span>
+        <span class="browser-dot" style="background:#F59E0B;"></span>
+        <span class="browser-dot" style="background:#22C55E;"></span>
+        <span class="browser-url">app.transom.ai/live</span>
+      </div>
+      <img src="assets/transom-screen-live.png" alt="Transom Live dashboard — real-time calls, qualified leads and booked showings"/>
+    </div>
+  </div>
+
+  <!-- Real product screens -->
+  <div class="fade-in" style="max-width:1200px; margin:3.5rem auto 0;">
+    <div class="section-label" style="justify-content:center; margin-bottom:1.5rem;"><span style="width:20px;height:1px;background:var(--accent);display:inline-block;margin-right:0.5rem;"></span>Real Product, Real Screens</div>
+    <div class="tr-shots-grid">
+      <div>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="browser-dot" style="background:#EF4444;"></span>
+            <span class="browser-dot" style="background:#F59E0B;"></span>
+            <span class="browser-dot" style="background:#22C55E;"></span>
+            <span class="browser-url">app.transom.ai/agent</span>
+          </div>
+          <img src="assets/transom-screen-agent.png" alt="Transom agent configuration — identity, tone and persona settings"/>
+        </div>
+        <p class="shot-caption">Configure the agent's identity, tone, and persona — no code required.</p>
+      </div>
+      <div>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="browser-dot" style="background:#EF4444;"></span>
+            <span class="browser-dot" style="background:#F59E0B;"></span>
+            <span class="browser-dot" style="background:#22C55E;"></span>
+            <span class="browser-url">app.transom.ai/connect</span>
+          </div>
+          <img src="assets/transom-screen-connect.png" alt="Transom Connect page — phone number, CRM and calendar integrations"/>
+        </div>
+        <p class="shot-caption">Connect your number, CRM, and calendar — live and answering in minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSOM: BUILT DIFFERENT + DEPLOYMENT MODEL -->
+<section id="tr-different" style="background:var(--surface);">
+  <div class="section-header fade-in">
+    <div class="section-label">Built Different</div>
+    <h2>A finished engine,<br/><em style="font-style:italic; color:var(--accent2);">not a chatbot demo.</em></h2>
+  </div>
+  <div class="card-grid cols-4 fade-in" style="margin-bottom:4rem;">
+    <div class="info-card"><div class="ic-num">∞</div><h4>Multi-call concurrency</h4><p>Answers many callers at once — no busy signal, no queue, no missed line.</p></div>
+    <div class="info-card"><div class="ic-num">⌥</div><h4>Multi-model per agent</h4><p>Each agent routes to the best model per task — speed, reasoning, or voice.</p></div>
+    <div class="info-card"><div class="ic-num">⤳</div><h4>End-to-end workflow</h4><p>Answer → qualify → look up → book → log → escalate. The full loop.</p></div>
+    <div class="info-card hi"><div class="ic-num" style="color:var(--accent2)">✓</div><h4>Rigorously tested</h4><p>The complete workflow is built, working, and put through rigorous testing.</p></div>
+  </div>
+
+  <div class="section-header fade-in">
+    <div class="section-label" style="color:var(--accent2);">A Different Model</div>
+    <h2>Not SaaS. <em style="font-style:italic; color:var(--accent2);">Your own deployment.</em></h2>
+    <p class="section-sub">Every agency runs a private, isolated instance of Transom — their own phone number, their own data, their own brand voice. No shared tenancy, no pooled data, no compromise.</p>
+  </div>
+  <div class="card-grid cols-4 fade-in">
+    <div class="info-card"><h4>Data ownership</h4><p>Every call, lead and transcript stays inside the agency's own deployment.</p></div>
+    <div class="info-card"><h4>Privacy by design</h4><p>Isolation means no cross-tenant leakage — a real advantage for compliance.</p></div>
+    <div class="info-card"><h4>Tuned per agency</h4><p>Voice, scripts and policies shaped to each brokerage's brand and market.</p></div>
+    <div class="info-card hi"><h4>Sticky & defensible</h4><p>A dedicated, tuned deployment is far harder to rip out than a shared seat.</p></div>
+  </div>
+</section>
+
+<!-- TRANSOM: COMPETITIVE LANDSCAPE -->
+<section id="tr-compare">
+  <div class="section-header fade-in">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>Why the status quo <em style="font-style:italic; color:var(--accent2);">loses the call.</em></h2>
+  </div>
+  <div class="cmp-table fade-in">
+    <div class="cmp-row head"><div>&nbsp;</div><div>Transom</div><div>In-House ISA</div><div>Virtual ISA</div><div>Chatbot / VM</div></div>
+    <div class="cmp-row"><div>Answers 24/7 / after-hours</div><div class="cmp-yes">✓</div><div class="cmp-no">–</div><div class="cmp-partial">partial</div><div class="cmp-yes">✓</div></div>
+    <div class="cmp-row"><div>Instant first-ring response</div><div class="cmp-yes">✓</div><div class="cmp-partial">partial</div><div class="cmp-partial">partial</div><div class="cmp-yes">✓</div></div>
+    <div class="cmp-row"><div>Handles many calls at once</div><div class="cmp-yes">✓</div><div class="cmp-no">–</div><div class="cmp-partial">partial</div><div class="cmp-yes">✓</div></div>
+    <div class="cmp-row"><div>Qualifies & books showings</div><div class="cmp-yes">✓</div><div class="cmp-yes">✓</div><div class="cmp-yes">✓</div><div class="cmp-no">–</div></div>
+    <div class="cmp-row"><div>Agency owns the data</div><div class="cmp-yes">✓</div><div class="cmp-yes">✓</div><div class="cmp-no">–</div><div class="cmp-partial">partial</div></div>
+    <div class="cmp-row"><div>Cost per year</div><div style="color:var(--accent2); font-weight:700;">Low</div><div>High</div><div>Mid</div><div>Low</div></div>
+  </div>
+</section>
+
+<!-- TRANSOM: MARKET SIZE -->
+<section id="tr-market">
+  <div class="section-header fade-in">
+    <div class="section-label" style="color:var(--accent2);">Market Size</div>
+    <h2>A large, underserved<br/><em style="font-style:italic; color:var(--accent2);">front line.</em></h2>
+  </div>
+  <div class="market-grid fade-in">
+    <div>
+      <div class="market-tier"><div class="tier-lab">TAM</div><div class="tier-num">$4.2B</div><p>US front-line lead-response & ISA spend across brokerages and teams.</p></div>
+      <div class="market-tier"><div class="tier-lab">SAM</div><div class="tier-num">$900M</div><p>~60k tech-forward teams & mid-size brokerages ready to deploy AI.</p></div>
+      <div class="market-tier"><div class="tier-lab">SOM</div><div class="tier-num som">$22M</div><p>3-year obtainable — ~1,500 deployments.</p></div>
+    </div>
+    <div class="market-side">
+      <div><div class="m-num">1.49M</div><div class="m-lab">Realtors in the US</div></div>
+      <div><div class="m-num">102k</div><div class="m-lab">Real-estate brokerages</div></div>
+      <div><div class="m-num">4.06M</div><div class="m-lab">Existing-home sales / yr</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSOM: PRICING -->
+<section id="tr-pricing">
+  <div class="section-header fade-in">
+    <div class="section-label">Business Model</div>
+    <h2>Priced per deployment —<br/><em style="font-style:italic; color:var(--accent2);">not per seat.</em></h2>
+  </div>
+  <div class="pricing-grid fade-in">
+    <div class="price-card">
+      <div class="price-tier">Team</div>
+      <div class="price-amt">$4.9k<span>setup</span></div>
+      <div class="price-per">+ $890 per month</div>
+      <ul class="price-feats">
+        <li>Single private deployment</li>
+        <li>One dedicated number</li>
+        <li>Core integrations</li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">Most Common</div>
+      <div class="price-tier">Brokerage</div>
+      <div class="price-amt">$9.9k<span>setup</span></div>
+      <div class="price-per">+ $1,900 per month</div>
+      <ul class="price-feats">
+        <li>Multi-office deployment</li>
+        <li>Multiple numbers & agents</li>
+        <li>Custom voice & policy tuning</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Enterprise</div>
+      <div class="price-amt">Custom</div>
+      <div class="price-per">volume & white-glove</div>
+      <ul class="price-feats">
+        <li>Franchise / portfolio rollout</li>
+        <li>Dedicated SLAs & support</li>
+        <li>Custom integrations</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pricing-note fade-in">~$23k / yr for a full brokerage deployment — versus <b>$45k–$60k+</b> for one human ISA who still can't answer nights, weekends, or two calls at once.</div>
+</section>
+
+<!-- TRANSOM: STATUS + ROADMAP -->
+<section id="tr-status">
+  <div class="status-grid">
+    <div class="fade-in">
+      <div class="section-label" style="color:var(--accent2);">Traction & Status</div>
+      <h2>The product is built.</h2>
+      <p style="color:var(--muted); font-size:1rem; line-height:1.8; margin-bottom:2rem;">Transom is a complete, working MVP — fully functional and put through rigorous testing. We're onboarding our first design-partner brokerages.</p>
+      <div class="status-list">
+        <div class="status-item done"><span class="lab">DONE</span><span class="txt">End-to-end call workflow — built & working</span></div>
+        <div class="status-item done"><span class="lab">DONE</span><span class="txt">Multi-call concurrency & multi-model routing</span></div>
+        <div class="status-item done"><span class="lab">DONE</span><span class="txt">Rigorous testing of the full workflow</span></div>
+        <div class="status-item next"><span class="lab">NEXT</span><span class="txt">First paid deployments & design-partner case studies</span></div>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="section-label">Roadmap</div>
+      <h2 style="font-size:1.9rem; margin-bottom:2rem;">From MVP to <em style="font-style:italic; color:var(--accent2);">market.</em></h2>
+      <div class="tr-roadmap">
+        <div class="rm-step"><div class="when">Now</div><h5>MVP complete</h5><p>Full workflow, multi-call, multi-model — built & tested.</p></div>
+        <div class="rm-step"><div class="when">H2 2026</div><h5>Design partners</h5><p>First paid deployments, 2–3 brokerages, Front Desk v2, case studies.</p></div>
+        <div class="rm-step"><div class="when">H1 2027</div><h5>Product depth</h5><p>Outbound follow-up, SMS, multilingual voice, analytics dashboards.</p></div>
+        <div class="rm-step"><div class="when">H2 2027</div><h5>Scale GTM</h5><p>Self-serve deployment, integration marketplace, channel partners.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA MARKETING -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-label" style="color:var(--accent2);">What We Do</div>
+    <h2>Social Media<br/>Marketing</h2>
+    <p class="section-sub">The other half of what we do — full-service social media marketing that builds your audience and turns followers into clients.</p>
   </div>
 
   <div class="services-grid">
@@ -2791,98 +3256,51 @@
       <div class="service-tags"><span class="tag">Analytics</span><span class="tag">Meta Insights</span><span class="tag">Google Analytics</span><span class="tag">KPI Tracking</span></div>
     </div>
   </div>
-
-  <!-- Category label: Website Design -->
-  <div style="max-width:1200px; margin: 3.5rem auto 1.5rem;">
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.3); color:#A78BFA; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:100px;">🌐 Website Design</div>
-      <div style="flex:1; height:1px; background:linear-gradient(90deg, rgba(139,92,246,0.3), transparent);"></div>
-    </div>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card fade-in">
-      <div class="service-icon" style="background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">🌐</div>
-      <div class="service-title">Landing Page Design</div>
-      <div class="service-desc">High-converting, visually stunning landing pages built to turn visitors into leads — designed from scratch with your brand, goals, and audience in mind.</div>
-      <div class="service-tags"><span class="tag">HTML/CSS</span><span class="tag">React</span><span class="tag">Conversion</span><span class="tag">Responsive</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon" style="background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">🏢</div>
-      <div class="service-title">Business Websites</div>
-      <div class="service-desc">Full multi-page websites for agencies, startups, and service businesses — professionally designed, mobile-first, and optimised for speed and search engines.</div>
-      <div class="service-tags"><span class="tag">WordPress</span><span class="tag">Webflow</span><span class="tag">Next.js</span><span class="tag">SEO-ready</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon" style="background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">🛒</div>
-      <div class="service-title">E-commerce Stores</div>
-      <div class="service-desc">Fully functional online stores with product pages, cart, checkout, and payment integration — designed to maximise sales and deliver a seamless shopping experience.</div>
-      <div class="service-tags"><span class="tag">Shopify</span><span class="tag">WooCommerce</span><span class="tag">Stripe</span><span class="tag">Product Pages</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon" style="background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">🎨</div>
-      <div class="service-title">UI/UX Design</div>
-      <div class="service-desc">User interface design and experience flows built in Figma — wireframes, prototypes, design systems, and handoff-ready files that developers can build from directly.</div>
-      <div class="service-tags"><span class="tag">Figma</span><span class="tag">Wireframes</span><span class="tag">Prototypes</span><span class="tag">Design System</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon" style="background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">⚡</div>
-      <div class="service-title">Website Redesign</div>
-      <div class="service-desc">Transform your outdated website into a modern, fast, and conversion-focused experience — retaining your content while completely elevating the look, feel, and performance.</div>
-      <div class="service-tags"><span class="tag">Redesign</span><span class="tag">Performance</span><span class="tag">Mobile-first</span><span class="tag">CRO</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon" style="background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">🔧</div>
-      <div class="service-title">Maintenance & Support</div>
-      <div class="service-desc">Ongoing website maintenance, content updates, speed optimisation, security patches, and technical support — so your site stays fast, secure, and up to date.</div>
-      <div class="service-tags"><span class="tag">Updates</span><span class="tag">Speed Optimisation</span><span class="tag">Security</span><span class="tag">Hosting</span></div>
-    </div>
-  </div>
 </section>
 
 <!-- WORKFLOW SHOWCASE -->
 <section id="workflow">
   <div class="workflow-showcase">
     <div class="fade-in">
-      <div class="section-label">How Automation Works</div>
-      <h2>See Your<br/>Workflow in Motion</h2>
+      <div class="section-label">How Transom Works</div>
+      <h2>See the Call<br/>in Motion</h2>
 
       <div class="workflow-tabs">
-        <button class="workflow-tab active" data-panel="email">Email Automation</button>
-        <button class="workflow-tab" data-panel="lead">Lead Funnel</button>
-        <button class="workflow-tab" data-panel="chat">AI Chatbot</button>
+        <button class="workflow-tab active" data-panel="answer">Answer & Qualify</button>
+        <button class="workflow-tab" data-panel="book">Book & Log</button>
+        <button class="workflow-tab" data-panel="escalate">Escalate</button>
       </div>
 
-      <div class="workflow-panel active" id="panel-email">
-        <h3>AI Email Auto-Reply</h3>
-        <p>Every incoming email is read, classified, and answered by a fine-tuned AI agent — matching your tone, referencing context, and escalating when needed.</p>
+      <div class="workflow-panel active" id="panel-answer">
+        <h3>Answers & Qualifies Instantly</h3>
+        <p>Every inbound call is picked up on the first ring — day or night — by an autonomous voice agent that sounds human and knows the listing.</p>
         <ul class="workflow-feature-list">
-          <li>Triggers instantly on any incoming IMAP or Gmail message</li>
-          <li>AI extracts sender intent and drafts a contextual reply</li>
-          <li>Routes complex queries to a human via Slack or Teams</li>
-          <li>Logs every interaction to your CRM automatically</li>
+          <li>Picks up instantly on Twilio / Telnyx telephony — no busy signal, no queue</li>
+          <li>Asks intent, budget, and timeline using the LPMAMA framework</li>
+          <li>Looks up the live listing and agency policy from the knowledge base</li>
+          <li>Sounds natural enough that callers stay on and keep talking</li>
         </ul>
       </div>
 
-      <div class="workflow-panel" id="panel-lead">
-        <h3>Cold-to-Hot Lead Funnel</h3>
-        <p>A conversational system that qualifies every new lead by asking the right questions — then routes them to booking, nurture, or disqualification automatically.</p>
+      <div class="workflow-panel" id="panel-book">
+        <h3>Books the Showing & Logs Everything</h3>
+        <p>Once a lead is qualified, Transom finds an open slot, books the showing directly into the calendar, and writes the full record to your CRM — automatically.</p>
         <ul class="workflow-feature-list">
-          <li>Captures leads from forms, ads, or direct messages</li>
-          <li>Asks budget, timeline, and service need via chat</li>
-          <li>Scores leads and routes them to the right pipeline</li>
-          <li>Books discovery calls on your calendar without you lifting a finger</li>
+          <li>Checks Google Calendar / Outlook for the agent's real availability</li>
+          <li>Confirms the showing time out loud with the caller before ending the call</li>
+          <li>Logs the lead, transcript, and outcome to your CRM (Follow Up Boss & more)</li>
+          <li>Ring to booked showing, typically in under a minute</li>
         </ul>
       </div>
 
-      <div class="workflow-panel" id="panel-chat">
-        <h3>WhatsApp AI Chatbot</h3>
-        <p>An always-on AI agent with persistent memory that handles customer queries, collects information, and escalates intelligently — straight from WhatsApp.</p>
+      <div class="workflow-panel" id="panel-escalate">
+        <h3>Escalates to a Human at the Right Moment</h3>
+        <p>Transom knows what it doesn't know. Complex, sensitive, or high-value conversations are handed off live to your team — with full context, never a cold transfer.</p>
         <ul class="workflow-feature-list">
-          <li>Responds in seconds to any WhatsApp message</li>
-          <li>Remembers previous conversations for context</li>
-          <li>Handles FAQs, product info, and booking requests</li>
-          <li>Hands off to human agents with full transcript</li>
+          <li>Live transfer to an agent when a call needs a human judgment call</li>
+          <li>Your team monitors every call in real time from the Front Desk dashboard</li>
+          <li>One-tap takeover mid-call whenever someone wants to jump in</li>
+          <li>Nothing falls through — every call ends qualified, booked, or handed off</li>
         </ul>
       </div>
     </div>
@@ -2890,42 +3308,42 @@
     <div class="fade-in">
       <div class="workflow-diagram">
         <div class="wd-header">
-          <div class="wd-title" id="wd-title">📧 Email Auto-Reply Flow</div>
+          <div class="wd-title" id="wd-title">📞 Answer & Qualify Flow</div>
           <div class="wd-badge">Live</div>
         </div>
         <div class="wd-flow" id="wd-flow">
-          <!-- Email flow (default) -->
+          <!-- Answer & Qualify flow (default) -->
           <div class="wd-row">
-            <div class="wd-node lit-blue">📧 IMAP Trigger</div>
+            <div class="wd-node lit-blue">📞 Call In</div>
             <div class="wd-arrow"></div>
-            <div class="wd-node lit-blue">✏️ Parse Email</div>
+            <div class="wd-node lit-blue">🤖 Transom Answers</div>
           </div>
           <div class="wd-row" style="padding-left: 2rem;">
             <div class="wd-arrow" style="max-width:20px"></div>
           </div>
           <div class="wd-row">
-            <div class="wd-node lit-blue">🤖 Gemini AI</div>
+            <div class="wd-node lit-blue">📋 Qualify Lead</div>
             <div class="wd-arrow"></div>
-            <div class="wd-node">🧠 Context Check</div>
+            <div class="wd-node">🏠 Check Listing</div>
           </div>
           <div class="wd-row" style="padding-left: 2rem;">
             <div class="wd-arrow" style="max-width:20px"></div>
           </div>
           <div class="wd-row">
-            <div class="wd-node lit-green">📤 Send Reply</div>
+            <div class="wd-node lit-green">✅ Qualified</div>
             <div class="wd-arrow"></div>
-            <div class="wd-node lit-green">🗃️ Log to CRM</div>
+            <div class="wd-node lit-green">📅 Ready to Book</div>
           </div>
         </div>
         <div class="wd-divider"></div>
         <div class="wd-metrics">
           <div class="wd-metric">
-            <div class="wd-metric-num" id="m1">2.1s</div>
-            <div class="wd-metric-label">Avg Response</div>
+            <div class="wd-metric-num" id="m1">0s</div>
+            <div class="wd-metric-label">Speed</div>
           </div>
           <div class="wd-metric">
-            <div class="wd-metric-num" id="m2">100%</div>
-            <div class="wd-metric-label">Auto Rate</div>
+            <div class="wd-metric-num" id="m2">24/7</div>
+            <div class="wd-metric-label">Rate</div>
           </div>
           <div class="wd-metric">
             <div class="wd-metric-num" id="m3">0</div>
@@ -2990,7 +3408,7 @@
   <div class="section-header">
     <div class="section-label">Our Work</div>
     <h2>Real Projects,<br/>Real Results</h2>
-    <p class="section-sub">Live automations built and deployed — each one eliminating hours of manual work every single week.</p>
+    <p class="section-sub">Our own AI product, plus social media results — live, deployed, and driving real numbers every week.</p>
   </div>
 
   <!-- Scroll nav -->
@@ -3002,215 +3420,17 @@
   <div class="portfolio-scroll-wrapper fade-in">
     <div class="portfolio-scroll" id="portScroll">
 
-      <!-- ── PROJECT 1: Multi-Modal WhatsApp AI Agent ── -->
-      <div class="project-card">
-        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #0C1520 100%);">
-          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 60% 40%, rgba(14,165,233,0.18) 0%, transparent 65%);"></div>
-          <div class="preview-flow-row">
-            <div class="p-node">💬 WhatsApp</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">🔀 Msg Type?</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node">📝 Text</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node">💎 Gemini</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">📤 Text Reply</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node">🎙️ Voice Note</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node">🔊 AssemblyAI</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">🗣️ Voice Reply</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-top">
-            <div class="project-platform">n8n · WhatsApp · AI</div>
-            <div class="project-status">Deployed</div>
-          </div>
-          <div class="project-title">Multi-Modal WhatsApp AI Agent (Text + Voice)</div>
-          <div class="project-desc">An AI agent that adapts to message type — text messages get instant AI text replies via Gemini, while voice notes are transcribed by AssemblyAI and replied to in a cloned voice using Fish Speech.</div>
-          <div class="project-metrics">
-            <div class="project-metric">
-              <div class="pm-value">2</div>
-              <div class="pm-label">Modes Handled</div>
-            </div>
-            <div class="project-metric">
-              <div class="pm-value">100%</div>
-              <div class="pm-label">Auto Rate</div>
-            </div>
-            <div class="project-metric">
-              <div class="pm-value">24/7</div>
-              <div class="pm-label">Uptime</div>
-            </div>
-          </div>
-          <ul class="project-features">
-            <li>Detects whether incoming message is text or voice note</li>
-            <li>Voice transcribed via AssemblyAI, reply generated by Gemini</li>
-            <li>Voice cloned with Fish Speech — replies sent as audio</li>
-            <li>FastAPI backend handles routing between modalities</li>
-          </ul>
-          <div class="project-tags">
-            <span class="p-tag">n8n</span>
-            <span class="p-tag">Google Gemini</span>
-            <span class="p-tag">AssemblyAI</span>
-            <span class="p-tag">Fish Speech</span>
-            <span class="p-tag">FastAPI</span>
-            <span class="p-tag">WhatsApp API</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── PROJECT 2: Gmail AI Auto-Reply ── -->
-      <div class="project-card">
-        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #0C1A14 100%);">
-          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 40% 50%, rgba(110,231,183,0.16) 0%, transparent 65%);"></div>
-          <div class="preview-flow-row">
-            <div class="p-node">📧 IMAP Trigger</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">✏️ Edit Fields</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node">💎 Gemini AI</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">🔀 Route Logic</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node green">📤 Send Reply</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">🗃️ Log to CRM</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-top">
-            <div class="project-platform">n8n · Gmail · Gemini</div>
-            <div class="project-status">Deployed</div>
-          </div>
-          <div class="project-title">AI-Powered Gmail Auto-Reply System</div>
-          <div class="project-desc">Solves the problem of businesses wasting hours on repetitive client emails. Automatically reads incoming Gmail messages, extracts structured data in JSON, validates fields, and sends clean professional replies — routed by business logic, no raw AI output.</div>
-          <div class="project-metrics">
-            <div class="project-metric">
-              <div class="pm-value">~2s</div>
-              <div class="pm-label">Response Time</div>
-            </div>
-            <div class="project-metric">
-              <div class="pm-value">100%</div>
-              <div class="pm-label">Auto-Replied</div>
-            </div>
-            <div class="project-metric">
-              <div class="pm-value">0</div>
-              <div class="pm-label">Manual Steps</div>
-            </div>
-          </div>
-          <ul class="project-features">
-            <li>Reads incoming Gmail via IMAP and extracts business fields as JSON</li>
-            <li>Validates missing or incomplete data before replying</li>
-            <li>Routes emails by business logic — no raw AI leakage</li>
-            <li>Maintains Re: threading for natural conversation flow</li>
-          </ul>
-          <div class="project-tags">
-            <span class="p-tag">n8n</span>
-            <span class="p-tag">Google Gemini</span>
-            <span class="p-tag">Gmail IMAP</span>
-            <span class="p-tag">JSON Parsing</span>
-            <span class="p-tag">Business Logic</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── PROJECT 3: Slack Attendance System ── -->
-      <div class="project-card">
-        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #10100A 100%);">
-          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 50% 40%, rgba(245,158,11,0.12) 0%, transparent 65%);"></div>
-          <div class="preview-flow-row">
-            <div class="p-node">💬 Slack Msg</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">🔀 Channel Check</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node dim">🕐 Check-In?</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">✅ Deduplicate</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">📋 Log Sheet</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node dim">🕔 Check-Out?</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">🧮 Calc Hours</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">📊 Update</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-top">
-            <div class="project-platform">n8n · Slack · Sheets</div>
-            <div class="project-status">Deployed</div>
-          </div>
-          <div class="project-title">Slack-Based Automated Attendance System</div>
-          <div class="project-desc">Automates HR attendance tracking directly from Slack. Eliminates duplicate entries, validates check-in/check-out logic, converts to Pakistan Standard Time, and calculates working hours in real-time — zero manual HR involvement.</div>
-          <div class="project-metrics">
-            <div class="project-metric">
-              <div class="pm-value">0</div>
-              <div class="pm-label">Manual HR Steps</div>
-            </div>
-            <div class="project-metric">
-              <div class="pm-value">15h</div>
-              <div class="pm-label">Shift Validation</div>
-            </div>
-            <div class="project-metric">
-              <div class="pm-value">PKT</div>
-              <div class="pm-label">Auto Timezone</div>
-            </div>
-          </div>
-          <ul class="project-features">
-            <li>Listens for check-in / check-out commands in Slack channels</li>
-            <li>Prevents duplicate entries with smart deduplication logic</li>
-            <li>Calculates total working hours and enforces 15-hour shift cap</li>
-            <li>Auto-updates Google Sheets with date, time, username, and status</li>
-          </ul>
-          <div class="project-tags">
-            <span class="p-tag">n8n</span>
-            <span class="p-tag">Slack API</span>
-            <span class="p-tag">Google Sheets</span>
-            <span class="p-tag">JavaScript</span>
-            <span class="p-tag">PKT Timezone</span>
-            <span class="p-tag">HR Automation</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── PROJECT 4: Transom AI (Featured Product) ── -->
-      <div class="project-card" style="border-color: rgba(232,112,58,0.35);">
-        <div class="project-preview" style="background: linear-gradient(135deg, #080604 0%, #1A0F08 100%);">
-          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 55% 45%, rgba(232,112,58,0.2) 0%, transparent 65%);"></div>
-          <div class="preview-flow-row">
-            <div class="p-node">📞 Incoming Call</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node dim">🤖 Transom Answers</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node">📋 Qualify Lead</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node">🏠 Check Listing</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">📅 Book Showing</div>
-          </div>
-          <div class="preview-flow-row">
-            <div class="p-node green">🗃️ Log to CRM</div>
-            <span class="p-arrow">→</span>
-            <div class="p-node green">👤 Escalate if Needed</div>
-          </div>
+      <!-- ── PROJECT 1: Transom AI (Featured Product) ── -->
+      <div class="project-card" style="border-color: rgba(242,163,64,0.35);">
+        <div class="project-preview" style="background: linear-gradient(135deg, #080604 0%, #1A0F08 100%); padding:0;">
+          <img src="assets/transom-screen-live.png" alt="Transom Live dashboard" style="width:100%; height:100%; object-fit:cover; object-position:top left; opacity:0.92;"/>
         </div>
         <div class="project-body">
           <div class="project-top">
             <div class="project-platform">Voice AI · Real Estate · Own Product</div>
-            <div class="project-status" style="background: rgba(232,112,58,0.14); color: #E8703A; border-color: rgba(232,112,58,0.3);">Featured Product</div>
+            <div class="project-status" style="background: rgba(242,163,64,0.14); color: #F2A340; border-color: rgba(242,163,64,0.3);">Featured Product</div>
           </div>
-          <div class="project-title" style="display:flex; align-items:center; gap:0.6rem;"><img src="assets/transom-appicon.svg" alt="Transom" style="width:26px; height:26px; border-radius:6px; flex-shrink:0;"/>Transom — Autonomous Voice AI for Real Estate</div>
+          <div class="project-title" style="display:flex; align-items:center; gap:0.6rem;"><svg width="26" height="26" viewBox="0 0 120 120" style="border-radius:5px; flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="112" height="112" rx="26" fill="#0F1B2D"/><g transform="translate(60 62) scale(1.15)"><path d="M-13 -26 A13 13 0 0 1 13 -26 Z" fill="#F2A340"/><path d="M0 -26 L-6.5 -37.3" fill="none" stroke="#0F1B2D" stroke-width="1.4"/><path d="M0 -26 L6.5 -37.3" fill="none" stroke="#0F1B2D" stroke-width="1.4"/><rect x="-24" y="-26" width="48" height="8" fill="#F6F1E8"/><rect x="-5" y="-18" width="10" height="40" fill="#F6F1E8"/><rect x="-13" y="18" width="26" height="5" fill="#F6F1E8"/></g></svg>Transom — Autonomous Voice AI for Real Estate</div>
           <div class="project-desc">Our own AI platform, built and deployed by AiFloq. Transom answers every inbound call 24/7, qualifies the lead, books the showing, and logs everything to the CRM — before a competitor even sees the lead.</div>
           <div class="project-metrics">
             <div class="project-metric">
@@ -3239,7 +3459,111 @@
             <span class="p-tag">CRM Integration</span>
             <span class="p-tag">Real Estate</span>
           </div>
-          <a href="transom.html" class="btn-primary" style="margin-top:1.5rem; width:fit-content;">Explore Transom AI →</a>
+          <a href="#transom" class="btn-primary" style="background:#F2A340; box-shadow:0 0 30px rgba(242,163,64,0.25); margin-top:1.5rem; width:fit-content;">Explore Transom AI →</a>
+        </div>
+      </div>
+
+      <!-- ── PROJECT 2: Instagram + TikTok Growth ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #060e10 0%, #0a1f18 60%, #061210 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 55% 45%, rgba(110,231,183,0.2) 0%, transparent 65%);"></div>
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.5" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <rect x="20" y="100" width="30" height="45" rx="3" fill="#6EE7B7" opacity="0.5"/>
+            <rect x="65" y="75" width="30" height="70" rx="3" fill="#6EE7B7" opacity="0.65"/>
+            <rect x="110" y="50" width="30" height="95" rx="3" fill="#6EE7B7" opacity="0.8"/>
+            <rect x="155" y="30" width="30" height="115" rx="3" fill="#6EE7B7"/>
+            <rect x="200" y="20" width="30" height="125" rx="3" fill="#0EA5E9"/>
+            <text x="20" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+34%</text>
+            <text x="65" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+67%</text>
+            <text x="110" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+89%</text>
+            <text x="155" y="18" fill="#6EE7B7" font-size="9" font-family="monospace">+120%</text>
+            <text x="195" y="18" fill="#0EA5E9" font-size="9" font-family="monospace">+180%</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">Instagram · TikTok · Content</div>
+            <div class="project-status">Deployed</div>
+          </div>
+          <div class="project-title">Wellness Brand: Instagram + TikTok Growth Engine</div>
+          <div class="project-desc">Full-service content and community management for a wellness brand — content calendar, Reels strategy, captions, and daily posting, all aligned to a consistent brand voice.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">+40%</div>
+              <div class="pm-label">Followers</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">2×</div>
+              <div class="pm-label">Engagement</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">6wks</div>
+              <div class="pm-label">To Results</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Built a content calendar mapped to real audience language and habits</li>
+            <li>Produced Reels with hooks engineered for the first 1.5 seconds</li>
+            <li>Grew a TikTok account from 200 to 4,000 followers in 2 months</li>
+            <li>Monthly reporting on reach, saves, shares, and follower growth</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">Instagram</span>
+            <span class="p-tag">TikTok</span>
+            <span class="p-tag">Content Strategy</span>
+            <span class="p-tag">Reels</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROJECT 3: Meta Ads Turnaround ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #0e0a06 0%, #1f1408 60%, #120e06 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 55% 45%, rgba(245,158,11,0.18) 0%, transparent 65%);"></div>
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.55" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <text x="20" y="45" fill="#F59E0B" font-size="28" font-family="monospace" font-weight="bold">3.4×</text>
+            <text x="20" y="65" fill="#8896B0" font-size="10" font-family="monospace">ROAS achieved</text>
+            <line x1="20" y1="80" x2="280" y2="80" stroke="#8896B0" stroke-width="0.5" opacity="0.4"/>
+            <polyline points="20,145 60,130 100,110 140,90 180,60 220,40 260,20" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="260" cy="20" r="5" fill="#F59E0B"/>
+            <text x="20" y="158" fill="#8896B0" font-size="8" font-family="monospace">Week 1</text>
+            <text x="105" y="158" fill="#8896B0" font-size="8" font-family="monospace">Week 3</text>
+            <text x="200" y="158" fill="#F59E0B" font-size="8" font-family="monospace">Week 5 ↑</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">Meta Ads · Paid Growth</div>
+            <div class="project-status">Deployed</div>
+          </div>
+          <div class="project-title">D2C Brand: Meta Ads Turnaround Playbook</div>
+          <div class="project-desc">A failing Meta ad account rebuilt from the ground up — new targeting, new creative hooks, and a disciplined testing structure that turned losses into consistent ROAS.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">3.4×</div>
+              <div class="pm-label">ROAS</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">5wks</div>
+              <div class="pm-label">Turnaround</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">4.1%</div>
+              <div class="pm-label">CTR</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Audited targeting, creative hook rate, and landing page mobile speed</li>
+            <li>Rebuilt the campaign into a clean CBO structure with 3 tight audiences</li>
+            <li>Tested one variable at a time with a strict 3-day data window</li>
+            <li>Scaled budget 20% every 3 days once a winning creative emerged</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">Meta Ads</span>
+            <span class="p-tag">ROAS</span>
+            <span class="p-tag">A/B Testing</span>
+            <span class="p-tag">CRO</span>
+          </div>
         </div>
       </div>
 
@@ -3250,7 +3574,6 @@
       <button class="portfolio-dot active" data-idx="0"></button>
       <button class="portfolio-dot" data-idx="1"></button>
       <button class="portfolio-dot" data-idx="2"></button>
-      <button class="portfolio-dot" data-idx="3"></button>
     </div>
   </div>
 </section>
@@ -3261,64 +3584,64 @@
     <div class="section-header" style="margin-bottom:3rem;">
       <div class="section-label">Client Reviews</div>
       <h2>What Clients<br/>Say About Us</h2>
-      <p class="section-sub">Trusted by founders, marketers, and teams across AI automation, social media, and web design — real results from real projects.</p>
+      <p class="section-sub">Trusted by real-estate teams and brand marketers alike — real results from Transom deployments and social media campaigns.</p>
     </div>
 
     <div class="reviews-track-wrap fade-in">
       <div class="reviews-track" id="revTrack">
 
-        <!-- Slide 1 — AI Automation: WhatsApp + Gmail -->
+        <!-- Slide 1 — Transom: Real Estate Voice AI -->
         <div class="review-card">
           <div class="review-item">
             <div class="review-stars">★★★★★</div>
-            <div class="review-text">"The AiFloq technical team built a WhatsApp AI agent that handles both text and voice messages — it replies in a cloned voice for voice notes and in text for messages. Our customer support response time dropped from hours to seconds. Genuinely one of the most impressive builds I've seen."</div>
+            <div class="review-text">"Transom picks up every call now, even at 11pm on a Sunday. It asks the right questions, checks the listing, and books the showing before I've even seen the notification. I used to lose leads overnight — now I wake up to a booked calendar."</div>
             <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #0EA5E9, #0284c7);">SR</div>
+              <div class="review-avatar" style="background: linear-gradient(135deg, #F2A340, #C97A1E);">TR</div>
               <div>
-                <div class="review-name">Sarah R.</div>
-                <div class="review-role">E-commerce Founder</div>
+                <div class="review-name">Tommy R.</div>
+                <div class="review-role">Broker, Howard Hanna Real Estate</div>
               </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
+              <div class="review-platform">Design Partner</div>
             </div>
           </div>
           <div class="review-item">
             <div class="review-stars">★★★★★</div>
-            <div class="review-text">"The Gmail automation is running flawlessly. Every client email gets read, classified, and replied to within 2 seconds — with proper threading and business-appropriate language. We've basically eliminated our inbox backlog. Exactly what we needed."</div>
+            <div class="review-text">"What sold me was the deployment model — our own number, our own data, nothing shared with anyone else. Setup took under a day and it was already qualifying real leads by the afternoon. It sounds genuinely human on the phone."</div>
             <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #6EE7B7, #059669);">MA</div>
+              <div class="review-avatar" style="background: linear-gradient(135deg, #6EE7B7, #059669);">NM</div>
               <div>
-                <div class="review-name">Michael A.</div>
-                <div class="review-role">Operations Director, B2B SaaS</div>
+                <div class="review-name">Nadia M.</div>
+                <div class="review-role">Team Lead, Residential Sales</div>
               </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
+              <div class="review-platform">Design Partner</div>
             </div>
           </div>
         </div>
 
-        <!-- Slide 2 — AI Automation: Slack attendance + Lead funnel -->
+        <!-- Slide 2 — Transom: Front Desk + Escalation -->
         <div class="review-card">
           <div class="review-item">
             <div class="review-stars">★★★★★</div>
-            <div class="review-text">"Our HR team was manually tracking attendance in a spreadsheet. The AiFloq technical team built a Slack-based system that does it all automatically — check-ins, check-outs, hour calculations, duplicate prevention. It's been running for months with zero issues. Saved us 15+ hours a week."</div>
+            <div class="review-text">"The Front Desk dashboard is what makes this usable day-to-day — I can watch calls come in live and see exactly what got qualified, booked, or needs me. Most calls never need my attention at all. That's the whole point."</div>
             <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #F59E0B, #d97706);">ZK</div>
+              <div class="review-avatar" style="background: linear-gradient(135deg, #0EA5E9, #0284c7);">JK</div>
               <div>
-                <div class="review-name">Zara K.</div>
-                <div class="review-role">HR Manager, Tech Startup</div>
+                <div class="review-name">James K.</div>
+                <div class="review-role">Office Manager, Real Estate Brokerage</div>
               </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
+              <div class="review-platform">Design Partner</div>
             </div>
           </div>
           <div class="review-item">
             <div class="review-stars">★★★★★</div>
-            <div class="review-text">"I came with a rough idea and left with a fully working lead qualification funnel. It captures leads from our landing page, asks qualifying questions via WhatsApp, scores them, and books the good ones directly into my calendar. The ROI on this was immediate."</div>
+            <div class="review-text">"We were skeptical an AI voice agent could handle price negotiation questions without sounding robotic. It doesn't — it qualifies, answers what it knows, and hands off cleanly to one of our agents the moment a call needs real judgment."</div>
             <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #EC4899, #be185d);">AP</div>
+              <div class="review-avatar" style="background: linear-gradient(135deg, #EC4899, #be185d);">SA</div>
               <div>
-                <div class="review-name">Aisha P.</div>
-                <div class="review-role">CEO, Consulting Firm</div>
+                <div class="review-name">Sana A.</div>
+                <div class="review-role">Principal Agent, Boutique Brokerage</div>
               </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
+              <div class="review-platform">Design Partner</div>
             </div>
           </div>
         </div>
@@ -3379,62 +3702,6 @@
           </div>
         </div>
 
-        <!-- Slide 5 — Website Design: Landing page + Business site -->
-        <div class="review-card">
-          <div class="review-item">
-            <div class="review-stars">★★★★★</div>
-            <div class="review-text">"The landing page AiFloq built for our product launch was stunning. Clean, fast, and designed to convert. Within the first week of going live, our lead form submissions tripled compared to our old page. The attention to detail in every section was exceptional."</div>
-            <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #A78BFA, #7C3AED);">OB</div>
-              <div>
-                <div class="review-name">Omar B.</div>
-                <div class="review-role">Product Manager, Tech Startup</div>
-              </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-stars">★★★★★</div>
-            <div class="review-text">"We needed a full agency website that looked premium and loaded fast. AiFloq delivered in 10 days — completely mobile responsive, beautifully designed, and our team knew how to update it immediately. Our clients compliment the site on every call now. Worth every penny."</div>
-            <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #6EE7B7, #A78BFA);">FJ</div>
-              <div>
-                <div class="review-name">Fatima J.</div>
-                <div class="review-role">Director, Creative Agency</div>
-              </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 6 — Website Design: E-commerce + UI/UX -->
-        <div class="review-card">
-          <div class="review-item">
-            <div class="review-stars">★★★★★</div>
-            <div class="review-text">"AiFloq built our Shopify store from scratch — product pages, cart, checkout flow, and Stripe integration. The design looks better than stores with 10× our budget. Sales started coming in on day one. They also connected it to our n8n automation for order confirmations. Perfect combo."</div>
-            <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #F59E0B, #A78BFA);">YS</div>
-              <div>
-                <div class="review-name">Yusuf S.</div>
-                <div class="review-role">Founder, Lifestyle Brand</div>
-              </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-stars">★★★★★</div>
-            <div class="review-text">"The Figma designs we got were genuinely impressive — wireframes, full UI mockups, a design system, and handoff files ready for our dev team. The UX flow was carefully thought through and our users have been giving us the best feedback we've ever received on the interface."</div>
-            <div class="review-author">
-              <div class="review-avatar" style="background: linear-gradient(135deg, #0EA5E9, #A78BFA);">CM</div>
-              <div>
-                <div class="review-name">Clara M.</div>
-                <div class="review-role">Head of Product, Fintech</div>
-              </div>
-              <div class="review-platform">Upwork ⭐ 5.0</div>
-            </div>
-          </div>
-        </div>
-
       </div><!-- end track -->
 
       <!-- Progress bar -->
@@ -3451,8 +3718,6 @@
         <button class="rev-dot" data-slide="1"></button>
         <button class="rev-dot" data-slide="2"></button>
         <button class="rev-dot" data-slide="3"></button>
-        <button class="rev-dot" data-slide="4"></button>
-        <button class="rev-dot" data-slide="5"></button>
       </div>
       <button class="rev-arrow" id="revNext">→</button>
     </div>
@@ -3462,9 +3727,9 @@
 <!-- PROCESS -->
 <section id="process">
   <div class="section-header">
-    <div class="section-label">How It Works</div>
+    <div class="section-label">Our Process</div>
     <h2>From Brief to<br/>Live & Delivered</h2>
-    <p class="section-sub">A simple, transparent process that gets your project live fast — whether it's an automation, a campaign, or a full website.</p>
+    <p class="section-sub">A simple, transparent process that gets your project live fast — whether it's a Transom deployment or a social media campaign.</p>
   </div>
   <div class="process-steps">
     <div class="process-step fade-in">
@@ -3475,7 +3740,7 @@
     <div class="process-step fade-in">
       <div class="step-num">02</div>
       <div class="step-title">Strategy & Blueprint</div>
-      <div class="step-desc">We design the plan — automation architecture, content strategy, or website wireframes — with a clear scope and timeline before any work begins.</div>
+      <div class="step-desc">We design the plan — Transom deployment architecture or content strategy — with a clear scope and timeline before any work begins.</div>
     </div>
     <div class="process-step fade-in">
       <div class="step-num">03</div>
@@ -3485,7 +3750,7 @@
     <div class="process-step fade-in">
       <div class="step-num">04</div>
       <div class="step-title">Launch & Support</div>
-      <div class="step-desc">We go live, monitor performance, and provide ongoing support — so your automation, campaigns, or website keep delivering results long-term.</div>
+      <div class="step-desc">We go live, monitor performance, and provide ongoing support — so your Transom deployment or campaigns keep delivering results long-term.</div>
     </div>
   </div>
 </section>
@@ -3496,7 +3761,7 @@
     <div class="contact-info fade-in">
       <div class="section-label">Get In Touch</div>
       <h2>Let's Build<br/>Something Great</h2>
-      <p class="section-sub" style="margin-bottom:1.5rem;">Whether you need an automation system, social media management, or a brand new website — book a free call and we'll map out the exact plan for you.</p>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Whether you need a Transom deployment or social media management — book a free call and we'll map out the exact plan for you.</p>
 
       <div class="contact-detail">
         <div class="contact-icon">📧</div>
@@ -3524,7 +3789,7 @@
         <div class="trust-icon">🔒</div>
         <div>
           <div class="trust-title">No-Risk Discovery</div>
-          <div class="trust-desc">The first call is completely free. No commitment, no hard sell. We scope your project — automation, social media, or web design — and you decide from there.</div>
+          <div class="trust-desc">The first call is completely free. No commitment, no hard sell. We scope your project — Transom or social media — and you decide from there.</div>
         </div>
       </div>
     </div>
@@ -3549,13 +3814,11 @@
         <label>Service Needed</label>
         <select>
           <option value="" disabled selected>Select a service...</option>
-          <optgroup label="⚡ AI Automation">
-            <option>Workflow Automation</option>
-            <option>AI Chatbot / Agent</option>
-            <option>Email Automation</option>
-            <option>Lead Generation System</option>
-            <option>CRM Integration</option>
-            <option>Reporting & Dashboards</option>
+          <optgroup label="☎️ Transom">
+            <option>Transom Demo Request</option>
+            <option>Team Deployment</option>
+            <option>Brokerage Deployment</option>
+            <option>Enterprise / Franchise</option>
           </optgroup>
           <optgroup label="📱 Social Media Marketing">
             <option>Social Media Management</option>
@@ -3565,20 +3828,12 @@
             <option>SEO & Organic Growth</option>
             <option>Analytics & Performance</option>
           </optgroup>
-          <optgroup label="🌐 Website Design">
-            <option>Landing Page Design</option>
-            <option>Business Website</option>
-            <option>E-commerce Store</option>
-            <option>UI/UX Design</option>
-            <option>Website Redesign</option>
-            <option>Maintenance & Support</option>
-          </optgroup>
           <option>Other / Not Sure Yet</option>
         </select>
       </div>
       <div class="form-group">
         <label>Tell us about your project</label>
-        <textarea placeholder="Tell us what you need — an automation workflow, social media management, a new website, or a mix. Include any tools you use, your timeline, and your main goal..."></textarea>
+        <textarea placeholder="Tell us what you need — a Transom deployment, social media management, or a mix. Include your timeline and your main goal..."></textarea>
       </div>
       <button class="submit-btn">→ Book Free Discovery Call</button>
     </div>
@@ -3590,49 +3845,43 @@
   <div class="section-header">
     <div class="section-label">Insights</div>
     <h2>From Our Blog</h2>
-    <p class="section-sub">Practical guides and insights on AI automation, social media growth, and web design — written to help you work smarter.</p>
+    <p class="section-sub">Practical guides on Transom's voice AI and social media growth — written to help you work smarter.</p>
   </div>
 
   <div class="blog-grid">
 
-    <!-- FEATURED: Blog 1 — AI Automation -->
+    <!-- FEATURED: Blog 1 — Transom -->
     <div class="blog-card blog-card-featured fade-in">
       <div class="blog-thumb">
-        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #060A14 0%, #0c1830 50%, #091420 100%);">
-          <!-- Decorative nodes -->
-          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.35" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice">
-            <circle cx="80" cy="80" r="40" fill="none" stroke="#0EA5E9" stroke-width="1"/>
-            <circle cx="80" cy="80" r="6" fill="#0EA5E9"/>
-            <line x1="120" y1="80" x2="200" y2="80" stroke="#0EA5E9" stroke-width="1" stroke-dasharray="4 4"/>
-            <circle cx="200" cy="80" r="30" fill="none" stroke="#6EE7B7" stroke-width="1"/>
-            <circle cx="200" cy="80" r="5" fill="#6EE7B7"/>
-            <line x1="230" y1="80" x2="310" y2="80" stroke="#6EE7B7" stroke-width="1" stroke-dasharray="4 4"/>
-            <circle cx="310" cy="80" r="35" fill="none" stroke="#0EA5E9" stroke-width="1"/>
-            <circle cx="310" cy="80" r="6" fill="#0EA5E9"/>
-            <line x1="345" y1="80" x2="420" y2="80" stroke="#0EA5E9" stroke-width="1" stroke-dasharray="4 4"/>
-            <circle cx="420" cy="80" r="28" fill="none" stroke="#6EE7B7" stroke-width="1"/>
-            <circle cx="420" cy="80" r="5" fill="#6EE7B7"/>
-            <text x="80" y="84" text-anchor="middle" fill="#0EA5E9" font-size="9" font-family="monospace">EMAIL</text>
-            <text x="200" y="84" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">AI</text>
-            <text x="310" y="84" text-anchor="middle" fill="#0EA5E9" font-size="9" font-family="monospace">PARSE</text>
-            <text x="420" y="84" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">REPLY</text>
-            <text x="80" y="160" fill="#8896B0" font-size="10" font-family="monospace">→ trigger fired</text>
-            <text x="80" y="178" fill="#0EA5E9" font-size="10" font-family="monospace">→ AI response: 200ms</text>
-            <text x="80" y="196" fill="#6EE7B7" font-size="10" font-family="monospace">→ sent: success ✓</text>
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #0e0906 0%, #1f1408 50%, #120e06 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice">
+            <circle cx="80" cy="120" r="34" fill="none" stroke="#F2A340" stroke-width="1"/>
+            <text x="80" y="125" text-anchor="middle" fill="#F2A340" font-size="9" font-family="monospace">CALL</text>
+            <line x1="114" y1="120" x2="190" y2="120" stroke="#F2A340" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="220" cy="120" r="30" fill="none" stroke="#6EE7B7" stroke-width="1"/>
+            <text x="220" y="125" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">QUALIFY</text>
+            <line x1="250" y1="120" x2="330" y2="120" stroke="#6EE7B7" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="360" cy="120" r="30" fill="none" stroke="#F2A340" stroke-width="1"/>
+            <text x="360" y="125" text-anchor="middle" fill="#F2A340" font-size="9" font-family="monospace">BOOK</text>
+            <line x1="390" y1="120" x2="460" y2="120" stroke="#F2A340" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="490" cy="120" r="28" fill="none" stroke="#6EE7B7" stroke-width="1"/>
+            <text x="490" y="125" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">LOG</text>
+            <text x="80" y="180" fill="#8896B0" font-size="10" font-family="monospace">→ ring answered: 0s</text>
+            <text x="80" y="198" fill="#F2A340" font-size="10" font-family="monospace">→ qualified in: 18s</text>
+            <text x="80" y="216" fill="#6EE7B7" font-size="10" font-family="monospace">→ booked: success ✓</text>
           </svg>
         </div>
         <div class="blog-read-time">⏱ 6 min read</div>
-        <div class="blog-category cat-automation">⚡ AI Automation</div>
+        <div class="blog-category cat-automation" style="background:rgba(242,163,64,0.15); color:#F2A340; border-color:rgba(242,163,64,0.3);">☎️ Transom</div>
       </div>
       <div class="blog-body">
         <div class="blog-tags">
-          <span class="blog-tag">n8n</span>
-          <span class="blog-tag">Gmail</span>
-          <span class="blog-tag">Google Gemini</span>
-          <span class="blog-tag">Workflow</span>
+          <span class="blog-tag">Voice AI</span>
+          <span class="blog-tag">Real Estate</span>
+          <span class="blog-tag">Lead Response</span>
         </div>
-        <div class="blog-title">Still Replying to Emails Manually? Here's How AI Can Do It in 2 Seconds</div>
-        <div class="blog-excerpt">Every hour your team spends on repetitive email replies is an hour not spent growing your business. In this guide, we break down exactly how to build an AI-powered Gmail auto-reply system using n8n and Google Gemini — step by step, no code required. You'll see how to extract intent, draft context-aware replies, and route complex queries to humans automatically.</div>
+        <div class="blog-title">Why 78% of Buyers Hire the First Agent Who Answers — Not the Best One</div>
+        <div class="blog-excerpt">Speed isn't a nice-to-have in real estate — it's the whole game. We break down why the average 47-minute agent response time is quietly costing brokerages thousands in lost commission every month, and how an always-on voice agent changes the math entirely.</div>
         <div class="blog-meta">
           <div class="blog-meta-left">
             <div class="blog-avatar">AF</div>
@@ -3681,35 +3930,35 @@
       </div>
     </div>
 
-    <!-- Blog 3 — Web Design -->
+    <!-- Blog 3 — Transom -->
     <div class="blog-card fade-in">
       <div class="blog-thumb">
-        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #0a0614 0%, #150a2a 60%, #0a0618 100%);">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #0a0805 0%, #1a1206 60%, #0e0a05 100%);">
           <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
-            <rect x="20" y="15" width="260" height="130" rx="8" fill="none" stroke="#A78BFA" stroke-width="1"/>
-            <rect x="20" y="15" width="260" height="26" rx="8" fill="#A78BFA" opacity="0.15"/>
+            <rect x="20" y="15" width="260" height="130" rx="8" fill="none" stroke="#F2A340" stroke-width="1"/>
+            <rect x="20" y="15" width="260" height="26" rx="8" fill="#F2A340" opacity="0.15"/>
             <circle cx="35" cy="28" r="5" fill="#EF4444" opacity="0.7"/>
             <circle cx="52" cy="28" r="5" fill="#F59E0B" opacity="0.7"/>
             <circle cx="69" cy="28" r="5" fill="#6EE7B7" opacity="0.7"/>
-            <rect x="30" y="55" width="100" height="8" rx="4" fill="#A78BFA" opacity="0.5"/>
+            <rect x="30" y="55" width="100" height="8" rx="4" fill="#F2A340" opacity="0.5"/>
             <rect x="30" y="72" width="160" height="5" rx="2" fill="#8896B0" opacity="0.4"/>
             <rect x="30" y="84" width="130" height="5" rx="2" fill="#8896B0" opacity="0.4"/>
-            <rect x="30" y="104" width="60" height="20" rx="6" fill="#A78BFA" opacity="0.6"/>
-            <rect x="175" y="50" width="90" height="75" rx="8" fill="#A78BFA" opacity="0.1" stroke="#A78BFA" stroke-width="0.5"/>
-            <rect x="183" y="60" width="74" height="40" rx="4" fill="#A78BFA" opacity="0.15"/>
+            <rect x="30" y="104" width="60" height="20" rx="6" fill="#F2A340" opacity="0.6"/>
+            <rect x="175" y="50" width="90" height="75" rx="8" fill="#F2A340" opacity="0.1" stroke="#F2A340" stroke-width="0.5"/>
+            <rect x="183" y="60" width="74" height="40" rx="4" fill="#F2A340" opacity="0.15"/>
           </svg>
         </div>
         <div class="blog-read-time">⏱ 7 min read</div>
-        <div class="blog-category cat-web">🌐 Web Design</div>
+        <div class="blog-category cat-automation" style="background:rgba(242,163,64,0.15); color:#F2A340; border-color:rgba(242,163,64,0.3);">☎️ Transom</div>
       </div>
       <div class="blog-body">
         <div class="blog-tags">
-          <span class="blog-tag">Landing Page</span>
-          <span class="blog-tag">CRO</span>
-          <span class="blog-tag">UI/UX</span>
+          <span class="blog-tag">Deployment</span>
+          <span class="blog-tag">Data Privacy</span>
+          <span class="blog-tag">CRM</span>
         </div>
-        <div class="blog-title">5 Landing Page Mistakes That Are Costing You Leads Every Day</div>
-        <div class="blog-excerpt">A beautiful website means nothing if visitors leave without converting. We analyse the 5 most common landing page errors — and show you exactly how to fix each one to turn traffic into clients.</div>
+        <div class="blog-title">Not SaaS: Why Every Agency Gets Its Own Private Transom Deployment</div>
+        <div class="blog-excerpt">Most AI tools put your data in a shared pool with every other customer. Transom doesn't. We explain why a private, per-agency deployment — your own number, your own data, your own tuned voice — is a real competitive advantage, not just a technical detail.</div>
         <div class="blog-meta">
           <div class="blog-meta-left">
             <div class="blog-avatar">AF</div>
@@ -3720,36 +3969,35 @@
       </div>
     </div>
 
-    <!-- Blog 4 — AI Automation -->
+    <!-- Blog 4 — Transom -->
     <div class="blog-card fade-in">
       <div class="blog-thumb">
-        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #060a14 0%, #091825 60%, #060e1a 100%);">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #090a06 0%, #171f08 60%, #0d1006 100%);">
           <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
-            <circle cx="60" cy="80" r="28" fill="none" stroke="#0EA5E9" stroke-width="1.5"/>
-            <text x="60" y="85" text-anchor="middle" fill="#0EA5E9" font-size="10" font-family="monospace">Slack</text>
-            <line x1="88" y1="80" x2="130" y2="80" stroke="#0EA5E9" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="60" cy="80" r="28" fill="none" stroke="#F2A340" stroke-width="1.5"/>
+            <text x="60" y="85" text-anchor="middle" fill="#F2A340" font-size="9" font-family="monospace">Answer</text>
+            <line x1="88" y1="80" x2="130" y2="80" stroke="#F2A340" stroke-width="1" stroke-dasharray="3 3"/>
             <circle cx="160" cy="80" r="28" fill="none" stroke="#6EE7B7" stroke-width="1.5"/>
-            <text x="160" y="85" text-anchor="middle" fill="#6EE7B7" font-size="10" font-family="monospace">n8n</text>
+            <text x="160" y="85" text-anchor="middle" fill="#6EE7B7" font-size="9" font-family="monospace">Qualify</text>
             <line x1="188" y1="80" x2="228" y2="80" stroke="#6EE7B7" stroke-width="1" stroke-dasharray="3 3"/>
-            <circle cx="255" cy="80" r="28" fill="none" stroke="#0EA5E9" stroke-width="1.5"/>
-            <text x="255" y="75" text-anchor="middle" fill="#0EA5E9" font-size="8" font-family="monospace">Google</text>
-            <text x="255" y="88" text-anchor="middle" fill="#0EA5E9" font-size="8" font-family="monospace">Sheets</text>
-            <text x="60" y="125" fill="#8896B0" font-size="8" font-family="monospace">✓ Check-in</text>
-            <text x="130" y="125" fill="#6EE7B7" font-size="8" font-family="monospace">✓ Logged</text>
-            <text x="210" y="125" fill="#0EA5E9" font-size="8" font-family="monospace">✓ 8.5h tracked</text>
+            <circle cx="255" cy="80" r="28" fill="none" stroke="#F2A340" stroke-width="1.5"/>
+            <text x="255" y="85" text-anchor="middle" fill="#F2A340" font-size="9" font-family="monospace">Book</text>
+            <text x="60" y="125" fill="#8896B0" font-size="8" font-family="monospace">✓ 0 rings</text>
+            <text x="130" y="125" fill="#6EE7B7" font-size="8" font-family="monospace">✓ LPMAMA</text>
+            <text x="210" y="125" fill="#F2A340" font-size="8" font-family="monospace">✓ &lt;1 min</text>
           </svg>
         </div>
         <div class="blog-read-time">⏱ 5 min read</div>
-        <div class="blog-category cat-automation">⚡ AI Automation</div>
+        <div class="blog-category cat-automation" style="background:rgba(242,163,64,0.15); color:#F2A340; border-color:rgba(242,163,64,0.3);">☎️ Transom</div>
       </div>
       <div class="blog-body">
         <div class="blog-tags">
-          <span class="blog-tag">Slack</span>
-          <span class="blog-tag">n8n</span>
-          <span class="blog-tag">HR Automation</span>
+          <span class="blog-tag">LPMAMA</span>
+          <span class="blog-tag">Qualification</span>
+          <span class="blog-tag">Voice AI</span>
         </div>
-        <div class="blog-title">How We Eliminated Manual HR Attendance Tracking Using Slack + n8n</div>
-        <div class="blog-excerpt">A step-by-step look at how we built a fully automated attendance system for a growing tech team — zero spreadsheets, zero manual entry, total accuracy.</div>
+        <div class="blog-title">Inside Transom: How a Voice Agent Qualifies a Lead in Under 20 Seconds</div>
+        <div class="blog-excerpt">A step-by-step look at what actually happens between "hello" and a booked showing — the qualification framework, the listing lookup, and the handful of design decisions that make Transom sound like a person instead of a phone tree.</div>
         <div class="blog-meta">
           <div class="blog-meta-left">
             <div class="blog-avatar">AF</div>
@@ -3881,71 +4129,71 @@
 
   // ── WORKFLOW TABS ──
   const flows = {
-    email: {
-      title: '📧 Email Auto-Reply Flow',
+    answer: {
+      title: '📞 Answer & Qualify Flow',
       html: `
         <div class="wd-row">
-          <div class="wd-node lit-blue">📧 IMAP Trigger</div>
+          <div class="wd-node lit-blue">📞 Call In</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node lit-blue">✏️ Parse Email</div>
+          <div class="wd-node lit-blue">🤖 Transom Answers</div>
         </div>
         <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
         <div class="wd-row">
-          <div class="wd-node lit-blue">🤖 Gemini AI</div>
+          <div class="wd-node lit-blue">📋 Qualify Lead</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node">🧠 Context Check</div>
+          <div class="wd-node">🏠 Check Listing</div>
         </div>
         <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
         <div class="wd-row">
-          <div class="wd-node lit-green">📤 Send Reply</div>
+          <div class="wd-node lit-green">✅ Qualified</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node lit-green">🗃️ Log to CRM</div>
+          <div class="wd-node lit-green">📅 Ready to Book</div>
         </div>`,
-      m1: '2.1s', m2: '100%', m3: '0'
+      m1: '0s', m2: '24/7', m3: '0'
     },
-    lead: {
-      title: '🎯 Lead Qualification Flow',
+    book: {
+      title: '📅 Book & Log Flow',
       html: `
         <div class="wd-row">
-          <div class="wd-node lit-blue">🚀 New Lead</div>
+          <div class="wd-node lit-blue">📅 Check Calendar</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node lit-blue">💬 Qualify Chat</div>
+          <div class="wd-node lit-blue">🗣️ Confirm Time</div>
         </div>
         <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
         <div class="wd-row">
-          <div class="wd-node">💰 Budget Check</div>
+          <div class="wd-node">✅ Showing Booked</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node">🧮 Lead Score</div>
+          <div class="wd-node">🗃️ Write Transcript</div>
         </div>
         <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
         <div class="wd-row">
-          <div class="wd-node lit-green">📅 Book Demo</div>
+          <div class="wd-node lit-green">📊 Log to CRM</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node lit-green">📊 Update CRM</div>
+          <div class="wd-node lit-green">🔔 Notify Agent</div>
         </div>`,
-      m1: '< 5m', m2: '3×', m3: '0'
+      m1: '<1min', m2: '96%', m3: '0'
     },
-    chat: {
-      title: '💬 WhatsApp Chatbot Flow',
+    escalate: {
+      title: '👤 Escalation Flow',
       html: `
         <div class="wd-row">
-          <div class="wd-node lit-blue">💬 WhatsApp In</div>
+          <div class="wd-node lit-blue">⚠️ Needs Judgment</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node lit-blue">🧠 AI Agent</div>
+          <div class="wd-node lit-blue">🔔 Alert Team</div>
         </div>
         <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
         <div class="wd-row">
-          <div class="wd-node">🗄️ Memory Store</div>
+          <div class="wd-node">📋 Full Context Passed</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node">🔍 Intent Match</div>
+          <div class="wd-node">☎️ Live Transfer</div>
         </div>
         <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
         <div class="wd-row">
-          <div class="wd-node lit-green">📤 Reply Sent</div>
+          <div class="wd-node lit-green">🤝 Human Takes Over</div>
           <div class="wd-arrow"></div>
-          <div class="wd-node lit-green">👤 Handoff?</div>
+          <div class="wd-node lit-green">🗃️ Logged</div>
         </div>`,
-      m1: '1.8s', m2: '24/7', m3: '0'
+      m1: '1-tap', m2: '100%', m3: '0'
     }
   };
 
@@ -3991,7 +4239,7 @@
   const revPrev  = document.getElementById('revPrev');
   const revNext  = document.getElementById('revNext');
   const revDots  = document.querySelectorAll('.rev-dot');
-  const totalSlides = 6;
+  const totalSlides = 4;
   let revCurrent = 0;
   let revTimer;
 
@@ -4077,42 +4325,27 @@
 // ── BLOG CONTENT DATA ──
 const blogs = {
   blog1: {
-    cat: '⚡ AI Automation',
+    cat: '☎️ Transom',
     catClass: 'cat-automation',
     date: 'May 1, 2026',
     readTime: '6 min read',
-    title: 'Still Replying to Emails Manually? Here\'s How AI Can Do It in 2 Seconds',
+    title: 'Why 78% of Buyers Hire the First Agent Who Answers — Not the Best One',
     content: `
-      <h3>The Problem: Your Inbox Is Eating Your Day</h3>
-      <p>For most businesses, email is the single biggest time sink that nobody talks about. Your team reads the same type of enquiry 30 times a day, types a slightly different version of the same reply, and moves on — only to do it again tomorrow. It's not a people problem. It's a systems problem.</p>
-      <p>The good news? With n8n and Google Gemini, you can build an AI system that reads every incoming email, understands the intent, drafts a professional reply in your tone, and sends it — all in under 2 seconds. No code. No manual effort.</p>
+      <h3>Speed Isn't a Feature of Good Service. It Is the Service.</h3>
+      <p>In real estate, the agent who wins the client usually isn't the most experienced, the best negotiator, or even the one with the nicest listings page. It's whoever picks up the phone first. Buyers move fast, and a five-minute callback already feels slow to someone who's used to instant replies from everything else in their life.</p>
+      <p>The data backs this up starkly: buyers are roughly 78% more likely to go with the first agent who responds to their inquiry, and leads contacted within 5 minutes are over 20 times more likely to convert than leads contacted 30 minutes later.</p>
 
-      <h3>How the System Works</h3>
-      <p>Here's the exact flow we build for clients:</p>
-      <ul>
-        <li><strong>IMAP Trigger</strong> — n8n watches your Gmail inbox and fires the moment a new email lands</li>
-        <li><strong>Field Extraction</strong> — the workflow pulls sender name, subject, and message body into structured JSON</li>
-        <li><strong>AI Classification</strong> — Gemini reads the email and classifies intent (enquiry, complaint, booking, etc.)</li>
-        <li><strong>Reply Generation</strong> — the AI drafts a context-aware, on-brand response using your writing style</li>
-        <li><strong>Business Logic Routing</strong> — simple queries go out automatically; complex ones get flagged to a human via Slack</li>
-        <li><strong>CRM Logging</strong> — every interaction is recorded automatically in your CRM or Google Sheet</li>
-      </ul>
+      <h3>Where the Time Actually Goes</h3>
+      <p>The average agent response time to a new lead sits around 47 minutes. That's not because agents are careless — it's because they're in a showing, on another call, or asleep. Real estate doesn't run on business hours, but most front lines still do. 62% of buyer inquiries arrive outside the typical 9-to-6 window, exactly when no one is there to answer.</p>
 
-      <div class="highlight-box"><p>💡 <strong>Real result:</strong> One of our clients went from spending 3 hours/day on email to less than 15 minutes — with zero drop in customer satisfaction scores.</p></div>
+      <div class="highlight-box"><p>💡 <strong>The math:</strong> at an average of $7,500 in lost commission per missed lead, a brokerage handling even a modest volume of after-hours calls is leaving real money on the table every single month.</p></div>
 
-      <h3>What Makes This Different From a Simple Auto-Reply?</h3>
-      <p>Basic auto-replies send the same generic message to everyone. This system actually reads and understands each email. It knows the difference between a new lead asking about pricing, an existing client chasing an invoice, and someone who just wants to unsubscribe. Each gets a different, appropriate response — instantly.</p>
+      <h3>Why "We'll Call You Back" Doesn't Work Anymore</h3>
+      <p>Voicemail and callback promises made sense when every buyer was calling three agents and waiting patiently. Today they're calling five, and the first one who actually answers usually gets the showing. A missed call isn't a delayed conversation — it's very often a lost one.</p>
 
-      <h3>Setting It Up: What You Need</h3>
-      <ul>
-        <li>A Gmail or IMAP email account</li>
-        <li>An n8n instance (self-hosted or cloud)</li>
-        <li>A Google Gemini or OpenAI API key</li>
-        <li>30–60 minutes of setup time (or let us do it for you)</li>
-      </ul>
-
-      <h3>Is This Right for Your Business?</h3>
-      <p>If your team handles more than 20 similar emails per day — enquiries, support, booking requests, follow-ups — this automation will pay for itself within the first week. It works for agencies, e-commerce stores, service businesses, clinics, law firms, and more.</p>
+      <h3>What Changes When Someone Always Answers</h3>
+      <p>This is exactly the gap Transom is built to close — an autonomous voice agent that answers every call on the first ring, qualifies the lead, and books the showing before a competitor even sees the message. No missed calls, no overnight backlog, no lead going cold while everyone's asleep.</p>
+      <p>We built Transom for exactly this reason. If you want to see what a fully answered front line looks like, take a look at how it works below.</p>
     `
   },
   blog2: {
@@ -4151,69 +4384,60 @@ const blogs = {
     `
   },
   blog3: {
-    cat: '🌐 Web Design',
-    catClass: 'cat-web',
+    cat: '☎️ Transom',
+    catClass: 'cat-automation',
     date: 'Apr 15, 2026',
     readTime: '7 min read',
-    title: '5 Landing Page Mistakes That Are Costing You Leads Every Day',
+    title: 'Not SaaS: Why Every Agency Gets Its Own Private Transom Deployment',
     content: `
-      <h3>Your Website Is Getting Traffic. So Why Aren't You Getting Clients?</h3>
-      <p>Traffic without conversion is just a popularity contest you're losing money on. If people are landing on your page and leaving without filling in your form, booking a call, or buying — the problem isn't your product. It's your page.</p>
-      <p>Here are the 5 most common landing page mistakes we fix for clients — and what to do instead.</p>
+      <h3>Most AI Tools Put You in a Shared Pool. Transom Doesn't.</h3>
+      <p>A lot of AI products are built as multi-tenant SaaS — one shared system, one shared model, your data sitting in the same database as every other customer's. That's fine for a lot of software. It's a much harder sell when the "software" is answering your clients' phone calls and holding their financial information.</p>
+      <p>Transom is built differently on purpose. Every agency that deploys it gets its own private, isolated instance — their own phone number, their own data, their own tuned voice. Nothing pooled, nothing shared.</p>
 
-      <h3>Mistake 1: Your Headline Talks About You, Not Your Visitor</h3>
-      <p>Most landing pages open with "Welcome to [Company Name]" or "We are a leading provider of..." Nobody cares. Your visitor arrived with a problem. Your headline needs to speak to that problem immediately.</p>
+      <h3>What "Private Deployment" Actually Means</h3>
       <ul>
-        <li><strong>Bad:</strong> "AiFloq — Digital Agency Since 2022"</li>
-        <li><strong>Good:</strong> "Stop Losing Leads to Manual Processes. We Automate It in Days."</li>
+        <li><strong>Data ownership</strong> — every call, lead, and transcript stays inside that agency's own deployment, full stop</li>
+        <li><strong>Privacy by design</strong> — isolation means no cross-tenant leakage, which matters a lot for compliance-minded brokerages</li>
+        <li><strong>Tuned per agency</strong> — voice, scripts, and policy are shaped to that brokerage's brand and market, not a generic template</li>
+        <li><strong>Your own number</strong> — calls come into a dedicated line, not a shared pool of numbers rotating across customers</li>
       </ul>
 
-      <h3>Mistake 2: You Have Too Many Calls to Action</h3>
-      <p>When you give visitors 5 options — "Learn More", "Book a Call", "Download Guide", "Follow Us", "Contact Us" — they choose none of them. A landing page should have one primary action and one secondary action, maximum. Everything else is distraction.</p>
+      <div class="highlight-box"><p>💡 <strong>Why this matters commercially:</strong> a dedicated, tuned deployment is far harder to rip out than a shared seat — which is exactly why agencies that deploy Transom tend to stay deployed.</p></div>
 
-      <h3>Mistake 3: Your Page Loads Too Slowly</h3>
-      <p>Every extra second your page takes to load costs you roughly 7% of conversions. If your page takes 4 seconds to load, you've already lost a significant chunk of visitors before they've read a single word. We build all pages with performance as a priority — not an afterthought.</p>
-      <div class="highlight-box"><p>💡 <strong>Quick test:</strong> Run your current page through Google PageSpeed Insights. If your mobile score is below 70, you have a conversion problem hiding as a design problem.</p></div>
+      <h3>The Trade-Off, and Why It's Worth It</h3>
+      <p>Private deployment costs more to build than a shared multi-tenant system — there's no shortcut there. But for something handling live client calls and CRM data, we think that's the right trade. You're not renting a seat in someone else's system. You're running your own front desk.</p>
 
-      <h3>Mistake 4: No Social Proof Above the Fold</h3>
-      <p>People don't trust businesses — they trust other people. If your reviews, client logos, or results aren't visible within the first scroll, you're asking visitors to trust you with nothing to back it up. Move your most compelling proof point to the top of the page.</p>
-
-      <h3>Mistake 5: Your Mobile Experience Is an Afterthought</h3>
-      <p>In 2026, over 70% of web traffic is mobile. If your landing page was designed for desktop first, chances are it looks broken, slow, or unreadable on a phone. Every page we build is mobile-first — designed at 390px wide before anything else.</p>
-
-      <h3>How We Fix This for You</h3>
-      <p>We audit your existing page, identify the specific conversion killers, and rebuild or redesign with conversion-rate optimisation baked in from day one — not bolted on at the end. Most clients see measurable improvement in lead volume within the first 2 weeks of going live.</p>
+      <h3>What This Looks Like Day to Day</h3>
+      <p>In practice, this means your Transom instance answers on your number, uses your listing data and agency policy, and syncs to your CRM — Follow Up Boss today, with kvCORE, HubSpot, and Salesforce on the way. It behaves like a piece of your own infrastructure, because it is one.</p>
     `
   },
   blog4: {
-    cat: '⚡ AI Automation',
+    cat: '☎️ Transom',
     catClass: 'cat-automation',
     date: 'Apr 8, 2026',
     readTime: '5 min read',
-    title: 'How We Eliminated Manual HR Attendance Tracking Using Slack + n8n',
+    title: 'Inside Transom: How a Voice Agent Qualifies a Lead in Under 20 Seconds',
     content: `
-      <h3>The Problem: Spreadsheets, WhatsApp Messages, and Human Error</h3>
-      <p>A growing tech company came to us with a familiar problem: their HR team was manually tracking attendance across 40+ employees. People were sending check-in messages on WhatsApp, someone was copy-pasting them into a Google Sheet, and by the end of the week the data was always wrong. Late entries, missing check-outs, duplicate records — every week was a cleanup operation.</p>
-      <p>We built them a fully automated Slack-based attendance system in n8n. Here's exactly how it works.</p>
+      <h3>What Actually Happens Between "Hello" and a Booked Showing</h3>
+      <p>It's easy to describe Transom in one line — "it answers, qualifies, and books" — but the interesting part is what happens in the seconds in between. Here's the real sequence, timestamped from an actual call.</p>
 
-      <h3>The Architecture</h3>
+      <h3>The Call, Second by Second</h3>
       <ul>
-        <li><strong>Slack Trigger</strong> — employees type a simple command in a dedicated Slack channel to check in or out</li>
-        <li><strong>Channel Validation</strong> — a Switch node confirms the message came from an authorised attendance channel</li>
-        <li><strong>Message Edit Guard</strong> — an IF node prevents edited messages from being processed (closing a common exploit)</li>
-        <li><strong>Custom Code Node</strong> — converts timestamps to Pakistan Standard Time (PKT) and extracts Slack User ID, date, and message text</li>
-        <li><strong>Duplicate Prevention</strong> — checks Google Sheets before logging to ensure no employee can double-check-in for the same date</li>
-        <li><strong>Working Hours Calculation</strong> — automatically calculates total hours worked on check-out and enforces a 15-hour shift cap</li>
-        <li><strong>Google Sheets Update</strong> — writes date, check-in time, check-out time, username, working hours, and attendance status automatically</li>
+        <li><strong>0:00 — Answer</strong>: the call is picked up on the first ring, day or night, no exceptions</li>
+        <li><strong>0:05 — Qualify</strong>: the agent asks about intent, budget, and timeline using the LPMAMA framework — the same structured approach a trained ISA would use</li>
+        <li><strong>0:18 — Look up</strong>: it pulls the live listing details and any relevant agency policy from the knowledge base, so answers are accurate, not guessed</li>
+        <li><strong>0:34 — Book</strong>: it checks the agent's real calendar and finds an open slot for a showing</li>
+        <li><strong>0:46 — Log</strong>: the lead, full transcript, and outcome are written straight to the CRM</li>
+        <li><strong>As needed — Escalate</strong>: if the conversation needs real judgment, it transfers live to a human with full context, not a cold handoff</li>
       </ul>
 
-      <div class="highlight-box"><p>💡 <strong>Result:</strong> The HR team went from spending 3–4 hours per week on attendance cleanup to zero. The data is 100% accurate, real-time, and requires no human intervention.</p></div>
+      <div class="highlight-box"><p>💡 <strong>The detail that matters most:</strong> qualification happens by 0:18 — before most human front desks have even finished writing down the caller's name.</p></div>
 
-      <h3>Why This Matters Beyond HR</h3>
-      <p>This project is a perfect example of a principle we apply across all automation builds: find the manual process that's creating the most friction, map the logic completely, and replace it with a system that's smarter than any human doing the same task repeatedly.</p>
+      <h3>Why the LPMAMA Framework?</h3>
+      <p>LPMAMA (Location, Price, Motivation, Agent, Mortgage, Appointment) is a proven real-estate qualification structure — we didn't invent a new one, we just made sure an AI agent follows it consistently, every single call, without skipping a step because it's tired or in a hurry.</p>
 
-      <h3>Can This Work for Your Business?</h3>
-      <p>This system can be adapted for any team using Slack — regardless of size, timezone, or industry. We can also build equivalent systems on Microsoft Teams, WhatsApp, or any messaging platform your team already uses.</p>
+      <h3>Why It Doesn't Sound Like a Phone Tree</h3>
+      <p>Real-time speech models crossed a real threshold recently — callers stay on the line and engage naturally instead of hanging up on a robotic voice. Combined with multi-model routing (a different model for speed versus reasoning versus voice), the conversation adapts instead of following a rigid script.</p>
     `
   },
   blog5: {
@@ -4779,9 +5003,9 @@ document.querySelectorAll('.blog-card').forEach(card => {
   function startConversation() {
     setTimeout(() => {
       addMessage(
-        "👋 Hi! I'm AiFloq's assistant. I can answer any questions about our services — AI automation, social media marketing, or website design.\n\nWhat brings you here today?",
+        "👋 Hi! I'm AiFloq's assistant. I can answer any questions about Transom, our voice AI for real estate, or our social media marketing services.\n\nWhat brings you here today?",
         'bot',
-        ['AI Automation', 'Social Media', 'Website Design', 'Get a Quote']
+        ['Transom', 'Social Media', 'Get a Quote']
       );
     }, 400);
   }
@@ -4793,8 +5017,8 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
     const questions = {
       1: { text: "Great! I'd love to help you get started. First, what's your name? 😊", replies: [] },
-      2: { text: `Nice to meet you, ${leadData.name}! Which service are you most interested in?`, replies: ['AI Automation', 'Social Media Marketing', 'Website Design', 'Multiple Services'] },
-      3: { text: "What's your approximate budget for this project?", replies: ['Under $200', '$200–$500', '$500–$1000', '$1000+'] },
+      2: { text: `Nice to meet you, ${leadData.name}! Which service are you most interested in?`, replies: ['Transom (Voice AI)', 'Social Media Marketing', 'Both'] },
+      3: { text: "What's your approximate budget for this project?", replies: ['Under $1,000', '$1,000–$5,000', '$5,000–$10,000', '$10,000+'] },
       4: { text: "And what's your timeline? When are you looking to get started?", replies: ['ASAP', 'Within 2 weeks', 'Within a month', 'Just exploring'] },
     };
 
@@ -4834,27 +5058,23 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
     // Greetings
     if (/^(hi|hello|hey|hiya|good morning|good afternoon|salam|assalam)/.test(msg))
-      return { text: "Hey there! 👋 Great to have you here. I can tell you all about our AI automation, social media, or website design services. What are you looking for help with?", chips: ['AI Automation', 'Social Media', 'Website Design', 'Get a Quote'] };
+      return { text: "Hey there! 👋 Great to have you here. I can tell you all about Transom, our voice AI for real estate, or our social media marketing services. What are you looking for help with?", chips: ['Transom', 'Social Media', 'Get a Quote'] };
 
-    // AI Automation
-    if (/\b(automat|n8n|workflow|chatbot|whatsapp bot|email automat|crm|lead|gemini|openai|gpt)\b/.test(msg))
-      return { text: "⚡ Our AI Automation service is one of our most popular! We build n8n workflows, WhatsApp AI agents, Gmail auto-reply systems, lead qualification funnels, and CRM integrations. Most projects go live in 3–10 days. Want to get a free quote?", chips: ['Get a Quote', 'See examples', 'How much does it cost?'] };
+    // Transom
+    if (/\b(transom|voice ai|call|calls|answer|answering|showing|booking|real estate|realtor|brokerage|isa|lead qualif)\b/.test(msg))
+      return { text: "☎️ Transom is our own AI voice platform — it answers every inbound call 24/7, qualifies the lead, books the showing, and logs it all to your CRM. Deployed privately per agency, ring to booked showing in under a minute. Want a live demo?", chips: ['Get a Quote', 'See how it works', 'How much does it cost?'] };
 
     // Social Media
     if (/\b(social|instagram|tiktok|facebook|linkedin|content|reel|post|ads|meta|seo|follower|grow)\b/.test(msg))
       return { text: "📱 We handle everything social media — content creation, Instagram & TikTok management, Meta & Google ads, SEO, and monthly analytics reports. We've helped brands grow 40–180% in reach within 2 months. Interested in a free discovery call?", chips: ['Get a Quote', 'What platforms?', 'Tell me about ads'] };
 
-    // Website Design
-    if (/\b(website|web|landing page|design|shopify|ecommerce|e-commerce|figma|ui|ux|redesign|wordpress|webflow)\b/.test(msg))
-      return { text: "🌐 We design high-converting landing pages, full business websites, Shopify stores, and Figma UI/UX mockups. Every site is mobile-first and built for speed. Most websites are delivered in 7–14 days. Want to discuss your project?", chips: ['Get a Quote', 'See our work', 'How long does it take?'] };
-
     // Pricing / Cost
     if (/\b(price|pricing|cost|how much|budget|rate|charge|fee|package)\b/.test(msg))
-      return { text: "💰 Pricing depends on the scope of your project — a simple workflow starts around $149, while full AI systems or websites range from $399–$799+. The best way to get an accurate quote is a free 30-min discovery call. Want me to get you connected?", chips: ['Get a Quote', 'Book a free call', 'Tell me more'] };
+      return { text: "💰 Transom deployments start around $4.9k setup + $890/mo for a single-office team, or $9.9k + $1,900/mo for a full brokerage. Social media management is a separate monthly package. The best way to get an accurate quote is a free 30-min discovery call. Want me to get you connected?", chips: ['Get a Quote', 'Book a free call', 'Tell me more'] };
 
     // Timeline / How long
     if (/\b(how long|timeline|deliver|when|days|weeks|fast|quick|turnaround)\b/.test(msg))
-      return { text: "⏱ Timelines vary by project: simple automations take 3–5 days, AI systems 5–10 days, websites 7–14 days, and social media is an ongoing monthly service. We always agree on a timeline before starting. Want to discuss yours?", chips: ['Get a Quote', 'Book a free call'] };
+      return { text: "⏱ A Transom deployment is typically live and answering calls within days of kickoff. Social media is an ongoing monthly service. We always agree on a timeline before starting. Want to discuss yours?", chips: ['Get a Quote', 'Book a free call'] };
 
     // Contact / Reach out
     if (/\b(contact|email|whatsapp|call|reach|talk|speak|meet)\b/.test(msg))
@@ -4862,7 +5082,7 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
     // Portfolio / Examples
     if (/\b(portfolio|example|project|case study|work|built|show me|previous)\b/.test(msg))
-      return { text: "🎯 Some recent projects: a multi-modal WhatsApp AI agent (text + voice replies), a Gmail auto-reply system saving 3hrs/day, and a Slack attendance system for a 40-person tech team. You can see all case studies in the Portfolio section above!", chips: ['Get a Quote', 'I want something similar'] };
+      return { text: "🎯 Take a look at Transom in the section above — it's our own voice AI product, live and answering real calls. We've also grown a wellness brand's Instagram/TikTok by 40%+ and turned a losing Meta ad account into 3.4× ROAS. Case studies are in the Portfolio section!", chips: ['Get a Quote', 'I want something similar'] };
 
     // Free / Trial
     if (/\b(free|trial|demo|test|sample|no cost|no charge)\b/.test(msg))
@@ -4870,7 +5090,7 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
     // About AiFloq
     if (/\b(who are you|about you|about aifloq|what do you do|your services|aifloq)\b/.test(msg))
-      return { text: "👋 AiFloq is a full-service digital agency. We specialise in three areas: AI workflow automation, social media marketing, and website design. We work remotely with clients worldwide. What can we help you with?", chips: ['AI Automation', 'Social Media', 'Website Design', 'Get a Quote'] };
+      return { text: "👋 AiFloq builds Transom, our own autonomous voice AI for real estate, and runs social media marketing for brands. We work remotely with clients worldwide. What can we help you with?", chips: ['Transom', 'Social Media', 'Get a Quote'] };
 
     // Connect to WhatsApp
     if (/\b(connect|whatsapp|wa|chat with|speak to|talk to team)\b/.test(msg))
@@ -4881,7 +5101,7 @@ document.querySelectorAll('.blog-card').forEach(card => {
       return { text: "Awesome! Let me grab a few quick details so our team can give you an accurate quote. It'll only take a moment 😊", chips: [], qualify: true };
 
     // Default fallback
-    return { text: "That's a great question! 😊 I can help with info about AI automation, social media marketing, or website design. Or if you'd prefer to chat directly with our team, I can connect you to WhatsApp right now.", chips: ['AI Automation', 'Social Media', 'Website Design', 'Connect on WhatsApp'] };
+    return { text: "That's a great question! 😊 I can help with info about Transom (our voice AI) or social media marketing. Or if you'd prefer to chat directly with our team, I can connect you to WhatsApp right now.", chips: ['Transom', 'Social Media', 'Connect on WhatsApp'] };
   }
 
   // ── CALL AI (rule-based, no API needed) ──
