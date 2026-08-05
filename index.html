@@ -2476,6 +2476,8 @@
   }
 
   /* ── RESPONSIVE ── */
+  .nav-close { display: none; }
+
   @media (max-width: 900px) {
     .hero-grid, .contact-inner { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
@@ -2508,6 +2510,7 @@
     }
 
     .nav-close {
+      display: block;
       position: absolute;
       top: 1.5rem; right: 5%;
       background: none;
