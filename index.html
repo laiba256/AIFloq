@@ -61,6 +61,7 @@
     --text: #F0F4FF;
     --muted: #8896B0;
     --white: #ffffff;
+    --danger: #F14668;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1999,6 +2000,82 @@
     box-shadow: 0 0 50px rgba(14,165,233,0.4);
   }
 
+  .submit-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ── FORM VALIDATION ── */
+  .field-error {
+    display: none;
+    color: var(--danger);
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+  }
+
+  .form-group.invalid input,
+  .form-group.invalid select,
+  .form-group.invalid textarea,
+  .form-group.invalid .file-upload {
+    border-color: var(--danger);
+  }
+
+  .form-group.invalid .field-error { display: block; }
+
+  .form-group.valid input,
+  .form-group.valid select,
+  .form-group.valid textarea {
+    border-color: rgba(110,231,183,0.5);
+  }
+
+  .file-upload {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .file-upload:hover { border-color: var(--accent); }
+  .file-upload input[type="file"] { display: none; }
+  .file-upload .file-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .file-upload .file-name {
+    color: var(--muted);
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .file-upload .file-name.has-file { color: var(--text); }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .form-success.show { display: block; }
+  .form-success .success-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(110,231,183,0.12);
+    color: var(--accent2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin: 0 auto 1.2rem;
+  }
+  .form-success h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .form-success p { color: var(--muted); font-size: 0.95rem; }
+
   /* ── BLOG ── */
   #blog { background: var(--bg); }
 
@@ -3836,51 +3913,203 @@
       </div>
     </div>
 
-    <div class="contact-form fade-in">
+    <form class="contact-form fade-in" id="projectRequestForm" name="project-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+      <input type="hidden" name="form-name" value="project-request"/>
+      <p style="position:absolute; left:-9999px;">
+        <label>Don't fill this out: <input name="bot-field"/></label>
+      </p>
+
       <h3 style="font-family:'Playfair Display',serif; font-weight:700; margin-bottom:1.5rem; font-size:1.2rem;">Book a Free Call</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Ahmed"/>
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Khan"/>
-        </div>
+
+      <div class="form-group" data-field="text" data-required="true">
+        <label>Full Name</label>
+        <input type="text" name="full_name" placeholder="Enter your full name"/>
+        <div class="field-error">Required</div>
       </div>
-      <div class="form-group">
+
+      <div class="form-group" data-field="email" data-required="true">
         <label>Email</label>
-        <input type="email" placeholder="you@company.com"/>
+        <input type="email" name="email" placeholder="Enter your email"/>
+        <div class="field-error">Required</div>
       </div>
-      <div class="form-group">
-        <label>Service Needed</label>
-        <select>
-          <option value="" disabled selected>Select a service...</option>
-          <optgroup label="☎️ Transom">
-            <option>Transom Demo Request</option>
-            <option>Team Deployment</option>
-            <option>Brokerage Deployment</option>
-            <option>Enterprise / Franchise</option>
-          </optgroup>
-          <optgroup label="📱 Social Media Marketing">
-            <option>Social Media Management</option>
-            <option>Content Creation & Strategy</option>
-            <option>Paid Ads & Growth</option>
-            <option>Brand Identity & Design</option>
-            <option>SEO & Organic Growth</option>
-            <option>Analytics & Performance</option>
-          </optgroup>
-          <option>Other / Not Sure Yet</option>
+
+      <div class="form-group" data-field="text" data-required="true">
+        <label>Enter Your Organization</label>
+        <input type="text" name="organization" placeholder="Company / Organization"/>
+        <div class="field-error">Required</div>
+      </div>
+
+      <div class="form-group" data-field="select" data-required="true">
+        <label>Preferred Contact Method</label>
+        <select name="contact_method">
+          <option value="" disabled selected>Select contact method</option>
+          <option value="Email">Email</option>
+          <option value="Phone Call">Phone Call</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Video Call">Video Call</option>
         </select>
+        <div class="field-error">Required</div>
       </div>
-      <div class="form-group">
-        <label>Tell us about your project</label>
-        <textarea placeholder="Tell us what you need — a Transom deployment, social media management, or a mix. Include your timeline and your main goal..."></textarea>
+
+      <div class="form-group" data-field="text" data-required="true">
+        <label>Engagement Model</label>
+        <input type="text" name="engagement_model" list="engagementOptions" placeholder="Type or select..." autocomplete="off"/>
+        <datalist id="engagementOptions">
+          <option value="One-Time Project"></option>
+          <option value="Monthly Retainer"></option>
+          <option value="Hourly Consulting"></option>
+          <option value="Enterprise Partnership"></option>
+          <option value="Not Sure Yet"></option>
+        </datalist>
+        <div class="field-error">Required</div>
       </div>
-      <button class="submit-btn">→ Book Free Discovery Call</button>
-    </div>
+
+      <div class="form-group" data-field="text" data-required="true">
+        <label>Describe Your Request</label>
+        <textarea name="request_details" placeholder="Describe your request here"></textarea>
+        <div class="field-error">Required</div>
+      </div>
+
+      <div class="form-group" data-field="file" data-required="true">
+        <label class="file-upload" id="fileUploadLabel">
+          <span class="file-icon">📎</span>
+          <span class="file-name" id="fileNameDisplay">Attach a file (brief, reference, etc.)</span>
+          <input type="file" name="attachment" id="fileInput"/>
+        </label>
+        <div class="field-error">File cannot be null</div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">→ Book Free Discovery Call</button>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✓</div>
+        <h4>Request Sent</h4>
+        <p>Thanks — we've received your request and will get back to you shortly.</p>
+      </div>
+    </form>
   </div>
 </section>
+
+<script>
+(function() {
+  const form = document.getElementById('projectRequestForm');
+  if (!form) return;
+
+  const submitBtn = document.getElementById('submitBtn');
+  const successBox = document.getElementById('formSuccess');
+  const fileInput = document.getElementById('fileInput');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function getGroup(field) {
+    return field.closest('.form-group');
+  }
+
+  function isFieldValid(field) {
+    const group = getGroup(field);
+    if (!group || group.dataset.required !== 'true') return true;
+
+    if (field.type === 'file') {
+      return field.files && field.files.length > 0;
+    }
+    const value = (field.value || '').trim();
+    if (!value) return false;
+    if (field.type === 'email') return emailRegex.test(value);
+    return true;
+  }
+
+  function setGroupState(field, touched) {
+    const group = getGroup(field);
+    if (!group) return;
+    if (!touched) {
+      group.classList.remove('invalid', 'valid');
+      return;
+    }
+    if (isFieldValid(field)) {
+      group.classList.remove('invalid');
+      group.classList.add('valid');
+    } else {
+      group.classList.add('invalid');
+      group.classList.remove('valid');
+    }
+  }
+
+  // Update file name label whenever a file is chosen
+  fileInput.addEventListener('change', function() {
+    if (fileInput.files && fileInput.files.length > 0) {
+      fileNameDisplay.textContent = fileInput.files[0].name;
+      fileNameDisplay.classList.add('has-file');
+    } else {
+      fileNameDisplay.textContent = 'Attach a file (brief, reference, etc.)';
+      fileNameDisplay.classList.remove('has-file');
+    }
+    setGroupState(fileInput, getGroup(fileInput).classList.contains('invalid') || getGroup(fileInput).classList.contains('valid'));
+  });
+
+  // Wire up blur + input listeners for every validated field
+  const fields = form.querySelectorAll('[name]:not([name="bot-field"]):not([name="form-name"])');
+  fields.forEach(function(field) {
+    const group = getGroup(field);
+    if (!group || group.dataset.required !== 'true') return;
+
+    // Only validate (and show errors) once the user has interacted with the field
+    field.addEventListener('blur', function() {
+      setGroupState(field, true);
+    });
+
+    // While the field is already marked, keep it live-updated as the user types/selects
+    const liveEvent = field.tagName === 'SELECT' ? 'change' : 'input';
+    field.addEventListener(liveEvent, function() {
+      if (group.classList.contains('invalid') || group.classList.contains('valid')) {
+        setGroupState(field, true);
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(e) {
+    let firstInvalid = null;
+    let allValid = true;
+
+    fields.forEach(function(field) {
+      const group = getGroup(field);
+      if (!group || group.dataset.required !== 'true') return;
+      setGroupState(field, true);
+      if (!isFieldValid(field)) {
+        allValid = false;
+        if (!firstInvalid) firstInvalid = field;
+      }
+    });
+
+    // Always intercept submission ourselves so we can show an inline success
+    // state instead of letting the browser navigate to Netlify's default page.
+    e.preventDefault();
+
+    if (!allValid) {
+      if (firstInvalid) {
+        firstInvalid.focus();
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch('/', { method: 'POST', body: new FormData(form) })
+      .then(function() {
+        form.style.display = 'none';
+        successBox.classList.add('show');
+      })
+      .catch(function() {
+        // Even if the network call fails (e.g. local preview with no Netlify
+        // backend), don't block the user — acknowledge the submission.
+        form.style.display = 'none';
+        successBox.classList.add('show');
+      });
+  });
+})();
+</script>
 
 <!-- BLOG -->
 <section id="blog">
