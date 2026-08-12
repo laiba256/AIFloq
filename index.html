@@ -24,6 +24,15 @@
 <meta name="author" content="AiFloq"/>
 <link rel="canonical" href="https://aifloq.com/"/>
 
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://aifloq.com/"/>
@@ -112,6 +121,7 @@
     width: 28px;
     height: 32px;
     flex-shrink: 0;
+    object-fit: contain;
   }
 
   .nav-links {
@@ -2765,21 +2775,7 @@
 
 <nav id="navbar">
   <a href="#" class="logo">
-    <svg class="logo-mark" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Branching arrow mark: 3 paths converging, 3 teal endpoint dots -->
-      <!-- Left branch -->
-      <line x1="4" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Right branch -->
-      <line x1="24" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Down stem -->
-      <line x1="14" y1="10" x2="14" y2="30" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Three teal endpoint dots -->
-      <circle cx="4"  cy="22" r="3" fill="#6EE7B7"/>
-      <circle cx="24" cy="22" r="3" fill="#6EE7B7"/>
-      <circle cx="14" cy="30" r="3" fill="#6EE7B7"/>
-      <!-- Top arrow head -->
-      <polyline points="10,14 14,9 18,14" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <img class="logo-mark" src="/logo-icon.png" alt="AiFloq logo"/>
     <span style="color:var(--white)">Ai</span><span>Floq</span>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -4096,15 +4092,7 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo" style="display:inline-flex; align-items:center; gap:0.45rem; text-decoration:none;">
-    <svg width="22" height="27" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <line x1="4" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
-      <line x1="24" y1="22" x2="14" y2="10" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
-      <line x1="14" y1="10" x2="14" y2="30" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
-      <circle cx="4"  cy="22" r="3" fill="#6EE7B7"/>
-      <circle cx="24" cy="22" r="3" fill="#6EE7B7"/>
-      <circle cx="14" cy="30" r="3" fill="#6EE7B7"/>
-      <polyline points="10,14 14,9 18,14" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <img src="/logo-icon.png" alt="AiFloq logo" width="22" height="22" style="flex-shrink:0;"/>
     <span style="font-family:'Playfair Display',serif; font-weight:800; font-size:1.2rem; color:var(--white);">Ai<span style="color:var(--accent);">Floq</span></span>
   </a>
   <div class="footer-copy">© 2026 AiFloq. All rights reserved.</div>
