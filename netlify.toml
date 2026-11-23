@@ -15,6 +15,23 @@
   to = "/remote-work-policy.html"
   status = 200
 
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+[[redirects]]
+  from = "/social-media-management"
+  to = "/social-media-management.html"
+  status = 200
+[[redirects]]
+  from = "/meta-ads-management"
+  to = "/meta-ads-management.html"
+  status = 200
+[[redirects]]
+  from = "/seo-services"
+  to = "/seo-services.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
