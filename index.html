@@ -1,0 +1,4321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="AiFloq is a digital marketing and social media agency helping startups and small businesses grow online through content, paid ads, SEO, and brand strategy."/>
+<meta name="p:domain_verify" content="5b118f364a536c49e3702fee5156874a"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#A8613F"/>
+<link rel="canonical" href="https://aifloq.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AiFloq"/>
+<meta property="og:title" content="AiFloq — Digital Marketing &amp; Social Media Agency"/>
+<meta property="og:description" content="AiFloq grows startups and small businesses through social media management, content strategy, paid ads and SEO."/>
+<meta property="og:url" content="https://aifloq.com/"/>
+<meta name="twitter:card" content="summary"/>
+<title>AiFloq — Digital Marketing & Social Media Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --surface: #FBF7F2;
+    --surface2: #F3EBE2;
+    --border: rgba(60,40,30,0.07);
+    --accent: #A8613F;
+    --accent2: #6F8060;
+    --accent-glow: rgba(168,97,63,0.25);
+    --accent2-glow: rgba(111,128,96,0.2);
+    --text: #2B211C;
+    --muted: #7A6A5F;
+    --white: #2B211C;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 5%;
+    background: rgba(255,252,248,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+
+  nav.scrolled { padding: 0.85rem 5%; }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .logo-mark {
+    width: 28px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--white); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: opacity 0.2s, transform 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.85 !important; transform: translateY(-1px); }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 5rem;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(168,97,63,0.18) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(111,128,96,0.1) 0%, transparent 70%);
+    bottom: 0; left: 10%;
+    pointer-events: none;
+  }
+
+  /* Animated grid background */
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(168,97,63,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168,97,63,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(168,97,63,0.12);
+    border: 1px solid rgba(168,97,63,0.3);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    color: var(--muted);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(168,97,63,0.4);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(60,40,30,0.25);
+    background: rgba(60,40,30,0.04);
+  }
+
+  /* ── HERO VISUAL (Enhanced Workflow Card) ── */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .workflow-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    overflow: hidden;
+    animation: floatCard 4s ease-in-out infinite;
+  }
+
+  .workflow-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .workflow-card.social::before {
+    background: linear-gradient(90deg, var(--accent2), #586848);
+  }
+
+  .wf-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .wf-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  .wf-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .wf-nodes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .wf-node {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s;
+  }
+
+  .wf-node.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 12px rgba(168,97,63,0.2);
+  }
+
+  .wf-node.active-green {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    box-shadow: 0 0 12px rgba(111,128,96,0.2);
+  }
+
+  .wf-arrow {
+    color: var(--muted);
+    font-size: 0.7rem;
+  }
+
+  .wf-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .wf-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+  }
+
+  /* Floating mini badges around the hero card */
+  .hero-float-badge {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 8px 32px rgba(90,60,40,0.12);
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  .float-1 {
+    top: -16px; left: -40px;
+    animation: floatCard 3.5s ease-in-out infinite;
+    border-color: rgba(168,97,63,0.3);
+    color: var(--accent);
+  }
+
+  .float-2 {
+    bottom: 30px; right: -30px;
+    animation: floatCard 5s ease-in-out infinite reverse;
+    border-color: rgba(111,128,96,0.3);
+    color: var(--accent2);
+  }
+
+  .float-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 5%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+  }
+
+  .section-header { max-width: 1200px; margin: 0 auto; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--surface); }
+
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(168,97,63,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(168,97,63,0.04), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(168,97,63,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(90,60,40,0.12);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover::after { opacity: 1; }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    background: rgba(168,97,63,0.1);
+    border: 1px solid rgba(168,97,63,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-desc {
+    color: var(--muted);
+    font-size: 0.975rem;
+    line-height: 1.75;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tag {
+    background: rgba(60,40,30,0.04);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.78rem;
+    padding: 0.22rem 0.65rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* ── WORKFLOW SHOWCASE (new section) ── */
+  #workflow {
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .workflow-showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .workflow-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .workflow-tab {
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .workflow-tab.active {
+    background: rgba(168,97,63,0.12);
+    border-color: rgba(168,97,63,0.4);
+    color: var(--accent);
+  }
+
+  .workflow-tab:hover:not(.active) {
+    border-color: rgba(60,40,30,0.15);
+    color: var(--text);
+  }
+
+  .workflow-panel {
+    display: none;
+  }
+
+  .workflow-panel.active {
+    display: block;
+  }
+
+  .workflow-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .workflow-panel p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .workflow-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .workflow-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .workflow-feature-list li::before {
+    content: '';
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: rgba(111,128,96,0.15);
+    border: 1px solid rgba(111,128,96,0.4);
+    flex-shrink: 0;
+    margin-top: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%236EE7B7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Animated workflow diagram */
+  .workflow-diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .workflow-diagram::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .wd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .wd-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+
+  .wd-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--accent2);
+    font-weight: 600;
+  }
+
+  .wd-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .wd-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wd-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .wd-node {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+
+  .wd-node.lit-blue {
+    border-color: rgba(168,97,63,0.5);
+    color: var(--accent);
+    box-shadow: 0 0 16px rgba(168,97,63,0.15);
+    background: rgba(168,97,63,0.06);
+  }
+
+  .wd-node.lit-green {
+    border-color: rgba(111,128,96,0.5);
+    color: var(--accent2);
+    box-shadow: 0 0 16px rgba(111,128,96,0.15);
+    background: rgba(111,128,96,0.06);
+  }
+
+  .wd-arrow {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(168,97,63,0.4), rgba(111,128,96,0.4));
+    position: relative;
+    min-width: 20px;
+  }
+
+  .wd-arrow::after {
+    content: '▶';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.45rem;
+    color: var(--accent2);
+  }
+
+  .wd-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0.75rem 0;
+  }
+
+  .wd-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .wd-metric {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .wd-metric-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent2);
+  }
+
+  .wd-metric-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--bg); overflow: hidden; }
+
+  .portfolio-scroll-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .portfolio-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1.5rem;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .portfolio-scroll:active { cursor: grabbing; }
+
+  .portfolio-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+  .portfolio-scroll::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .portfolio-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+  }
+
+  /* Scroll arrows */
+  .portfolio-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .portfolio-arrow {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .portfolio-arrow:hover {
+    border-color: rgba(168,97,63,0.4);
+    color: var(--accent);
+    background: rgba(168,97,63,0.08);
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    flex: 0 0 480px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    border-color: rgba(168,97,63,0.35);
+    box-shadow: 0 30px 80px rgba(90,60,40,0.15);
+  }
+
+  /* Animated flow preview banner */
+  .project-preview {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+  }
+
+  .project-preview-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Grid overlay on preview */
+  .project-preview::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(168,97,63,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168,97,63,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+
+  .preview-flow-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .p-node {
+    background: rgba(255,252,248,0.88);
+    border: 1px solid rgba(168,97,63,0.4);
+    border-radius: 8px;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+  }
+
+  .p-node.green {
+    border-color: rgba(111,128,96,0.4);
+    color: var(--accent2);
+  }
+
+  .p-node.dim {
+    border-color: var(--border);
+    color: var(--muted);
+  }
+
+  .p-arrow {
+    color: var(--muted);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+
+  /* Project body */
+  .project-body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-platform {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(168,97,63,0.1);
+    border: 1px solid rgba(168,97,63,0.25);
+    color: var(--accent);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+  }
+
+  .project-status {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent2);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .project-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .project-desc {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  /* Metrics row */
+  .project-metrics {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-metric {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    text-align: center;
+    flex: 1;
+  }
+
+  .pm-value {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent2);
+  }
+
+  .pm-label {
+    font-size: 0.62rem;
+    color: var(--muted);
+    margin-top: 0.1rem;
+    font-weight: 500;
+  }
+
+  /* Feature bullets */
+  .project-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-features li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .project-features li::before {
+    content: '✓';
+    color: var(--accent2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Tags row */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .p-tag {
+    background: rgba(60,40,30,0.04);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* Scroll indicator dots */
+  .portfolio-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .portfolio-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+  }
+
+  .portfolio-dot.active {
+    background: var(--accent);
+    width: 24px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .project-card { flex: 0 0 85vw; }
+    .portfolio-nav { margin-bottom: 1.25rem; }
+  }
+
+  @media (max-width: 480px) {
+    .project-card { flex: 0 0 92vw; }
+    .project-metrics { gap: 0.5rem; }
+  }
+
+  /* ── REVIEWS CAROUSEL ── */
+  #reviews {
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .reviews-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .reviews-track-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reviews-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .review-card {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0 0.25rem;
+  }
+
+  .review-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-item:hover { border-color: rgba(168,97,63,0.25); }
+
+  .review-item::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem; left: 1.25rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: rgba(168,97,63,0.07);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .review-stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; }
+  .star { color: #F59E0B; font-size: 0.85rem; }
+
+  .review-text {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 400;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: auto;
+  }
+
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .review-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .review-role { font-size: 0.75rem; color: var(--muted); font-weight: 300; margin-top: 0.1rem; }
+
+  .review-platform {
+    margin-left: auto;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(60,40,30,0.04);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .reviews-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .rev-arrow {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .rev-arrow:hover {
+    border-color: rgba(168,97,63,0.4);
+    color: var(--accent);
+    background: rgba(168,97,63,0.08);
+  }
+
+  .rev-dots { display: flex; gap: 0.5rem; align-items: center; }
+
+  .rev-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+  }
+
+  .rev-dot.active {
+    background: var(--accent);
+    width: 22px;
+    border-radius: 3px;
+  }
+
+  .rev-progress {
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  .rev-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 1px;
+    width: 33.33%;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: left;
+  }
+
+  @media (max-width: 900px) {
+    .review-card { grid-template-columns: 1fr; }
+  }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--bg); }
+
+  .pricing-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 64px rgba(90,60,40,0.12);
+  }
+
+  /* Featured card */
+  .pricing-card.featured {
+    border-color: rgba(168,97,63,0.45);
+    background: var(--surface2);
+    box-shadow: 0 0 0 1px rgba(168,97,63,0.15), 0 20px 60px rgba(168,97,63,0.1);
+  }
+
+  .pricing-card.featured:hover {
+    box-shadow: 0 0 0 1px rgba(168,97,63,0.3), 0 30px 80px rgba(168,97,63,0.18);
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+
+  .pricing-card.featured::before {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(168,97,63,0.12);
+    border: 1px solid rgba(168,97,63,0.3);
+    color: var(--accent);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+
+  .pricing-badge.popular {
+    background: linear-gradient(135deg, rgba(168,97,63,0.2), rgba(111,128,96,0.15));
+    border-color: rgba(111,128,96,0.4);
+    color: var(--accent2);
+  }
+
+  .pricing-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s infinite;
+  }
+
+  .pricing-tier {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-currency {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .price-per {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    font-weight: 300;
+  }
+
+  .pricing-tagline {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .pricing-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1.75rem;
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.45;
+  }
+
+  .pricing-features li .feat-icon {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+    width: 16px;
+    text-align: center;
+  }
+
+  .pricing-features li.included { color: var(--text); }
+  .pricing-features li.included .feat-icon { color: var(--accent2); }
+  .pricing-features li.excluded { opacity: 0.45; }
+  .pricing-features li.excluded .feat-icon { color: var(--muted); }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-cta.outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .pricing-cta.outline:hover {
+    border-color: rgba(168,97,63,0.4);
+    background: rgba(168,97,63,0.06);
+    color: var(--accent);
+  }
+
+  .pricing-cta.solid {
+    background: linear-gradient(135deg, var(--accent), #8C4D31);
+    color: white;
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .pricing-cta.solid:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(168,97,63,0.4);
+  }
+
+  /* Delivery badge */
+  .pricing-delivery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+
+  .pricing-delivery::before {
+    content: '⚡';
+    font-size: 0.7rem;
+  }
+
+  /* Note below grid */
+  .pricing-note {
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .pricing-note a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+  }
+
+  /* ── TOOLS BELT (new) ── */
+  #tools {
+    background: var(--surface);
+    padding: 4rem 5%;
+    overflow: hidden;
+  }
+
+  .tools-header {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .tools-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  .tools-label::before,
+  .tools-label::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--border);
+  }
+
+  .tools-ticker-wrapper {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+  }
+
+  .tools-ticker-wrapper::before,
+  .tools-ticker-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .tools-ticker-wrapper::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--surface), transparent);
+  }
+
+  .tools-ticker-wrapper::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--surface), transparent);
+  }
+
+  .tools-ticker {
+    display: flex;
+    gap: 1rem;
+    animation: tickerScroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .tools-ticker:hover { animation-play-state: paused; }
+
+  @keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .tool-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .tool-chip:hover {
+    border-color: rgba(168,97,63,0.3);
+    color: var(--text);
+  }
+
+  .tool-emoji { font-size: 1rem; }
+
+  /* ── PROCESS ── */
+  #process { background: var(--bg); }
+
+  .process-steps {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: calc(12.5% + 1rem);
+    right: calc(12.5% + 1rem);
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0.3;
+  }
+
+  .process-step {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.3s;
+  }
+
+  .process-step:hover {
+    border-color: rgba(168,97,63,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(90,60,40,0.09);
+  }
+
+  .step-num {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin: 0 auto 1.25rem;
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .step-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--surface); }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info h2 { margin-bottom: 1rem; }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-detail:hover { border-color: rgba(168,97,63,0.25); }
+
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: rgba(168,97,63,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .contact-value {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-top: 0.1rem;
+  }
+
+  /* Trust indicators */
+  .trust-block {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(111,128,96,0.05);
+    border: 1px solid rgba(111,128,96,0.2);
+    border-radius: 12px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .trust-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .trust-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent2);
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  .contact-form {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.975rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(168,97,63,0.1);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: var(--surface2); }
+
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent), #8C4D31);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 0 30px var(--accent-glow);
+    letter-spacing: 0.02em;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(168,97,63,0.4);
+  }
+
+  /* ── BLOG ── */
+  #blog { background: var(--bg); }
+
+  .blog-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  /* First card is featured — spans 2 cols */
+  .blog-card-featured {
+    grid-column: 1 / 3;
+  }
+
+  .blog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .blog-card:hover {
+    border-color: rgba(168,97,63,0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 24px 72px rgba(90,60,40,0.15);
+  }
+
+  /* Gradient illustration header */
+  .blog-thumb {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 1.5rem;
+  }
+
+  .blog-card-featured .blog-thumb { height: 240px; }
+  .blog-card:not(.blog-card-featured) .blog-thumb { height: 160px; }
+
+  .blog-thumb-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Animated grid overlay on thumb */
+  .blog-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(60,40,30,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(60,40,30,0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .blog-category {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+  }
+
+  .cat-automation {
+    background: rgba(168,97,63,0.2);
+    border: 1px solid rgba(168,97,63,0.4);
+    color: var(--accent);
+  }
+
+  .cat-social {
+    background: rgba(111,128,96,0.15);
+    border: 1px solid rgba(111,128,96,0.4);
+    color: var(--accent2);
+  }
+
+  .cat-web {
+    background: rgba(201,165,143,0.15);
+    border: 1px solid rgba(201,165,143,0.4);
+    color: #C9A58F;
+  }
+
+  .blog-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    transition: color 0.2s;
+  }
+
+  .blog-card-featured .blog-title { font-size: 1.45rem; }
+  .blog-card:not(.blog-card-featured) .blog-title { font-size: 1.1rem; }
+
+  .blog-card:hover .blog-title { color: var(--accent); }
+
+  .blog-excerpt {
+    color: var(--muted);
+    font-size: 0.975rem;
+    line-height: 1.75;
+    font-weight: 400;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-card:not(.blog-card-featured) .blog-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .blog-meta-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .blog-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+  }
+
+  .blog-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .blog-read-more:hover { gap: 0.6rem; }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .blog-tag {
+    background: rgba(60,40,30,0.04);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.65rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* Floating read time badge on thumb */
+  .blog-read-time {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    z-index: 2;
+    background: rgba(255,252,248,0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0.2rem 0.65rem;
+  }
+
+  @media (max-width: 900px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    .blog-card-featured {
+      grid-column: 1;
+    }
+    .blog-card-featured .blog-thumb { height: 200px; }
+  }
+
+  /* ── BLOG MODAL ── */
+  .blog-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(43,33,28,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .blog-modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .blog-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    max-width: 760px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    margin: auto;
+  }
+
+  .blog-modal-overlay.open .blog-modal {
+    transform: translateY(0);
+  }
+
+  .blog-modal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .blog-modal-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 2;
+    line-height: 1;
+  }
+
+  .blog-modal-close:hover {
+    border-color: rgba(168,97,63,0.4);
+    color: var(--accent);
+  }
+
+  .blog-modal-header {
+    padding: 2.5rem 2.5rem 0;
+  }
+
+  .blog-modal-cat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .blog-modal-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .blog-modal-body {
+    padding: 2rem 2.5rem;
+  }
+
+  .blog-modal-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin: 1.75rem 0 0.65rem;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-modal-body h3:first-child { margin-top: 0; }
+
+  .blog-modal-body p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .blog-modal-body ul {
+    list-style: none;
+    margin: 0.5rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .blog-modal-body ul li {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .blog-modal-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 3px;
+  }
+
+  .blog-modal-body .highlight-box {
+    background: rgba(168,97,63,0.06);
+    border: 1px solid rgba(168,97,63,0.2);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+  }
+
+  .blog-modal-body .highlight-box p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.88rem;
+  }
+
+  /* Contact CTA at bottom of each blog */
+  .blog-contact-cta {
+    margin: 2rem 2.5rem 2.5rem;
+    padding: 2rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-contact-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .blog-contact-cta h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-contact-cta p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .blog-contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-contact-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .blog-contact-chip span { color: var(--muted); font-weight: 300; }
+
+  .blog-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 0 24px var(--accent-glow);
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .blog-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(168,97,63,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .blog-modal-header { padding: 2rem 1.25rem 0; }
+    .blog-modal-body { padding: 1.5rem 1.25rem; }
+    .blog-contact-cta { margin: 1.5rem 1.25rem 1.5rem; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--accent); }
+  .footer-copy { color: var(--muted); font-size: 0.88rem; }
+  .footer-tagline { color: var(--muted); font-size: 0.88rem; }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid, .contact-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .process-steps::before { display: none; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .workflow-showcase { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,252,248,0.98);
+      backdrop-filter: blur(20px);
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 99;
+    }
+
+    .nav-links.open a {
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .nav-close {
+      position: absolute;
+      top: 1.5rem; right: 5%;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process-steps { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 5%; }
+  }
+</style>
+<style id="light-theme">
+html{color-scheme:light}
+body{background:#fff;color:var(--text)}
+body::before,.hero-grid-bg{display:none}
+h1,h2,h3,.logo,.footer-logo{font-family:'Playfair Display',serif}
+h1 em{font-style:italic;font-weight:700;background:none;-webkit-text-fill-color:var(--accent);color:var(--accent)}
+.btn-primary,.btn-outline,.nav-cta,.submit-btn,.blog-cta-btn{border-radius:999px}
+.btn-primary,.submit-btn{background:#2B211C;box-shadow:0 8px 24px rgba(43,33,28,.18)}
+.btn-primary:hover,.submit-btn:hover{background:var(--accent);box-shadow:0 10px 30px rgba(168,97,63,.3)}
+.nav-cta{color:#fff!important}
+.service-card,.project-card,.review-item,.blog-card,.process-step,.contact-form,.workflow-card,.blog-modal{background:#fff;box-shadow:0 10px 40px rgba(122,90,70,.08)}
+.service-card,.project-card,.blog-card,.review-item,.process-step{border-color:rgba(60,40,30,.08);border-radius:24px}
+.project-preview,.blog-thumb-bg{background:linear-gradient(135deg,#F7EDE3,#EBD9CB)!important}
+.p-node,.wf-node{background:#fff;color:var(--accent);border-color:rgba(168,97,63,.3)}
+.p-node.green,.wf-node.active-green{color:var(--accent2);border-color:rgba(111,128,96,.4)}
+.hero-float-badge{background:#fff;box-shadow:0 8px 30px rgba(122,90,70,.12)}
+.stats-bar{background:var(--surface)}
+.section-label{color:var(--accent)}
+.tool-chip{background:#fff}
+.form-group select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232B211C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 1rem center;padding-right:2.75rem;border:1px solid rgba(60,40,30,.2);color:var(--text);cursor:pointer;-webkit-appearance:none;appearance:none}
+.form-group select option,.form-group select optgroup{background:#fff;color:#2B211C}
+.form-group select optgroup{font-weight:700;font-style:normal}
+.form-group input,.form-group textarea{background:#fff;border:1px solid rgba(60,40,30,.18)}
+@media(max-width:900px){nav{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}.nav-links.open{background:#FBF7F2!important;-webkit-backdrop-filter:none;backdrop-filter:none;opacity:1}}
+.nav-close{display:none}
+@keyframes drawerIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@media(max-width:900px){
+.nav-links.open{left:auto!important;right:0!important;top:0!important;bottom:0!important;width:min(300px,80vw);align-items:flex-start!important;justify-content:flex-start!important;gap:1.25rem!important;padding:5.5rem 2rem 2rem;border-left:1px solid rgba(60,40,30,.1);box-shadow:-24px 0 60px rgba(60,40,30,.18);animation:drawerIn .3s ease}
+.nav-links.open a{font-size:1.1rem!important}
+.nav-links.open .nav-close{display:block;position:absolute;top:1.25rem;right:1.25rem}
+}
+</style>
+<style>.svc-more{display:inline-block;margin-top:1rem;font-weight:600;font-size:.9rem;color:var(--accent);text-decoration:none;position:relative;z-index:1}.svc-more:hover{text-decoration:underline}</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <svg class="logo-mark" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Branching arrow mark: 3 paths converging, 3 teal endpoint dots -->
+      <!-- Left branch -->
+      <line x1="4" y1="22" x2="14" y2="10" stroke="#A8613F" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Right branch -->
+      <line x1="24" y1="22" x2="14" y2="10" stroke="#A8613F" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Down stem -->
+      <line x1="14" y1="10" x2="14" y2="30" stroke="#A8613F" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Three teal endpoint dots -->
+      <circle cx="4"  cy="22" r="3" fill="#6F8060"/>
+      <circle cx="24" cy="22" r="3" fill="#6F8060"/>
+      <circle cx="14" cy="30" r="3" fill="#6F8060"/>
+      <!-- Top arrow head -->
+      <polyline points="10,14 14,9 18,14" fill="none" stroke="#A8613F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span style="color:var(--white)">Ai</span><span>Floq</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-grid">
+    <div class="hero-content">
+
+      <!-- Discipline pills -->
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(168,97,63,0.12); border:1px solid rgba(168,97,63,0.3); color:var(--accent); font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px;">
+          <span style="width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;display:inline-block;"></span>
+          📈 Digital Marketing
+        </div>
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(111,128,96,0.1); border:1px solid rgba(111,128,96,0.3); color:var(--accent2); font-size:0.73rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.32rem 0.85rem; border-radius:100px;">
+          <span style="width:6px;height:6px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite 0.5s;display:inline-block;"></span>
+          📱 Social Media Marketing
+        </div>
+      </div>
+
+      <h1>Grow Faster.<br/><em>Market Smarter.</em></h1>
+      <p class="hero-desc">AiFloq is a digital marketing agency that grows your brand through social media management, content strategy, paid ads, SEO, and data-driven campaigns — all done for you.</p>
+
+      <!-- Service highlight chips -->
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem;">
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📱 Instagram & TikTok</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📈 Meta & Google Ads</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">✍️ Content Strategy</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">🔍 SEO & Growth</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">🎨 Brand Identity</span>
+        <span style="background:var(--surface2); border:1px solid var(--border); color:var(--muted); font-size:0.72rem; padding:0.25rem 0.7rem; border-radius:100px; font-weight:500;">📊 Analytics & Reports</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Book a Free Call
+        </a>
+        <a href="#services" class="btn-outline">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          See All Services
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-float-badge float-1">
+        <div class="float-dot" style="background:var(--accent)"></div>
+        Campaigns live
+      </div>
+
+      <!-- Stacked cards: automation on top, social below -->
+      <div style="display:flex; flex-direction:column; gap:1rem; width:100%; max-width:420px;">
+
+        <!-- Automation card -->
+        <div class="workflow-card" style="animation-delay:0s;">
+          <div class="wf-header">
+            <div class="wf-dot" style="background:#A8613F"></div>
+            <div class="wf-dot" style="background:#6F8060"></div>
+            <div class="wf-dot" style="background:#F59E0B"></div>
+            <span class="wf-title">Content Calendar · This Week</span>
+          </div>
+          <div class="wf-nodes">
+            <div class="wf-node active">📸 Reel Posted</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active">✍️ Caption Live</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">💬 Comments Replied</div>
+          </div>
+          <div class="wf-nodes" style="margin-top:0.25rem">
+            <div class="wf-node active">🎯 Ad Launched</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node">🔬 A/B Test</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">📈 Scaling</div>
+          </div>
+          <div class="wf-status">5 posts scheduled · 2 campaigns live · reports ready</div>
+        </div>
+
+        <!-- Social media card -->
+        <div class="workflow-card social" style="animation: floatCard 5s ease-in-out infinite reverse;">
+          <div class="wf-header">
+            <div class="wf-dot" style="background:#6F8060"></div>
+            <div class="wf-dot" style="background:#EC4899"></div>
+            <div class="wf-dot" style="background:#F59E0B"></div>
+            <span class="wf-title" style="color:var(--accent2);">Social Media · This Month</span>
+          </div>
+          <div class="wf-nodes">
+            <div class="wf-node active-green">📱 Instagram</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">✍️ 12 Posts</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">📊 Reach tracked</div>
+          </div>
+          <div class="wf-nodes" style="margin-top:0.25rem">
+            <div class="wf-node active-green">🎯 Meta Ads</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">💰 ROAS tracked</div>
+            <span class="wf-arrow">→</span>
+            <div class="wf-node active-green">🔥 Active</div>
+          </div>
+          <div class="wf-status" style="color:var(--accent2);">Content scheduled · Ads live · Reports ready</div>
+        </div>
+      </div>
+
+      <div class="hero-float-badge float-2">
+        <div class="float-dot" style="background:var(--accent2)"></div>
+        Social + Digital · All-in-one
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="fade-in">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Core Services</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Remote Team</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-num">24h</div>
+      <div class="stat-label">Response Time</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">Discovery Call</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-label">What We Do</div>
+    <h2>Full-Service<br/>Digital Marketing</h2>
+    <p class="section-sub">From content creation to paid ads, SEO to brand design — we handle every aspect of your digital marketing so your business grows consistently online.</p>
+  </div>
+
+
+
+  <!-- Services -->
+  <div style="max-width:1200px; margin: 0 auto 1.5rem;">
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(111,128,96,0.1); border:1px solid rgba(111,128,96,0.25); color:var(--accent2); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:100px;">📱 Our Services</div>
+      <div style="flex:1; height:1px; background:linear-gradient(90deg, rgba(111,128,96,0.3), transparent);"></div>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(111,128,96,0.1); border-color:rgba(111,128,96,0.2);">📱</div>
+      <div class="service-title">Social Media Management</div>
+      <div class="service-desc">Full-service management of your Instagram, LinkedIn, Facebook, and TikTok — consistent posting, branded content, community engagement, and monthly performance reporting.</div>
+      <a class="svc-more" href="/social-media-management">Learn more →</a>
+      <div class="service-tags"><span class="tag">Instagram</span><span class="tag">LinkedIn</span><span class="tag">TikTok</span><span class="tag">Facebook</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(111,128,96,0.1); border-color:rgba(111,128,96,0.2);">✍️</div>
+      <div class="service-title">Content Creation & Strategy</div>
+      <div class="service-desc">Content calendars, caption writing, graphic design direction, and short-form video scripts — all aligned to your brand voice and growth goals.</div>
+      <div class="service-tags"><span class="tag">Reels</span><span class="tag">Copywriting</span><span class="tag">Content Calendar</span><span class="tag">Canva</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(111,128,96,0.1); border-color:rgba(111,128,96,0.2);">📈</div>
+      <div class="service-title">Paid Ads & Growth</div>
+      <div class="service-desc">Meta and Google ad campaigns designed to convert — from audience targeting and creative to A/B testing and ROAS tracking. Growth that's measurable, not just visible.</div>
+      <a class="svc-more" href="/meta-ads-management">Learn more →</a>
+      <div class="service-tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">A/B Testing</span><span class="tag">ROAS</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(111,128,96,0.1); border-color:rgba(111,128,96,0.2);">🎨</div>
+      <div class="service-title">Brand Identity & Design</div>
+      <div class="service-desc">Logo design, brand guidelines, visual identity kits, and social media templates — everything you need to look consistent, professional, and memorable across every platform.</div>
+      <div class="service-tags"><span class="tag">Logo Design</span><span class="tag">Brand Kit</span><span class="tag">Templates</span><span class="tag">Figma</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(111,128,96,0.1); border-color:rgba(111,128,96,0.2);">🔍</div>
+      <div class="service-title">SEO & Organic Growth</div>
+      <div class="service-desc">Keyword research, on-page optimization, link building, and content strategies that drive sustainable organic traffic — without relying on ad spend alone.</div>
+      <a class="svc-more" href="/seo-services">Learn more →</a>
+      <div class="service-tags"><span class="tag">SEO</span><span class="tag">Keyword Research</span><span class="tag">Backlinks</span><span class="tag">Blogging</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background:rgba(111,128,96,0.1); border-color:rgba(111,128,96,0.2);">📊</div>
+      <div class="service-title">Analytics & Performance</div>
+      <div class="service-desc">Monthly reports covering reach, engagement, conversion rates, and ad performance — with clear insights and action plans so you always know what's working and why.</div>
+      <div class="service-tags"><span class="tag">Analytics</span><span class="tag">Meta Insights</span><span class="tag">Google Analytics</span><span class="tag">KPI Tracking</span></div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- PLATFORMS BELT -->
+<div id="tools">
+  <div class="tools-header">
+    <div class="tools-label">Platforms & Tools We Work With</div>
+  </div>
+  <div class="tools-ticker-wrapper">
+    <div class="tools-ticker" id="ticker">
+      <div class="tool-chip"><span class="tool-emoji">📸</span> Instagram</div>
+      <div class="tool-chip"><span class="tool-emoji">🎵</span> TikTok</div>
+      <div class="tool-chip"><span class="tool-emoji">💼</span> LinkedIn</div>
+      <div class="tool-chip"><span class="tool-emoji">📘</span> Facebook</div>
+      <div class="tool-chip"><span class="tool-emoji">🐦</span> X (Twitter)</div>
+      <div class="tool-chip"><span class="tool-emoji">📌</span> Pinterest</div>
+      <div class="tool-chip"><span class="tool-emoji">🎯</span> Meta Ads</div>
+      <div class="tool-chip"><span class="tool-emoji">🔍</span> Google Ads</div>
+      <div class="tool-chip"><span class="tool-emoji">📊</span> Google Analytics</div>
+      <div class="tool-chip"><span class="tool-emoji">🎨</span> Canva</div>
+      <div class="tool-chip"><span class="tool-emoji">🎬</span> CapCut</div>
+      <div class="tool-chip"><span class="tool-emoji">📅</span> Buffer</div>
+      <div class="tool-chip"><span class="tool-emoji">🗓️</span> Hootsuite</div>
+      <div class="tool-chip"><span class="tool-emoji">📈</span> SEMrush</div>
+      <div class="tool-chip"><span class="tool-emoji">🔗</span> Ahrefs</div>
+      <div class="tool-chip"><span class="tool-emoji">✉️</span> Mailchimp</div>
+      <div class="tool-chip"><span class="tool-emoji">📋</span> HubSpot</div>
+      <div class="tool-chip"><span class="tool-emoji">🌐</span> Google Search Console</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="tool-chip"><span class="tool-emoji">📸</span> Instagram</div>
+      <div class="tool-chip"><span class="tool-emoji">🎵</span> TikTok</div>
+      <div class="tool-chip"><span class="tool-emoji">💼</span> LinkedIn</div>
+      <div class="tool-chip"><span class="tool-emoji">📘</span> Facebook</div>
+      <div class="tool-chip"><span class="tool-emoji">🐦</span> X (Twitter)</div>
+      <div class="tool-chip"><span class="tool-emoji">📌</span> Pinterest</div>
+      <div class="tool-chip"><span class="tool-emoji">🎯</span> Meta Ads</div>
+      <div class="tool-chip"><span class="tool-emoji">🔍</span> Google Ads</div>
+      <div class="tool-chip"><span class="tool-emoji">📊</span> Google Analytics</div>
+      <div class="tool-chip"><span class="tool-emoji">🎨</span> Canva</div>
+      <div class="tool-chip"><span class="tool-emoji">🎬</span> CapCut</div>
+      <div class="tool-chip"><span class="tool-emoji">📅</span> Buffer</div>
+      <div class="tool-chip"><span class="tool-emoji">🗓️</span> Hootsuite</div>
+      <div class="tool-chip"><span class="tool-emoji">📈</span> SEMrush</div>
+      <div class="tool-chip"><span class="tool-emoji">🔗</span> Ahrefs</div>
+      <div class="tool-chip"><span class="tool-emoji">✉️</span> Mailchimp</div>
+      <div class="tool-chip"><span class="tool-emoji">📋</span> HubSpot</div>
+      <div class="tool-chip"><span class="tool-emoji">🌐</span> Google Search Console</div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header">
+    <div class="section-label">Our Work</div>
+    <h2>Real Campaigns,<br/>Real Results</h2>
+    <p class="section-sub">Social media campaigns, paid ads, and content strategies that delivered measurable growth for real clients.</p>
+  </div>
+
+  <!-- Scroll nav -->
+  <div class="portfolio-nav fade-in">
+    <button class="portfolio-arrow" id="portPrev" aria-label="Previous">←</button>
+    <button class="portfolio-arrow" id="portNext" aria-label="Next">→</button>
+  </div>
+
+  <div class="portfolio-scroll-wrapper fade-in">
+    <div class="portfolio-scroll" id="portScroll">
+
+      <!-- ── PROJECT 2: Meta Ads Campaign ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #0C1A14 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 40% 50%, rgba(168,97,63,0.16) 0%, transparent 65%);"></div>
+          <div class="preview-flow-row">
+            <div class="p-node">🎯 Meta Ads</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">🔬 A/B Testing</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node">0.9× ROAS</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">3.4× ROAS</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node green">📊 Week 5</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">💰 3× Budget</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">Meta Ads · Google Ads</div>
+            <div class="project-status">Active</div>
+          </div>
+          <div class="project-title">Meta Ads Turnaround — 0.9× to 3.4× ROAS</div>
+          <div class="project-desc">Took a D2C brand's failing Meta ad campaign and rebuilt it from the ground up — restructured audience targeting, rebuilt creatives, fixed landing page load time, and implemented a proper A/B testing protocol. Result: 3.4× ROAS in 5 weeks.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">3.4×</div>
+              <div class="pm-label">ROAS Achieved</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">34%</div>
+              <div class="pm-label">Hook Rate</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">5wks</div>
+              <div class="pm-label">Turnaround</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Full account audit — targeting, creatives, landing page, ad structure</li>
+            <li>Rebuilt CBO structure with 3 tight audience segments</li>
+            <li>4 new video hooks produced and tested against existing creatives</li>
+            <li>Budget scaled 20% every 3 days after winning creative identified</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">Meta Ads</span>
+            <span class="p-tag">Google Ads</span>
+            <span class="p-tag">A/B Testing</span>
+            <span class="p-tag">CBO Structure</span>
+            <span class="p-tag">ROAS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROJECT 3: SEO & Organic Growth ── -->
+      <div class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #060A12 0%, #10100A 100%);">
+          <div class="project-preview-bg" style="background: radial-gradient(ellipse at 50% 40%, rgba(111,128,96,0.15) 0%, transparent 65%);"></div>
+          <div class="preview-flow-row">
+            <div class="p-node">🔍 SEO Audit</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">📝 Content Plan</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node dim">🔑 Keywords</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node dim">✍️ Articles</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">📈 Page 1</div>
+          </div>
+          <div class="preview-flow-row">
+            <div class="p-node">0 traffic</div>
+            <span class="p-arrow">→</span>
+            <div class="p-node green">+180% organic</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-platform">SEO · Content · Google</div>
+            <div class="project-status">Active</div>
+          </div>
+          <div class="project-title">SEO & Organic Growth — 180% Traffic Increase</div>
+          <div class="project-desc">Full SEO overhaul for a SaaS company — keyword research, topical authority content clusters, on-page optimisation, and link building. Ranked on page 1 for 3 target keywords within 3 months and grew organic traffic by 180%.</div>
+          <div class="project-metrics">
+            <div class="project-metric">
+              <div class="pm-value">+180%</div>
+              <div class="pm-label">Organic Traffic</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">3</div>
+              <div class="pm-label">Page 1 Rankings</div>
+            </div>
+            <div class="project-metric">
+              <div class="pm-value">3mo</div>
+              <div class="pm-label">Timeframe</div>
+            </div>
+          </div>
+          <ul class="project-features">
+            <li>Full SEO audit — technical issues, content gaps, backlink profile</li>
+            <li>Keyword research and topical authority content cluster strategy</li>
+            <li>10 optimised blog articles targeting high-intent search terms</li>
+            <li>On-page optimisation across all existing pages + internal linking</li>
+          </ul>
+          <div class="project-tags">
+            <span class="p-tag">SEO</span>
+            <span class="p-tag">Content Marketing</span>
+            <span class="p-tag">Keyword Research</span>
+            <span class="p-tag">Google Search Console</span>
+            <span class="p-tag">Ahrefs</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end scroll -->
+
+    <!-- Dots -->
+    <div class="portfolio-dots">
+      <button class="portfolio-dot active" data-idx="0"></button>
+      <button class="portfolio-dot" data-idx="1"></button>
+      <button class="portfolio-dot" data-idx="3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="section-header" style="margin-bottom:3rem;">
+      <div class="section-label">Client Reviews</div>
+      <h2>What Clients<br/>Say About Us</h2>
+      <p class="section-sub">Feedback from founders and marketing teams we have worked with.</p>
+    </div>
+
+    <div class="reviews-track-wrap fade-in">
+      <div class="reviews-track" id="revTrack">
+
+        <!-- Slide 3 — Social Media: Management + Content -->
+        <div class="review-card">
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"AiFloq took over our Instagram and LinkedIn completely. Within 6 weeks our engagement doubled, follower count grew by 40%, and we started getting inbound DMs from potential clients. The content actually sounds like us — not generic AI posts. Really happy with the results."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #6F8060, #A8613F);">NK</div>
+              <div>
+                <div class="review-name">Nadia K.</div>
+                <div class="review-role">Founder, Wellness Brand</div>
+              </div>
+              <div class="review-platform">Client</div>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"The content calendar and Reels strategy they delivered was exactly what we were missing. Our TikTok went from 200 to 4,000 followers in 2 months. The captions, hooks, and posting schedule are all handled — we just show up and film. Fantastic service."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #EC4899, #C9A58F);">RH</div>
+              <div>
+                <div class="review-name">Rania H.</div>
+                <div class="review-role">Owner, Fashion Boutique</div>
+              </div>
+              <div class="review-platform">Client</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 — Social Media: Paid Ads + SEO -->
+        <div class="review-card">
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"Our Meta ad campaigns were burning money before AiFloq stepped in. They restructured our targeting, rebuilt the creatives, and ran proper A/B tests. We went from a 0.9× ROAS to 3.4× in 5 weeks. That's real money. I wish we'd hired them sooner."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">DM</div>
+              <div>
+                <div class="review-name">Daniel M.</div>
+                <div class="review-role">Marketing Director, D2C Brand</div>
+              </div>
+              <div class="review-platform">Client</div>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"Our blog was getting zero traffic. AiFloq did a full SEO audit, built a content plan around the right keywords, and started publishing optimised articles. We're now ranking on page 1 for 3 of our target terms within 3 months. Organic traffic is up 180%. Solid work."</div>
+            <div class="review-author">
+              <div class="review-avatar" style="background: linear-gradient(135deg, #A8613F, #C9A58F);">LP</div>
+              <div>
+                <div class="review-name">Leila P.</div>
+                <div class="review-role">CEO, SaaS Company</div>
+              </div>
+              <div class="review-platform">Client</div>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div><!-- end track -->
+
+      <!-- Progress bar -->
+      <div class="rev-progress">
+        <div class="rev-progress-bar" id="revBar"></div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="reviews-controls">
+      <button class="rev-arrow" id="revPrev">←</button>
+      <div class="rev-dots">
+        <button class="rev-dot active" data-slide="0"></button>
+        <button class="rev-dot" data-slide="1"></button>
+      </div>
+      <button class="rev-arrow" id="revNext">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header">
+    <div class="section-label">How It Works</div>
+    <h2>From Brief to<br/>Live & Delivered</h2>
+    <p class="section-sub">A simple, transparent process that gets your project live fast — whether it’s a content calendar, an ad campaign, or an SEO plan.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-in">
+      <div class="step-num">01</div>
+      <div class="step-title">Discovery Call</div>
+      <div class="step-desc">We learn about your business, goals, and current challenges in a free 30-min call — then map out exactly what we'll build or manage for you.</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">02</div>
+      <div class="step-title">Strategy & Blueprint</div>
+      <div class="step-desc">We design the plan — content strategy, ad structure, or an SEO roadmap — with a clear scope and timeline before any work begins.</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">03</div>
+      <div class="step-title">Build & Review</div>
+      <div class="step-desc">We execute and share progress along the way. You review, give feedback, and we refine — nothing goes live without your sign-off.</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">04</div>
+      <div class="step-title">Launch & Support</div>
+      <div class="step-desc">We go live, monitor performance, and provide ongoing support — so your campaigns and content keep delivering results long-term.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info fade-in">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's Build<br/>Something Great</h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Whether you need social media management, paid ads, or SEO — book a free call and we'll map out the exact plan for you.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">aifloqofficial@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">Available on request</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">🌍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Remote · Worldwide</div>
+        </div>
+      </div>
+
+      <div class="trust-block">
+        <div class="trust-icon">🔒</div>
+        <div>
+          <div class="trust-title">No-Risk Discovery</div>
+          <div class="trust-desc">The first call is completely free. No commitment, no hard sell. We scope your project — social media, paid ads, or SEO — and you decide from there.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form fade-in">
+      <h3 style="font-family:'Playfair Display',serif; font-weight:700; margin-bottom:1.5rem; font-size:1.2rem;">Book a Free Call</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Ahmed"/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Khan"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@company.com"/>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="" disabled selected>Select a service...</option>
+          <optgroup label="Social Media Marketing"><option>Social Media Management</option><option>Content Creation & Strategy</option><option>Brand Identity & Design</option></optgroup>
+          <optgroup label="Digital Marketing"><option>Paid Ads (Meta & Google)</option><option>SEO & Organic Growth</option><option>Analytics & Reporting</option></optgroup>
+          <option>Other / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us about your project</label>
+        <textarea placeholder="Tell us what you need — an automation workflow, social media management, a new website, or a mix. Include any tools you use, your timeline, and your main goal..."></textarea>
+      </div>
+      <button class="submit-btn">→ Book Free Discovery Call</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header">
+    <div class="section-label">Insights</div>
+    <h2>From Our Blog</h2>
+    <p class="section-sub">Practical guides on social media growth, paid ads, and SEO — written to help you grow smarter.</p>
+  </div>
+
+  <div class="blog-grid">
+
+    <!-- Blog 2 — Social Media -->
+    <div class="blog-card blog-card-featured fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #060e10 0%, #0a1f18 60%, #061210 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <rect x="20" y="100" width="30" height="45" rx="3" fill="#6F8060" opacity="0.5"/>
+            <rect x="65" y="75" width="30" height="70" rx="3" fill="#6F8060" opacity="0.65"/>
+            <rect x="110" y="50" width="30" height="95" rx="3" fill="#6F8060" opacity="0.8"/>
+            <rect x="155" y="30" width="30" height="115" rx="3" fill="#6F8060"/>
+            <rect x="200" y="20" width="30" height="125" rx="3" fill="#A8613F"/>
+            <text x="20" y="18" fill="#6F8060" font-size="9" font-family="monospace">+34%</text>
+            <text x="65" y="18" fill="#6F8060" font-size="9" font-family="monospace">+67%</text>
+            <text x="110" y="18" fill="#6F8060" font-size="9" font-family="monospace">+89%</text>
+            <text x="155" y="18" fill="#6F8060" font-size="9" font-family="monospace">+120%</text>
+            <text x="195" y="18" fill="#A8613F" font-size="9" font-family="monospace">+180%</text>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 5 min read</div>
+        <div class="blog-category cat-social">📱 Social Media</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">Instagram</span>
+          <span class="blog-tag">TikTok</span>
+          <span class="blog-tag">Content Strategy</span>
+        </div>
+        <div class="blog-title">Why Your Instagram Isn't Growing — And the 3 Things That Actually Fix It</div>
+        <div class="blog-excerpt">Posting consistently but seeing zero growth? The problem isn't your content — it's your strategy. We cover the three mistakes most brands make and what top-performing accounts do differently.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; Apr 22, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog2">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 5 — Meta Ads -->
+    <div class="blog-card fade-in">
+      <div class="blog-thumb">
+        <div class="blog-thumb-bg" style="background: linear-gradient(135deg, #0e0a06 0%, #1f1408 60%, #120e06 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.45" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice">
+            <text x="20" y="45" fill="#F59E0B" font-size="28" font-family="monospace" font-weight="bold">3.4×</text>
+            <text x="20" y="65" fill="#7A6A5F" font-size="10" font-family="monospace">ROAS achieved</text>
+            <line x1="20" y1="80" x2="280" y2="80" stroke="#7A6A5F" stroke-width="0.5" opacity="0.4"/>
+            <polyline points="20,145 60,130 100,110 140,90 180,60 220,40 260,20" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="260" cy="20" r="5" fill="#F59E0B"/>
+            <text x="20" y="158" fill="#7A6A5F" font-size="8" font-family="monospace">Week 1</text>
+            <text x="105" y="158" fill="#7A6A5F" font-size="8" font-family="monospace">Week 3</text>
+            <text x="200" y="158" fill="#F59E0B" font-size="8" font-family="monospace">Week 5 ↑</text>
+          </svg>
+        </div>
+        <div class="blog-read-time">⏱ 6 min read</div>
+        <div class="blog-category cat-social">📱 Paid Ads</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-tags">
+          <span class="blog-tag">Meta Ads</span>
+          <span class="blog-tag">ROAS</span>
+          <span class="blog-tag">A/B Testing</span>
+        </div>
+        <div class="blog-title">From 0.9× to 3.4× ROAS in 5 Weeks: Our Meta Ads Turnaround Playbook</div>
+        <div class="blog-excerpt">Most failing Meta ad campaigns share the same 4 problems. We walk through the exact targeting, creative, and testing changes that flipped a losing campaign into a profit machine.</div>
+        <div class="blog-meta">
+          <div class="blog-meta-left">
+            <div class="blog-avatar">AF</div>
+            <span>AiFloq Team &nbsp;·&nbsp; Apr 1, 2026</span>
+          </div>
+          <a href="javascript:void(0)" class="blog-read-more" data-blog="blog5">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo" style="display:inline-flex; align-items:center; gap:0.45rem; text-decoration:none;">
+    <svg width="22" height="27" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="4" y1="22" x2="14" y2="10" stroke="#A8613F" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="24" y1="22" x2="14" y2="10" stroke="#A8613F" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="14" y1="10" x2="14" y2="30" stroke="#A8613F" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="4"  cy="22" r="3" fill="#6F8060"/>
+      <circle cx="24" cy="22" r="3" fill="#6F8060"/>
+      <circle cx="14" cy="30" r="3" fill="#6F8060"/>
+      <polyline points="10,14 14,9 18,14" fill="none" stroke="#A8613F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span style="font-family:'Playfair Display',serif; font-weight:800; font-size:1.2rem; color:var(--white);">Ai<span style="color:var(--accent);">Floq</span></span>
+  </a>
+  <div class="footer-copy">© 2026 AiFloq. All rights reserved.</div>
+  <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
+    <a href="/about" style="color:var(--muted); font-size:0.8rem; text-decoration:none;">About</a>
+    <a href="privacy-policy.html" style="color:var(--muted); font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Privacy Policy</a>
+    <a href="terms-of-service.html" style="color:var(--muted); font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Terms of Service</a>
+    <a href="remote-work-policy.html" style="color:var(--muted); font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Remote Policy</a>
+    <div class="footer-tagline">Digital Marketing · Social Media</div>
+  </div>
+</footer>
+
+<script>
+  // ── INTERSECTION OBSERVER (fade-in) ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Staggered fade for sibling groups
+  document.querySelectorAll(
+    '.services-grid .service-card, .process-steps .process-step, .stats-inner > div'
+  ).forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  // ── NAV SCROLL SHRINK ──
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  }
+
+  // ── ACTIVE NAV HIGHLIGHT ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  // ── MOBILE NAV ──
+  const navToggle  = document.getElementById('navToggle');
+  const navLinksEl = document.getElementById('navLinks');
+  const navCloseEl = document.getElementById('navClose');
+
+  if (navToggle && navLinksEl) {
+    navToggle.addEventListener('click', () => navLinksEl.classList.add('open'));
+    if (navCloseEl) navCloseEl.addEventListener('click', () => navLinksEl.classList.remove('open'));
+    navLinksEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinksEl.classList.remove('open'));
+    });
+  }
+
+  // ── WORKFLOW TABS ──
+  const flows = {
+    email: {
+      title: '📧 Email Auto-Reply Flow',
+      html: `
+        <div class="wd-row">
+          <div class="wd-node lit-blue">📧 IMAP Trigger</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-blue">✏️ Parse Email</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-blue">🤖 Gemini AI</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node">🧠 Context Check</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-green">📤 Send Reply</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-green">🗃️ Log to CRM</div>
+        </div>`,
+      m1: '2.1s', m2: '100%', m3: '0'
+    },
+    lead: {
+      title: '🎯 Lead Qualification Flow',
+      html: `
+        <div class="wd-row">
+          <div class="wd-node lit-blue">🚀 New Lead</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-blue">💬 Qualify Chat</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node">💰 Budget Check</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node">🧮 Lead Score</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-green">📈 Scaling</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-green">📊 Update CRM</div>
+        </div>`,
+      m1: '< 5m', m2: '3×', m3: '0'
+    },
+    chat: {
+      title: '💬 WhatsApp Chatbot Flow',
+      html: `
+        <div class="wd-row">
+          <div class="wd-node lit-blue">💬 WhatsApp In</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-blue">🧠 AI Agent</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node">🗄️ Memory Store</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node">🔍 Intent Match</div>
+        </div>
+        <div class="wd-row" style="padding-left:2rem"><div class="wd-arrow" style="max-width:20px"></div></div>
+        <div class="wd-row">
+          <div class="wd-node lit-green">📤 Reply Sent</div>
+          <div class="wd-arrow"></div>
+          <div class="wd-node lit-green">👤 Handoff?</div>
+        </div>`,
+      m1: '1.8s', m2: '24/7', m3: '0'
+    }
+  };
+
+  document.querySelectorAll('.workflow-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.panel;
+      document.querySelectorAll('.workflow-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.workflow-panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById(`panel-${key}`);
+      if (panel) panel.classList.add('active');
+      const f = flows[key];
+      if (!f) return;
+      const wdTitle = document.getElementById('wd-title');
+      const wdFlow  = document.getElementById('wd-flow');
+      const m1 = document.getElementById('m1');
+      const m2 = document.getElementById('m2');
+      const m3 = document.getElementById('m3');
+      if (wdTitle) wdTitle.textContent = f.title;
+      if (wdFlow)  wdFlow.innerHTML   = f.html;
+      if (m1) m1.textContent = f.m1;
+      if (m2) m2.textContent = f.m2;
+      if (m3) m3.textContent = f.m3;
+    });
+  });
+
+  // ── ANIMATED NODE PULSE ──
+  function animateHeroNodes() {
+    const nodes = document.querySelectorAll('.wf-node.active, .wf-node.active-green');
+    if (!nodes.length) return;
+    nodes.forEach(n => { n.style.transition = 'all 0.4s'; });
+    const target = nodes[Math.floor(Math.random() * nodes.length)];
+    if (target) {
+      target.style.transform = 'scale(1.06)';
+      setTimeout(() => { target.style.transform = 'scale(1)'; }, 400);
+    }
+  }
+  setInterval(animateHeroNodes, 1800);
+
+  // ── REVIEWS CAROUSEL ──
+  const revTrack = document.getElementById('revTrack');
+  const revBar   = document.getElementById('revBar');
+  const revPrev  = document.getElementById('revPrev');
+  const revNext  = document.getElementById('revNext');
+  const revDots  = document.querySelectorAll('.rev-dot');
+  const totalSlides = 2;
+  let revCurrent = 0;
+  let revTimer;
+
+  if (revTrack && revBar && revPrev && revNext) {
+    function goToSlide(idx) {
+      revCurrent = (idx + totalSlides) % totalSlides;
+      revTrack.style.transform = `translateX(-${revCurrent * 100}%)`;
+      revDots.forEach((d, i) => d.classList.toggle('active', i === revCurrent));
+      revBar.style.width = '100%';
+      revBar.style.transformOrigin = 'left';
+      revBar.style.transform = `scaleX(${(revCurrent + 1) / totalSlides})`;
+    }
+
+    function resetTimer() {
+      clearInterval(revTimer);
+      revTimer = setInterval(() => goToSlide(revCurrent + 1), 5000);
+    }
+
+    revNext.addEventListener('click', () => { goToSlide(revCurrent + 1); resetTimer(); });
+    revPrev.addEventListener('click', () => { goToSlide(revCurrent - 1); resetTimer(); });
+    revDots.forEach(d => d.addEventListener('click', () => { goToSlide(+d.dataset.slide); resetTimer(); }));
+
+    revBar.style.width = '100%';
+    revBar.style.transformOrigin = 'left';
+    revBar.style.transform = `scaleX(${1 / totalSlides})`;
+    resetTimer();
+  }
+
+  // ── PORTFOLIO HORIZONTAL SCROLL ──
+  const portScroll = document.getElementById('portScroll');
+  const portPrev   = document.getElementById('portPrev');
+  const portNext   = document.getElementById('portNext');
+  const portDots   = document.querySelectorAll('.portfolio-dot');
+
+  if (portScroll && portPrev && portNext) {
+    function getCardWidth() {
+      const card = portScroll.querySelector('.project-card');
+      return card ? card.offsetWidth + 24 : 504;
+    }
+
+    function updatePortDots() {
+      const idx = Math.round(portScroll.scrollLeft / getCardWidth());
+      portDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    portNext.addEventListener('click', () => portScroll.scrollBy({ left: getCardWidth(), behavior: 'smooth' }));
+    portPrev.addEventListener('click', () => portScroll.scrollBy({ left: -getCardWidth(), behavior: 'smooth' }));
+
+    portDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        portScroll.scrollTo({ left: +dot.dataset.idx * getCardWidth(), behavior: 'smooth' });
+      });
+    });
+
+    portScroll.addEventListener('scroll', updatePortDots);
+
+    // Drag-to-scroll
+    let isDown = false, startX, scrollLeft;
+    portScroll.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.pageX - portScroll.offsetLeft;
+      scrollLeft = portScroll.scrollLeft;
+    });
+    portScroll.addEventListener('mouseleave', () => { isDown = false; });
+    portScroll.addEventListener('mouseup',    () => { isDown = false; });
+    portScroll.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      portScroll.scrollLeft = scrollLeft - (e.pageX - portScroll.offsetLeft - startX);
+    });
+  }
+</script>
+
+<!-- ── BLOG MODALS ── -->
+<div class="blog-modal-overlay" id="blogOverlay">
+  <div class="blog-modal" id="blogModal">
+    <button class="blog-modal-close" id="blogClose">✕</button>
+    <div id="blogModalContent"></div>
+  </div>
+</div>
+
+<script>
+// ── BLOG CONTENT DATA ──
+const blogs = {
+  blog2: {
+    cat: '📱 Social Media',
+    catClass: 'cat-social',
+    date: 'Apr 22, 2026',
+    readTime: '5 min read',
+    title: 'Why Your Instagram Isn\'t Growing — And the 3 Things That Actually Fix It',
+    content: `
+      <h3>Consistency Alone Isn't a Strategy</h3>
+      <p>You're posting every day. You're using hashtags. You've tried Reels. And yet — your follower count barely moves, engagement is flat, and you're not sure if any of it is working. Sound familiar?</p>
+      <p>Here's the hard truth: posting consistently is the minimum requirement, not the strategy. The accounts that grow in 2026 are doing three specific things that most brands completely ignore.</p>
+
+      <h3>Mistake #1: You're Optimising for Likes, Not for Reach</h3>
+      <p>The Instagram algorithm in 2026 doesn't care how many likes your post gets. It cares about how long people watch your Reel, whether they send it to a friend, and whether they save it. Likes are a vanity metric. Shares and saves are growth metrics.</p>
+      <ul>
+        <li>Create content that people want to <strong>save for later</strong> (tips, checklists, how-tos)</li>
+        <li>Create content that people want to <strong>send to a friend</strong> (relatable, funny, specific)</li>
+        <li>Stop chasing likes — start studying your save rate and share rate</li>
+      </ul>
+
+      <h3>Mistake #2: Your Hook Is Killing Your Reach</h3>
+      <p>The first 1.5 seconds of your Reel determines whether 10,000 people see it or 400 people see it. Most brands open with their logo, their name, or a slow pan. That's a skip. Your hook needs to create immediate curiosity or make a bold, surprising statement.</p>
+      <div class="highlight-box"><p>💡 Test this formula: <strong>"Most [your audience] don't know that [surprising truth about your industry]."</strong> It works in almost every niche.</p></div>
+
+      <h3>Mistake #3: You're Not Talking to One Person</h3>
+      <p>Generic content gets ignored. Content that speaks directly to one specific person at one specific moment gets saved, shared, and followed. Before you write a caption or script a Reel, ask: who exactly is this for, and what are they feeling right now?</p>
+      <ul>
+        <li>Get specific about pain points ("If you're a freelancer losing clients to bigger agencies...")</li>
+        <li>Use language your audience actually uses — not industry jargon</li>
+        <li>Create content that makes your ideal follower think "this is made for me"</li>
+      </ul>
+
+      <h3>What We Do Differently at AiFloq</h3>
+      <p>We don't just schedule posts. We build a content system around your specific audience — their language, their triggers, their scroll habits. Every piece of content is mapped to a growth goal, and we track what actually works using real platform data, not guesswork.</p>
+    `
+  },
+  blog5: {
+    cat: '📱 Paid Ads',
+    catClass: 'cat-social',
+    date: 'Apr 1, 2026',
+    readTime: '6 min read',
+    title: 'From 0.9× to 3.4× ROAS in 5 Weeks: Our Meta Ads Turnaround Playbook',
+    content: `
+      <h3>When a Campaign Bleeds Money, Most People Do the Wrong Thing</h3>
+      <p>They increase the budget. They change the creative. They duplicate the ad set. None of it works — because they haven't diagnosed the actual problem. A low ROAS is always a symptom. The disease is usually one of four things.</p>
+
+      <h3>The 4 Root Causes of a Failing Meta Campaign</h3>
+      <ul>
+        <li><strong>Wrong audience targeting</strong> — you're showing ads to people who will never buy, no matter how good the creative is</li>
+        <li><strong>Weak creative hook</strong> — you have 1.5 seconds to stop the scroll; most ads waste it on a logo or a slow product shot</li>
+        <li><strong>Landing page mismatch</strong> — the ad promises one thing and the landing page delivers something different; trust evaporates instantly</li>
+        <li><strong>No testing structure</strong> — running 8 ads in one ad set means the algorithm picks favourites randomly, not based on real performance data</li>
+      </ul>
+
+      <h3>What We Did in Week 1: Diagnosis, Not Changes</h3>
+      <p>Before touching a single setting, we spent the first week auditing the existing account. We looked at frequency scores, CPM by audience segment, hook rate on each video creative, and the landing page experience on mobile. What we found: the targeting was too broad, the landing page had a 4.2-second load time on mobile, and 6 of the 8 ads had hook rates below 15%.</p>
+
+      <h3>Weeks 2–3: Rebuild the Structure</h3>
+      <ul>
+        <li>Rebuilt the campaign with a clean CBO structure — one campaign, three tightly defined audience ad sets</li>
+        <li>Produced 4 new video hooks (first 3 seconds only) to test against the existing creative</li>
+        <li>Fixed the landing page load time to under 1.8 seconds and rewrote the headline to match the ad promise</li>
+        <li>Set a strict testing protocol: one variable changed per test, minimum 3-day data window before decisions</li>
+      </ul>
+
+      <div class="highlight-box"><p>💡 The winning hook was the simplest one: a direct-to-camera 3-second statement of the customer's exact pain point. No logo. No music. No slow reveal. Just the problem, stated plainly.</p></div>
+
+      <h3>Weeks 4–5: Scale What Works</h3>
+      <p>Once we had a winning creative and a converting audience, we increased the budget incrementally — 20% every 3 days, never more. By week 5, the campaign was running at 3.4× ROAS on a budget 3× higher than the original. The creative that won had a 34% hook rate and a 4.1% CTR.</p>
+
+      <h3>The Lesson</h3>
+      <p>More budget never fixes a broken campaign. Diagnosis first, structure second, creative third, scale last. If your Meta ads aren't working, the answer is almost never "spend more." It's almost always "understand why first."</p>
+    `
+  }
+};
+
+// ── MODAL OPEN/CLOSE ──
+const overlay  = document.getElementById('blogOverlay');
+const modalEl  = document.getElementById('blogModal');
+const closeBtn = document.getElementById('blogClose');
+const contentEl= document.getElementById('blogModalContent');
+
+function openBlog(id) {
+  const b = blogs[id];
+  if (!b) return;
+  contentEl.innerHTML = `
+    <div class="blog-modal-header">
+      <div class="blog-modal-cat blog-category ${b.catClass}">${b.cat}</div>
+      <div class="blog-modal-title">${b.title}</div>
+      <div class="blog-modal-meta">
+        <div class="blog-avatar" style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#A8613F,#6F8060);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:white;font-family:'Playfair Display',serif;flex-shrink:0;">AF</div>
+        <span>AiFloq Team</span>
+        <span style="color:var(--border);">·</span>
+        <span>${b.date}</span>
+        <span style="color:var(--border);">·</span>
+        <span>⏱ ${b.readTime}</span>
+      </div>
+    </div>
+    <div class="blog-modal-body">${b.content}</div>
+    <div class="blog-contact-cta">
+      <h4>Ready to Apply This to Your Business?</h4>
+      <p>Book a free 30-minute discovery call — we'll walk through your specific situation and show you exactly what's possible.</p>
+      <div class="blog-contact-details">
+        <div class="blog-contact-chip">📧 <span>aifloqofficial@gmail.com</span></div>
+        <div class="blog-contact-chip">🌍 <span>Remote · Worldwide</span></div>
+        <div class="blog-contact-chip">💬 <span>WhatsApp on request</span></div>
+      </div>
+      <button class="blog-cta-btn" onclick="closeBlog();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),300)">→ Book a Free Call</button>
+    </div>
+  `;
+  // Reset scroll position before opening
+  overlay.scrollTop = 0;
+  modalEl.scrollTop = 0;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBlog() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+closeBtn.addEventListener('click', closeBlog);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeBlog(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBlog(); });
+
+// Attach to all Read More buttons
+document.querySelectorAll('.blog-read-more').forEach(btn => {
+  const id = btn.dataset.blog;
+  if (id) {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      openBlog(id);
+    });
+  }
+});
+
+// Make entire blog card clickable
+document.querySelectorAll('.blog-card').forEach(card => {
+  const btn = card.querySelector('.blog-read-more');
+  if (btn) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e => {
+      if (e.target.closest('.blog-read-more')) return; // avoid double fire
+      const id = btn.dataset.blog;
+      if (id) openBlog(id);
+    });
+  }
+});
+</script>
+
+<!-- ── AI CHATBOT WIDGET ── -->
+<style>
+  /* ── CHAT BUBBLE ── */
+  #chatBubble {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #A8613F, #6F8060);
+    box-shadow: 0 4px 24px rgba(168,97,63,0.45);
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+  }
+
+  #chatBubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 36px rgba(168,97,63,0.6);
+  }
+
+  #chatBubble svg { width: 26px; height: 26px; transition: opacity 0.2s; }
+
+  /* Unread dot */
+  #chatUnread {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 14px; height: 14px;
+    background: #EF4444;
+    border-radius: 50%;
+    border: 2px solid var(--bg, #FFFFFF);
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── CHAT WINDOW ── */
+  #chatWindow {
+    position: fixed;
+    bottom: 6.5rem;
+    right: 2rem;
+    width: 370px;
+    max-height: 580px;
+    background: #FBF7F2;
+    border: 1px solid rgba(60,40,30,0.08);
+    border-radius: 20px;
+    box-shadow: 0 24px 80px rgba(90,60,40,0.15);
+    z-index: 9997;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.92) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: bottom right;
+  }
+
+  #chatWindow.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Chat header */
+  .chat-header {
+    background: linear-gradient(135deg, #F3EBE2, #EBDDCF);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(60,40,30,0.06);
+    flex-shrink: 0;
+  }
+
+  .chat-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #A8613F, #6F8060);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .chat-header-info { flex: 1; }
+
+  .chat-header-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #2B211C;
+  }
+
+  .chat-header-status {
+    font-size: 0.7rem;
+    color: #6F8060;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.1rem;
+  }
+
+  .chat-header-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: #6F8060;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .chat-close-btn {
+    background: none;
+    border: none;
+    color: #7A6A5F;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .chat-close-btn:hover { color: #2B211C; }
+
+  /* Messages area */
+  #chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    scroll-behavior: smooth;
+  }
+
+  #chatMessages::-webkit-scrollbar { width: 3px; }
+  #chatMessages::-webkit-scrollbar-thumb { background: rgba(60,40,30,0.1); border-radius: 2px; }
+
+  /* Message bubbles */
+  .msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    animation: msgIn 0.25s ease;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.bot { align-self: flex-start; }
+  .msg.user { align-self: flex-end; }
+
+  .msg-bubble {
+    padding: 0.65rem 0.9rem;
+    border-radius: 14px;
+    font-size: 0.83rem;
+    line-height: 1.55;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  .msg.bot .msg-bubble {
+    background: #F3EBE2;
+    border: 1px solid rgba(60,40,30,0.07);
+    color: #2B211C;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.user .msg-bubble {
+    background: linear-gradient(135deg, #A8613F, #8C4D31);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  /* Quick reply chips */
+  .quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+  }
+
+  .qr-chip {
+    background: rgba(168,97,63,0.1);
+    border: 1px solid rgba(168,97,63,0.3);
+    color: #A8613F;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .qr-chip:hover {
+    background: rgba(168,97,63,0.2);
+    border-color: rgba(168,97,63,0.5);
+  }
+
+  /* Typing indicator */
+  .typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.65rem 0.9rem;
+    background: #F3EBE2;
+    border: 1px solid rgba(60,40,30,0.07);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing-dot {
+    width: 6px; height: 6px;
+    background: #7A6A5F;
+    border-radius: 50%;
+    animation: typingBounce 1.2s infinite;
+  }
+
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  /* WhatsApp handoff button */
+  .wa-handoff-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.5rem;
+    transition: all 0.2s;
+    text-decoration: none;
+    justify-content: center;
+  }
+
+  .wa-handoff-btn:hover { background: #1da851; transform: translateY(-1px); }
+
+  /* Input area */
+  .chat-input-area {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(60,40,30,0.06);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+    background: #FBF7F2;
+  }
+
+  #chatInput {
+    flex: 1;
+    background: #F3EBE2;
+    border: 1px solid rgba(60,40,30,0.08);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    color: #2B211C;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.83rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  #chatInput:focus { border-color: rgba(168,97,63,0.4); }
+  #chatInput::placeholder { color: #7A6A5F; }
+
+  #chatSend {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: #A8613F;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  #chatSend:hover { background: #8C4D31; transform: scale(1.05); }
+
+  /* Powered by line */
+  .chat-powered {
+    text-align: center;
+    font-size: 0.6rem;
+    color: rgba(136,150,176,0.5);
+    padding: 0.35rem 0 0.5rem;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    #chatWindow { width: calc(100vw - 2rem); right: 1rem; bottom: 5.5rem; }
+    #chatBubble { right: 1rem; bottom: 1rem; }
+  }
+</style>
+
+<!-- Chat Bubble -->
+<button id="chatBubble" aria-label="Open chat">
+  <div id="chatUnread">1</div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- Chat Window -->
+<div id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">⚡</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">AiFloq Assistant</div>
+      <div class="chat-header-status">Online · Typically replies instantly</div>
+    </div>
+    <button class="chat-close-btn" id="chatCloseBtn">✕</button>
+  </div>
+
+  <div id="chatMessages"></div>
+
+  <div class="chat-input-area">
+    <input id="chatInput" type="text" placeholder="Type a message..." autocomplete="off"/>
+    <button id="chatSend" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+  <div class="chat-powered">AiFloq Assistant</div>
+</div>
+
+<script>
+(function() {
+  const WA_NUMBER = '923061111015';
+  const bubble    = document.getElementById('chatBubble');
+  const chatWin   = document.getElementById('chatWindow');
+  const closeBtn  = document.getElementById('chatCloseBtn');
+  const messagesEl= document.getElementById('chatMessages');
+  const inputEl   = document.getElementById('chatInput');
+  const sendBtn   = document.getElementById('chatSend');
+  const unreadDot = document.getElementById('chatUnread');
+
+  let isOpen = false;
+  let leadData = { name: '', service: '', budget: '', timeline: '' };
+  let qualificationStep = 0;
+  let awaitingQualification = false;
+
+  // ── OPEN / CLOSE ──
+  function toggleChat() {
+    isOpen = !isOpen;
+    chatWin.classList.toggle('open', isOpen);
+    if (isOpen) {
+      unreadDot.style.display = 'none';
+      if (messagesEl.children.length === 0) startConversation();
+      setTimeout(() => inputEl.focus(), 300);
+    }
+  }
+
+  bubble.addEventListener('click', toggleChat);
+  closeBtn.addEventListener('click', toggleChat);
+
+  // ── RENDER MESSAGE ──
+  function addMessage(text, role, quickReplies = [], waButton = null) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `msg ${role}`;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = text.replace(/\n/g, '<br/>');
+    msgDiv.appendChild(bubble);
+
+    if (quickReplies.length) {
+      const qrDiv = document.createElement('div');
+      qrDiv.className = 'quick-replies';
+      quickReplies.forEach(qr => {
+        const chip = document.createElement('button');
+        chip.className = 'qr-chip';
+        chip.textContent = qr;
+        chip.addEventListener('click', () => {
+          qrDiv.remove();
+          handleUserMessage(qr);
+        });
+        qrDiv.appendChild(chip);
+      });
+      msgDiv.appendChild(qrDiv);
+    }
+
+    if (waButton) {
+      const waBtn = document.createElement('a');
+      waBtn.className = 'wa-handoff-btn';
+      waBtn.href = waButton.url;
+      waBtn.target = '_blank';
+      waBtn.rel = 'noopener noreferrer';
+      waBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+      waBtn.innerHTML += ` ${waButton.label}`;
+      msgDiv.appendChild(waBtn);
+    }
+
+    messagesEl.appendChild(msgDiv);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return msgDiv;
+  }
+
+  // ── TYPING INDICATOR ──
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'msg bot';
+    div.id = 'typingIndicator';
+    div.innerHTML = `<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function hideTyping() {
+    const t = document.getElementById('typingIndicator');
+    if (t) t.remove();
+  }
+
+  // ── START CONVERSATION ──
+  function startConversation() {
+    setTimeout(() => {
+      addMessage(
+        "👋 Hi! I’m AiFloq’s assistant. I can answer questions about our services — social media marketing, paid ads and SEO.\n\nWhat brings you here today?",
+        'bot',
+        ['Social Media', 'Paid Ads', 'SEO', 'Get a Quote']
+      );
+    }, 400);
+  }
+
+  // ── QUALIFICATION FLOW ──
+  function askQualification(step) {
+    awaitingQualification = true;
+    qualificationStep = step;
+
+    const questions = {
+      1: { text: "Great! I'd love to help you get started. First, what's your name? 😊", replies: [] },
+      2: { text: `Nice to meet you, ${leadData.name}! Which service are you most interested in?`, replies: ['Social Media Marketing', 'Paid Ads', 'SEO', 'Multiple Services'] },
+      3: { text: "What's your approximate budget for this project?", replies: ['Under $200', '$200–$500', '$500–$1000', '$1000+'] },
+      4: { text: "And what's your timeline? When are you looking to get started?", replies: ['ASAP', 'Within 2 weeks', 'Within a month', 'Just exploring'] },
+    };
+
+    const q = questions[step];
+    if (q) addMessage(q.text, 'bot', q.replies);
+  }
+
+  function handleQualificationAnswer(text) {
+    switch (qualificationStep) {
+      case 1: leadData.name = text; askQualification(2); break;
+      case 2: leadData.service = text; askQualification(3); break;
+      case 3: leadData.budget = text; askQualification(4); break;
+      case 4:
+        leadData.timeline = text;
+        awaitingQualification = false;
+        qualificationStep = 5;
+        finishQualification();
+        break;
+    }
+  }
+
+  function finishQualification() {
+    const summary = `Hi AiFloq Team! 👋 I'm ${leadData.name || 'a potential client'} and I'm interested in your *${leadData.service || 'services'}*. Budget: ${leadData.budget || 'TBD'}. Timeline: ${leadData.timeline || 'TBD'}. I came via your website chatbot. Looking forward to chatting!`;
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(summary)}`;
+
+    addMessage(
+      `Perfect, ${leadData.name}! Here's a summary of what I've got:\n\n📋 <strong>Service:</strong> ${leadData.service}\n💰 <strong>Budget:</strong> ${leadData.budget}\n⏱ <strong>Timeline:</strong> ${leadData.timeline}\n\nOur team will get back to you shortly! 🚀`,
+      'bot',
+      [],
+      { url: waUrl, label: 'Continue on WhatsApp →' }
+    );
+  }
+
+  // ── SMART RULE-BASED AI RESPONSES ──
+  function getSmartReply(userMessage) {
+    const msg = userMessage.toLowerCase().trim();
+
+    // Greetings
+    if (/^(hi|hello|hey|hiya|good morning|good afternoon|salam|assalam)/.test(msg))
+      return { text: "Hey there! 👋 Great to have you here. I can tell you all about our AI automation, social media, or website design services. What are you looking for help with?", chips: ['Social Media', 'Paid Ads', 'SEO', 'Get a Quote'] };
+
+    // Social Media
+    if (/\b(social|instagram|tiktok|facebook|linkedin|content|reel|post|ads|meta|seo|follower|grow)\b/.test(msg))
+      return { text: "📱 We handle everything social media — content creation, Instagram & TikTok management, Meta & Google ads, SEO, and monthly analytics reports. We've helped brands grow 40–180% in reach within 2 months. Interested in a free discovery call?", chips: ['Get a Quote', 'What platforms?', 'Tell me about ads'] };
+
+    // Pricing / Cost
+    if (/\b(price|pricing|cost|how much|budget|rate|charge|fee|package)\b/.test(msg))
+      return { text: "💰 Pricing depends on the scope of your project. Monthly retainers for social media and ad management are quoted after a free discovery call — want me to connect you?", chips: ['Get a Quote', 'Book a free call', 'Tell me more'] };
+
+    // Timeline / How long
+    if (/\b(how long|timeline|deliver|when|days|weeks|fast|quick|turnaround)\b/.test(msg))
+      return { text: "⏱ We agree on a timeline before any work starts. Social media and ad management run as an ongoing monthly service. Want to discuss yours?", chips: ['Get a Quote', 'Book a free call'] };
+
+    // Contact / Reach out
+    if (/\b(contact|email|whatsapp|call|reach|talk|speak|meet)\b/.test(msg))
+      return { text: "📧 You can reach us at **aifloqofficial@gmail.com** or on WhatsApp at **+92 306 111 1015**. The first discovery call is completely free — no commitment, no hard sell. Want me to connect you right now?", chips: ['Connect on WhatsApp', 'Get a Quote'] };
+
+    // Portfolio / Examples
+    if (/\b(portfolio|example|project|case study|work|built|show me|previous)\b/.test(msg))
+      return { text: "🎯 You can see our sample case studies in the Portfolio section above. Want to talk about something similar for your brand?", chips: ['Get a Quote', 'I want something similar'] };
+
+    // Free / Trial
+    if (/\b(free|trial|demo|test|sample|no cost|no charge)\b/.test(msg))
+      return { text: "✅ Yes! The discovery call is 100% free — no credit card, no commitment. We map out your project, you decide if you want to proceed. There's genuinely no pressure. Want to book one?", chips: ['Book a free call', 'Get a Quote'] };
+
+    // About AiFloq
+    if (/\b(who are you|about you|about aifloq|what do you do|your services|aifloq)\b/.test(msg))
+      return { text: "👋 AiFloq is a remote digital marketing agency focused on social media marketing, paid ads and SEO for startups and small businesses. What can we help you with?", chips: ['Social Media', 'Paid Ads', 'SEO', 'Get a Quote'] };
+
+    // Connect to WhatsApp
+    if (/\b(connect|whatsapp|wa|chat with|speak to|talk to team)\b/.test(msg))
+      return { text: "Perfect! I'll connect you with our team on WhatsApp right now. 🚀", chips: [], wa: true };
+
+    // Get quote trigger
+    if (/\b(quote|get started|start|hire|interested|work with|project|need help|help me)\b/.test(msg))
+      return { text: "Awesome! Let me grab a few quick details so our team can give you an accurate quote. It'll only take a moment 😊", chips: [], qualify: true };
+
+    // Default fallback
+    return { text: "👋 Hi! I’m AiFloq’s assistant. I can answer questions about our services — social media marketing, paid ads and SEO.\n\nWhat brings you here today?", chips: ['Social Media', 'Paid Ads', 'SEO', 'Connect on WhatsApp'] };
+  }
+
+  // ── CALL AI (rule-based, no API needed) ──
+  async function callAI(userMessage) {
+    showTyping();
+
+    // Simulate thinking delay
+    await new Promise(r => setTimeout(r, 700 + Math.random() * 600));
+    hideTyping();
+
+    const reply = getSmartReply(userMessage);
+
+    if (reply.qualify) {
+      addMessage(reply.text, 'bot');
+      setTimeout(() => askQualification(1), 600);
+      return;
+    }
+
+    if (reply.wa) {
+      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hi! I came from your website and would like to learn more about your services.')}`;
+      addMessage(reply.text, 'bot', [], { url: waUrl, label: 'Open WhatsApp Chat →' });
+      return;
+    }
+
+    const showQuoteChip = !reply.chips.includes('Get a Quote') && qualificationStep === 0 && Math.random() > 0.6;
+    addMessage(reply.text, 'bot', showQuoteChip ? [...reply.chips, 'Get a Quote'] : reply.chips);
+  }
+
+  // ── HANDLE USER MESSAGE ──
+  function handleUserMessage(text) {
+    if (!text.trim()) return;
+    addMessage(text, 'user');
+    inputEl.value = '';
+
+    // Qualification flow
+    if (awaitingQualification) {
+      handleQualificationAnswer(text);
+      return;
+    }
+
+    // Quick reply shortcuts
+    if (text === 'Get a Quote' || text === 'Get a Free Quote') {
+      askQualification(1);
+      return;
+    }
+
+    callAI(text);
+  }
+
+  // ── INPUT EVENTS ──
+  sendBtn.addEventListener('click', () => handleUserMessage(inputEl.value));
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleUserMessage(inputEl.value); }
+  });
+
+  // ── AUTO OPEN after 8 seconds with greeting ──
+  setTimeout(() => {
+    if (!isOpen) {
+      unreadDot.style.display = 'flex';
+      unreadDot.textContent = '1';
+    }
+  }, 8000);
+
+})();
+</script>
+<script>document.addEventListener('click',function(e){var m=document.getElementById('navLinks');if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!e.target.closest('#navToggle'))m.classList.remove('open')});</script>
+</body>
+</html>
